@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         Move();
-        autoDestroy();
+        AutoDestroy();
     }
 
     public void Move()
@@ -32,7 +32,7 @@ public class Projectile : MonoBehaviour
       transform.position += move;
     }
 
-    public void autoDestroy()
+    public void AutoDestroy()
     {
       // if out of bounds, destroy
       if(Vector3.Distance(startPosition, transform.position) > range)
