@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private bool isDay = true;
+    private bool isDay = false;
 
     private GameObject globalLight;
     private static GameManager _instance;
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public int waveNumber = 0;
+    private int waveNumber = -1;
 
     public GameObject waveSpawnerGO;
 
@@ -56,7 +56,8 @@ public class GameManager : MonoBehaviour
     void Init()
     {
         waveSpawnerGO = Instantiate(Resources.Load<GameObject>("Prefabs/Gameplay/WaveSpawner"), Vector2.zero, Quaternion.identity);
-        waveSpawnerGO.GetComponent<WaveSpawner>().InitSpawn(waveNumber);
+        waveSpawnerGO.SetActive(false);
+        StartCoroutine(StartFirstNightCoroutine());
     }
 
     void Update()
@@ -68,36 +69,42 @@ public class GameManager : MonoBehaviour
             {
                 StartNight();
             }
-            else
-            {
-                StartDay();
-            }
         }
     }
 
+    IEnumerator StartFirstNightCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+        StartNight();
+    }
+
+
     public void StartNight()
     {
-        // Set state to Night
         isDay = false;
+        waveNumber++;
+        Debug.Log("Starting night " + waveNumber);
+        UIManager.Instance.SetNightDisplay(waveNumber + 1);
 
         // Set global light intensity to  0.5 
         player.transform.Find("NightMask").gameObject.SetActive(true);
 
         // Spawn enemies or other night-time events
-        // ...
+        waveSpawnerGO.SetActive(true);
+        waveSpawnerGO.GetComponent<WaveSpawner>().InitSpawn(waveNumber);
     }
 
     public void StartDay()
     {
         // Set state to Day
         isDay = true;
+        Debug.Log("Starting day " + waveNumber);
+        UIManager.Instance.SetDayDisplay(waveNumber + 1);
 
         // Set player child NightMask object to inactive
         player.transform.Find("NightMask").gameObject.SetActive(false);
 
-        // Reset enemies or other night-time events
-        // ...
     }
 
-    
+
 }

@@ -46,4 +46,15 @@ public class UIManager : MonoBehaviour
     {
         GameObject.Find("HealthText").GetComponent<UnityEngine.UI.Text>().text = health.ToString();
     }
+
+    public void SetNightDisplay(int waveNumber)
+    {
+        // GameObject.Find("DayNightText").GetComponent<UnityEngine.UI.Text>().text = "Night " + waveNumber.ToString();
+
+    }
+
+    public void SetDayDisplay(int waveNumber)
+    {
+        // GameObject.Find("DayNightText").GetComponent<UnityEngine.UI.Text>().text = "Day " + waveNumber.ToString();
+    }
 }

@@ -6,6 +6,31 @@ using UnityEngine;
 public class WaveConstants : MonoBehaviour
 {
 
+    public static readonly EnemyWaveStats[] enemyWaveStats = new EnemyWaveStats[]
+    {
+        // Enemy 0
+        new EnemyWaveStats
+        {
+            startAtWave = 0,
+            intialCount = 6,
+            additionalPerWave = 3
+        },
+        // Enemy 1
+        new EnemyWaveStats
+        {
+            startAtWave = 2,
+            intialCount = 3,
+            additionalPerWave = 3
+        }, 
+        // Enemy 2
+        new EnemyWaveStats
+        {
+            startAtWave = 3,
+            intialCount = 2,
+            additionalPerWave = 1
+        }
+    };
+
     public static int enemyTypeCount = 3;
     public static GameObject[] enemyPrefabs;
 
@@ -25,16 +50,26 @@ public class WaveConstants : MonoBehaviour
     {
         int[] enemyWaveCount = new int[enemyTypeCount];
 
-        // Count of enemy type 0 (starts at wave 0)
-        enemyWaveCount[0] = waveNumber * 3 + 15;
-
-        // Count of enemy type 1 (starts at wave 1)
-        enemyWaveCount[1] = waveNumber * 3 - 3;
-
-        // Count of enemy type 1 (starts at wave 3)
-        enemyWaveCount[2] = waveNumber * 2 - 4;
+        for (int i = 0; i < enemyTypeCount; i++)
+        {
+            if (enemyWaveStats[i].startAtWave > waveNumber)
+            {
+                enemyWaveCount[i] = 0;
+            }
+            else
+            {
+                enemyWaveCount[i] = enemyWaveStats[i].intialCount + enemyWaveStats[i].additionalPerWave * (waveNumber - enemyWaveStats[i].startAtWave);
+            }
+        }
 
         return enemyWaveCount;
+    }
+
+    public class EnemyWaveStats
+    {
+        public int startAtWave;
+        public int intialCount;
+        public int additionalPerWave;
     }
 
 }

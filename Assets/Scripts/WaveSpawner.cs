@@ -31,6 +31,11 @@ public class WaveSpawner : MonoBehaviour
                 clock += Time.deltaTime;
             }
         }
+        else if (transform.childCount == 0)
+        {
+            GameManager.Instance.StartDay();
+            gameObject.SetActive(false);
+        }
     }
 
     void SpawnEnemy()
