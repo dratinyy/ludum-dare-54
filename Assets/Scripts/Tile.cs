@@ -33,6 +33,8 @@ public class Tile : MonoBehaviour
         // Gold color with 50% alpha
         RentedColor = new Color(1, 0.92f, 0.016f, 0.5f);
 
+        rentedOverlay.SetActive(false);
+
         if(isWalkable)
         {
           overlay.SetActive(false);

@@ -189,6 +189,7 @@ MonoBehaviour:
   notOwnedColor: {r: 0, g: 0, b: 0, a: 0}
   RentedColor: {r: 0, g: 0, b: 0, a: 0}
   overlay: {fileID: 124779235184178040}
+  rentedOverlay: {fileID: 4726071977754413968}
 --- !u!61 &7535370806217895884
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -308,7 +309,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6649000f9a2093f45b375805de421d06, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.76862746}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5411765}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
