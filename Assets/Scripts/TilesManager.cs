@@ -36,6 +36,9 @@ public class TilesManager : MonoBehaviour
             }
           }
         }
+
+        // center tile is walkable
+        Tiles[getTile(width / 2, width / 2)].GetComponent<Tile>().setIsWalkable(true);
         
     }
 
