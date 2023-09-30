@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
         isDay = false;
 
         // Set global light intensity to  0.5 
-        globalLight.GetComponent<Light>().intensity = 0.5f;
+        player.transform.Find("NightMask").gameObject.SetActive(true);
 
         // Spawn enemies or other night-time events
         // ...
@@ -92,8 +92,8 @@ public class GameManager : MonoBehaviour
         // Set state to Day
         isDay = true;
 
-        // Set global light intensity to  1
-        globalLight.GetComponent<Light>().intensity = 1f;       
+        // Set player child NightMask object to inactive
+        player.transform.Find("NightMask").gameObject.SetActive(false);
 
         // Reset enemies or other night-time events
         // ...
