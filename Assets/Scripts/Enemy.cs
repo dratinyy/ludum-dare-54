@@ -57,4 +57,12 @@ public class Enemy : MonoBehaviour
     {
         Destroy(gameObject);
     }
+    
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+      if(collision.gameObject.tag == "Tile")
+      {
+          Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+      }
+    }
 }
