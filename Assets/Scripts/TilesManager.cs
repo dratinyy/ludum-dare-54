@@ -19,14 +19,14 @@ public class TilesManager : MonoBehaviour
     // create tiles
     for (int i = 0; i < width; i++)
     {
-      for(int j = 0; j < width; j++)
+      for (int j = 0; j < width; j++)
       {
         // create tile
         GameObject tile = Instantiate(tilePrefab, new Vector3(i * tileWidth - (width / 2 * tileWidth), j * tileWidth - (width / 2 * tileWidth), 1), Quaternion.identity, transform);
         Tiles.Add(tile);
 
         // in the corners of the map, there are no tiles
-        if(noTiles(i, j))
+        if (noTiles(i, j))
         {
           tile.GetComponent<SpriteRenderer>().color = Color.black;
           tile.SetActive(false);

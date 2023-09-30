@@ -37,10 +37,13 @@ public class UIManager : MonoBehaviour
     // Flash screen red when damage is taken
     public void FlashScreen()
     {
-        GameObject flash = Instantiate(Resources.Load<GameObject>("Prefabs/UI/Flash"), canvas.transform);
-        flash.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-        Destroy(flash, 0.1f);
+        // GameObject flash = Instantiate(Resources.Load<GameObject>("Prefabs/UI/Flash"), canvas.transform);
+        // flash.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+        // Destroy(flash, 0.1f);
     }
 
-
+    public void UpdateHealth(float health, float maxHealth)
+    {
+        GameObject.Find("HealthText").GetComponent<UnityEngine.UI.Text>().text = health.ToString();
+    }
 }

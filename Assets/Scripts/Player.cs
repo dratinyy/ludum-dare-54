@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
-  public float health = 100f;
+  public float maxHealth = 100f;
+  public float health;
   public float speed = 5f;
   private int weaponType = 0;
 
@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
 
   void Start()
   {
+    health = maxHealth;
   }
 
   void Update()
@@ -73,12 +74,13 @@ public class Player : MonoBehaviour
 
   public void cameraFollow()
   {
-      Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
+    Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
   }
 
   public void TakeDamage(float damage)
   {
     health -= damage;
+    UIManager.Instance.UpdateHealth(health, maxHealth);
     UIManager.Instance.FlashScreen();
     if (health <= 0)
     {
@@ -97,9 +99,9 @@ public class Player : MonoBehaviour
     {
         Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
     }
-    if(collision.gameObject.tag == "Tile")
+    if (collision.gameObject.tag == "Tile")
     {
-      if(collision.gameObject.GetComponent<Tile>().getIsWalkable())
+      if (collision.gameObject.GetComponent<Tile>().getIsWalkable())
       {
         // ignore collision
         Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
