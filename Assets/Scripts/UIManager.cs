@@ -49,12 +49,12 @@ public class UIManager : MonoBehaviour
 
     public void SetNightDisplay(int waveNumber)
     {
-        // GameObject.Find("DayNightText").GetComponent<UnityEngine.UI.Text>().text = "Night " + waveNumber.ToString();
+        GameObject.Find("DayNightText").GetComponent<UnityEngine.UI.Text>().text = "Night " + waveNumber.ToString();
 
     }
 
     public void SetDayDisplay(int waveNumber)
     {
-        // GameObject.Find("DayNightText").GetComponent<UnityEngine.UI.Text>().text = "Day " + waveNumber.ToString();
+        GameObject.Find("DayNightText").GetComponent<UnityEngine.UI.Text>().text = "Day " + waveNumber.ToString();
     }
 }
