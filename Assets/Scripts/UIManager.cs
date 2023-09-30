@@ -42,5 +42,8 @@ public class UIManager : MonoBehaviour
         // Destroy(flash, 0.1f);
     }
 
-
+    public void UpdateHealth(float health, float maxHealth)
+    {
+        GameObject.Find("HealthText").GetComponent<UnityEngine.UI.Text>().text = health.ToString();
+    }
 }
