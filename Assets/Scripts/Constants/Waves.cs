@@ -12,9 +12,11 @@ public class Waves : MonoBehaviour
     void Start()
     {
         enemyPrefabs = new GameObject[enemyTypeCount];
-        enemyPrefabs[0] = Resources.Load<GameObject>("Prefabs/Enemy0");
-        enemyPrefabs[1] = Resources.Load<GameObject>("Prefabs/Enemy0");
-        enemyPrefabs[2] = Resources.Load<GameObject>("Prefabs/Enemy0");
+        for (int i = 0; i < enemyTypeCount; i++)
+        {
+            // TODO: Change this to load from a folder of prefabs
+            enemyPrefabs[i] = Resources.Load<GameObject>("Prefabs/Enemy/Enemy" + "0");
+        }
     }
 
 
