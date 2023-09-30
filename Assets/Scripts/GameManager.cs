@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private GameManager _instance;
-    public GameManager Instance
+    private static GameManager _instance;
+    public static GameManager Instance
     {
         get
         {
-            if (_instance == null)
-            {
-                _instance = this;
-            }
             return _instance;
+        }
+    }
+
+    private Transform player;
+    public Transform Player
+    {
+        get
+        {
+            if (player == null)
+            {
+                player = GameObject.FindGameObjectWithTag("Player").transform;
+            }
+            return player;
         }
     }
 

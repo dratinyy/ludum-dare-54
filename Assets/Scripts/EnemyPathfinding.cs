@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed = 10f;
-    public float stoppingDistance = 1f;
-    public float retreatDistance = 1f;
+    public float speed = 1f;
 
     private Transform player;
 
@@ -16,22 +14,16 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        Move()
+        Move();
     }
 
     void Move()
     {
-        if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
+        if (player == null)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            player = GameManager.Instance.Player;
         }
-        else if (Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
-        {
-            transform.position = this.transform.position;
-        }
-        else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
-        }
+        Vector2 dir = player.position - transform.position;
+        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
     }
 }

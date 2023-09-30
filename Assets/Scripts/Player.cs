@@ -3,30 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
-{ 
+{
     public int health = 100;
-    public int speed = 5;
+    public float speed = 5f;
 
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
     void Update()
     {
-        move();
+        Move();
     }
 
-    public void move()
+    public void Move()
     {
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
 
         // normalize the vector so that the player moves at the same speed in all directions
-        Vector3 move = new Vector3(x, y, 0).normalized;
+        Vector2 move = new Vector2(x, y).normalized;
+        Debug.Log(x.ToString() + ", " + y.ToString() + " -> " + move.ToString());
 
         transform.Translate(move * speed * Time.deltaTime);
     }
@@ -42,7 +41,6 @@ public class Player : MonoBehaviour
 
     void Die()
     {
-
         Destroy(gameObject);
     }
 }
