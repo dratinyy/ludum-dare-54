@@ -25,7 +25,7 @@ public class TilesManager : MonoBehaviour
             GameObject tile = Instantiate(tilePrefab);
             tile.transform.position = new Vector3(i * tileWidth, j * tileWidth, 0);
             tile.transform.parent = transform;
-            tile.transform.localScale = new Vector3(tileWidth * 0.97f, tileWidth * 0.97f, 1);
+            tile.transform.localScale = new Vector3(tileWidth, tileWidth , 1);
             Tiles.Add(tile);
 
             // in the corners of the map, there are no tiles

@@ -40,7 +40,8 @@ public class Player : MonoBehaviour
           move = move.normalized;
         }
 
-        transform.Translate(move * speed * Time.deltaTime);
+        // move the rigidbody
+        GetComponent<Rigidbody2D>().velocity = move * speed;
     }
 
     public void handleShoot()
@@ -90,5 +91,21 @@ public class Player : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+      if (collision.gameObject.tag == "Enemy")
+      {
+          Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+      }
+      if(collision.gameObject.tag == "Tile")
+      {
+        if(collision.gameObject.GetComponent<Tile>().getIsWalkable())
+        {
+          // ignore collision
+          Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+        }
+      }
     }
 }

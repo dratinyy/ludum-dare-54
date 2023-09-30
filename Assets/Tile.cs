@@ -31,4 +31,9 @@ public class Tile : MonoBehaviour
         GetComponent<SpriteRenderer>().color = Color.black;
       }
     }
+
+    public bool getIsWalkable()
+    {
+      return isWalkable;
+    }
 }
