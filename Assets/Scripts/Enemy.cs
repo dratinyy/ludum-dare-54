@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed = 1f;
+    public int type;
 
     private Transform player;
 
@@ -24,6 +24,6 @@ public class Enemy : MonoBehaviour
             player = GameManager.Instance.Player;
         }
         Vector2 dir = player.position - transform.position;
-        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+        transform.Translate(dir.normalized * EnemyConstants.enemyStats[type].speed * Time.deltaTime, Space.World);
     }
 }
