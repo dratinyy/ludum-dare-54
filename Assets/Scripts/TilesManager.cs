@@ -6,7 +6,7 @@ public class TilesManager : MonoBehaviour
 {
     public GameObject tilePrefab;
 
-    public int width = 10;
+    public int width = 7;
     public float tileWidth = 4;
 
     private List<GameObject> Tiles;
@@ -21,19 +21,19 @@ public class TilesManager : MonoBehaviour
         {
           for(int j = 0; j < width; j++)
           {
+            // create tile
             GameObject tile = Instantiate(tilePrefab);
             tile.transform.position = new Vector3(i * tileWidth, j * tileWidth, 0);
             tile.transform.parent = transform;
-            // scale tile 
             tile.transform.localScale = new Vector3(tileWidth * 0.97f, tileWidth * 0.97f, 1);
             Tiles.Add(tile);
+
+            // in the corners of the map, there are no tiles
             if(noTiles(i, j))
             {
               tile.GetComponent<SpriteRenderer>().color = Color.black;
-              //set inactive
               tile.SetActive(false);
             }
-            print(Tiles[i * width + j]);
           }
         }
         
