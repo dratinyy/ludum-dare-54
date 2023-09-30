@@ -4,40 +4,49 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public Vector2 direction;
-    private static float speed = 10.0f;
-    private static float range = 10.0f;
-    public Vector3 startPosition;
+  public Vector2 direction;
+  private static float speed = 10.0f;
+  private static float range = 10.0f;
+  public Vector3 startPosition;
 
-    // Start is called before the first frame update
-    void Start()
+  // Start is called before the first frame update
+  void Start()
+  {
+    // Rotate toward direction
+    float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+    angle -= 90;
+    transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+  }
+
+  // Update is called once per frame
+  void Update()
+  {
+    Move();
+    AutoDestroy();
+  }
+
+  public void Move()
+  {
+    // move up
+    Vector3 move = transform.up * speed * Time.deltaTime;
+    transform.position += move;
+  }
+
+  public void AutoDestroy()
+  {
+    // if out of bounds, destroy
+    if (Vector3.Distance(startPosition, transform.position) > range)
     {
-      // Rotate toward direction
-      float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-      angle -= 90;
-      transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+      Destroy(gameObject);
     }
+  }
 
-    // Update is called once per frame
-    void Update()
+  private void OnTriggerEnter2D(Collider2D other)
+  {
+    if (other.gameObject.tag == "EnemyHitbox")
     {
-        Move();
-        AutoDestroy();
+      other.gameObject.GetComponentInParent<Enemy>().TakeDamage(10);
+      Destroy(gameObject);
     }
-
-    public void Move()
-    { 
-      // move up
-      Vector3 move = transform.up  * speed * Time.deltaTime;
-      transform.position += move;
-    }
-
-    public void AutoDestroy()
-    {
-      // if out of bounds, destroy
-      if(Vector3.Distance(startPosition, transform.position) > range)
-      {
-        Destroy(gameObject);
-      }
-    }
+  }
 }

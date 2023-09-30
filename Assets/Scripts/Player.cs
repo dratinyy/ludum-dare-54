@@ -5,8 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int health = 100;
-    public float speed = 5f;
     public GameObject projectilePrefab;
+    public float speed = 5f;
 
     private static float rateOfFire = 10f;
 
