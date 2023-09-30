@@ -8,6 +8,11 @@ public class Player : MonoBehaviour
     public int speed = 5;
     public GameObject projectilePrefab;
 
+    private static float rateOfFire = 10f;
+
+    private float nextFire = 0.0f;
+
+    private bool isShooting = false;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +26,7 @@ public class Player : MonoBehaviour
     {
         move();
         cameraFollow();
-        shoot();
+        handleShoot();
     }
 
     public void move()
@@ -40,20 +45,34 @@ public class Player : MonoBehaviour
         transform.Translate(move * speed * Time.deltaTime);
     }
 
-    public void shoot()
+    public void handleShoot()
+    {
+      // if mouse down anywhere on screen, shoot
+      if(Input.GetMouseButtonDown(0))
+      {
+        isShooting = true;
+      }
+      if(Input.GetMouseButtonUp(0))
+      {
+        isShooting = false;
+      }
+      if(isShooting && Time.time > nextFire)
+      {
+        nextFire = Time.time + 1 / rateOfFire ;
+        shootProjectile();
+      }
+    }
+
+    public void shootProjectile()
     {
       // get vector toward mouse pos normalized 
       var worldMousePosition =  Camera.main.ScreenToWorldPoint(Input.mousePosition);
       Vector2 direction = new Vector2(worldMousePosition.x - transform.position.x, worldMousePosition.y - transform.position.y);
       direction = direction.normalized;
 
-      // if mouse down anywhere on screen, shoot
-      if(Input.GetMouseButtonDown(0))
-      {
-        GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-        projectile.GetComponent<Projectile>().direction = direction;
-        print(projectile.GetComponent<Projectile>().direction);
-      }
+      GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+      projectile.GetComponent<Projectile>().direction = direction;
+      projectile.GetComponent<Projectile>().startPosition = transform.position;
     }
 
     public void cameraFollow()

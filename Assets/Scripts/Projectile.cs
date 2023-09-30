@@ -5,9 +5,8 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public Vector2 direction;
-    public float speed = 6.0f;
-
-    public float range = 10.0f;
+    private static float speed = 10.0f;
+    private static float range = 10.0f;
     public Vector3 startPosition;
 
     // Start is called before the first frame update
@@ -25,10 +24,12 @@ public class Projectile : MonoBehaviour
         Move();
         autoDestroy();
     }
+
     public void Move()
     { 
       // move up
-      transform.position += transform.up * speed * Time.deltaTime;
+      Vector3 move = transform.up  * speed * Time.deltaTime;
+      transform.position += move;
     }
 
     public void autoDestroy()
