@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
   private float health;
   private float speed = 5f;
   private int weaponType = 0;
-  private bool isMoving = false;
   public Animator animatorLegs;
   public SpriteRenderer spriteRendererLegs;
   public SpriteRenderer spriteRendererTop;
