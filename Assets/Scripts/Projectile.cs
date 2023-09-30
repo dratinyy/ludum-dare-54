@@ -4,33 +4,36 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    // public Projectile(Vector2 direction, float speed)
-    // {
-    //     this.direction = direction;
-    //     this.speed = speed;
-    // }
-
-    public Vector2 direction = new Vector2(0, 1);
-    public float speed = 1.0f;
+    public Vector2 direction;
+    public float speed = 3.0f;
 
     // Start is called before the first frame update
     void Start()
     {
       // Rotate toward direction
       float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-      transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+      angle -= 90;
+      transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
     // Update is called once per frame
     void Update()
     {
         Move();
-        
     }
     public void Move()
     { 
       // move up
       transform.position += transform.up * speed * Time.deltaTime;
+    }
+
+    public void autoDestroy()
+    {
+      // if out of bounds, destroy
+      if(transform.position.x > 10 || transform.position.x < -10 || transform.position.y > 10 || transform.position.y < -10)
+      {
+        Destroy(gameObject);
+      }
     }
 
 }
