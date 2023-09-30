@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GameManager : MonoBehaviour
 {
+    private bool isDay = true;
+
+    private GameObject globalLight;
     private static GameManager _instance;
     public static GameManager Instance
     {
@@ -32,6 +36,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        // set global light
+        globalLight = GameObject.FindGameObjectWithTag("GlobalLight");
+
         // place player in the center 
         Player.position = new Vector3(0, 0, 0);
 
@@ -54,5 +61,43 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        // on space bar, if it is day, start night, if it is night, start day
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (isDay)
+            {
+                StartNight();
+            }
+            else
+            {
+                StartDay();
+            }
+        }
     }
+
+    public void StartNight()
+    {
+        // Set state to Night
+        isDay = false;
+
+        // Set global light intensity to  0.5 
+        globalLight.GetComponent<Light>().intensity = 0.5f;
+
+        // Spawn enemies or other night-time events
+        // ...
+    }
+
+    public void StartDay()
+    {
+        // Set state to Day
+        isDay = true;
+
+        // Set global light intensity to  1
+        globalLight.GetComponent<Light>().intensity = 1f;       
+
+        // Reset enemies or other night-time events
+        // ...
+    }
+
+    
 }
