@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // place player in the center 
-        Player.position = new Vector3(12, 12, 0);
+        Player.position = new Vector3(0, 0, 0);
 
         if (_instance != null && _instance != this)
         {

@@ -10,10 +10,10 @@ public class WeaponConstants : MonoBehaviour
         // Weapon 0
         new WeaponStats
         {
-            projectileSpeed = 10f,
+            projectileSpeed = 8f,
             damage = 10f,
-            attackSpeed = 5f,
-            range = 10f
+            attackSpeed = 6f,
+            range = 3f
         }
     };
 

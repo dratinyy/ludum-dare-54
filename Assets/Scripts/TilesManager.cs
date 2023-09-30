@@ -22,7 +22,7 @@ public class TilesManager : MonoBehaviour
       for (int j = 0; j < width; j++)
       {
         // create tile
-        GameObject tile = Instantiate(tilePrefab, new Vector3(i * tileWidth, j * tileWidth, 1), Quaternion.identity, transform);
+        GameObject tile = Instantiate(tilePrefab, new Vector3(i * tileWidth - (width / 2 * tileWidth), j * tileWidth - (width / 2 * tileWidth), 1), Quaternion.identity, transform);
         Tiles.Add(tile);
 
         // in the corners of the map, there are no tiles
