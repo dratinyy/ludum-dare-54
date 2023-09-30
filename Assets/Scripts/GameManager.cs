@@ -42,9 +42,13 @@ public class GameManager : MonoBehaviour
         else if (_instance == null)
         {
             _instance = this;
-            // Random.InitState(42069);
-            waveSpawnerGO = Instantiate(Resources.Load<GameObject>("Prefabs/Gameplay/WaveSpawner"), Vector2.zero, Quaternion.identity);
+            Init();
         }
+    }
+
+    void Init()
+    {
+        waveSpawnerGO = Instantiate(Resources.Load<GameObject>("Prefabs/Gameplay/WaveSpawner"), Vector2.zero, Quaternion.identity);
         waveSpawnerGO.GetComponent<WaveSpawner>().InitSpawn(waveNumber);
     }
 

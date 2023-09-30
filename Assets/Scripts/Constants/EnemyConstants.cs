@@ -13,7 +13,8 @@ public class EnemyConstants : MonoBehaviour
             speed = 1f,
             health = 100f,
             damage = 10f,
-            attackSpeed = 1f
+            attackSpeed = 1f,
+            attackRange = 0.6f
         },
         // Enemy 1
         new EnemyStats
@@ -21,7 +22,8 @@ public class EnemyConstants : MonoBehaviour
             speed = 3f,
             health = 50,
             damage = 10f,
-            attackSpeed = 1f
+            attackSpeed = 1f,
+            attackRange = 0.6f
         },
         // Enemy 2
         new EnemyStats
@@ -29,7 +31,8 @@ public class EnemyConstants : MonoBehaviour
             speed = 1f,
             health = 100f,
             damage = 10f,
-            attackSpeed = 1f
+            attackSpeed = 1f,
+            attackRange = 0.6f
         }
     };
 
@@ -39,5 +42,6 @@ public class EnemyConstants : MonoBehaviour
         public float health;
         public float damage;
         public float attackSpeed;
+        public float attackRange;
     }
 }

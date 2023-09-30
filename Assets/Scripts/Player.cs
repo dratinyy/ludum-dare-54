@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-  public int health = 100;
+  public float health = 100f;
   public float speed = 5f;
   private int weaponType = 0;
 
@@ -76,9 +76,10 @@ public class Player : MonoBehaviour
     Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
   }
 
-  public void TakeDamage(int damage)
+  public void TakeDamage(float damage)
   {
     health -= damage;
+    UIManager.Instance.FlashScreen();
     if (health <= 0)
     {
       Die();
@@ -87,6 +88,6 @@ public class Player : MonoBehaviour
 
   void Die()
   {
-    Destroy(gameObject);
+    // Destroy(gameObject);
   }
 }
