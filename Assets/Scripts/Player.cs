@@ -100,7 +100,7 @@ public class Player : MonoBehaviour
 
   public void TakeDamage(float damage)
   {
-    health = Mathf.Min(0, health - damage);
+    health = Mathf.Max(0, health - damage);
     UIManager.Instance.UpdateHealth(health, maxHealth);
     UIManager.Instance.FlashScreen();
     if (health <= 0)
