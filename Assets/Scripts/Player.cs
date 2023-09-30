@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         move();
+        cameraFollow();
     }
 
     public void move()
@@ -25,10 +26,21 @@ public class Player : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
 
-        // normalize the vector so that the player moves at the same speed in all directions
-        Vector3 move = new Vector3(x, y, 0).normalized;
+        // normalize the vector if magnitude > 1
+        float magnitude = Mathf.Sqrt(x * x + y * y);
+        Vector3 move = new Vector3(x, y, 0);
+        if(magnitude > 1)
+        {
+          move = move.normalized;
+        }
+
 
         transform.Translate(move * speed * Time.deltaTime);
+    }
+
+    public void cameraFollow()
+    {
+        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
     }
 
     public void TakeDamage(int damage)
