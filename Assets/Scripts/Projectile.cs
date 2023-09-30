@@ -5,7 +5,10 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public Vector2 direction;
-    public float speed = 3.0f;
+    public float speed = 6.0f;
+
+    public float range = 10.0f;
+    public Vector3 startPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +23,7 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         Move();
+        autoDestroy();
     }
     public void Move()
     { 
@@ -30,10 +34,9 @@ public class Projectile : MonoBehaviour
     public void autoDestroy()
     {
       // if out of bounds, destroy
-      if(transform.position.x > 10 || transform.position.x < -10 || transform.position.y > 10 || transform.position.y < -10)
+      if(Vector3.Distance(startPosition, transform.position) > range)
       {
         Destroy(gameObject);
       }
     }
-
 }
