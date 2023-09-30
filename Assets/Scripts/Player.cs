@@ -1,13 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-  public float maxHealth = 100f;
-  public float health;
-  public float speed = 5f;
+  private float maxHealth = 100f;
+  private float health;
+  private float speed = 5f;
   private int weaponType = 0;
+  public Animator animatorLegs;
+  public SpriteRenderer spriteRendererLegs;
+  public SpriteRenderer spriteRendererTop;
 
 
   private float nextFire = 0.0f;
@@ -17,11 +21,15 @@ public class Player : MonoBehaviour
   void Start()
   {
     health = maxHealth;
+    animatorLegs = transform.Find("SpriteLegs").GetComponent<Animator>();
+    spriteRendererLegs = transform.Find("SpriteLegs").GetComponent<SpriteRenderer>();
+    spriteRendererTop = transform.Find("SpriteTop").GetComponent<SpriteRenderer>();
   }
 
   void Update()
   {
     Move();
+    FaceMouse();
     cameraFollow();
     handleShoot();
   }
@@ -34,12 +42,24 @@ public class Player : MonoBehaviour
     // normalize the vector if magnitude > 1
     float magnitude = Mathf.Sqrt(x * x + y * y);
     Vector3 move = new Vector3(x, y, 0);
+
     if (magnitude > 1)
     {
       move = move.normalized;
     }
+    animatorLegs.SetFloat("Speed", Mathf.Abs(magnitude));
+    if (x != 0)
+    {
+      spriteRendererLegs.flipX = x < 0;
+    }
 
     GetComponent<Rigidbody2D>().velocity = move * speed;
+  }
+
+  void FaceMouse()
+  {
+    Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    spriteRendererTop.flipX = worldMousePosition.x < transform.position.x;
   }
 
   public void handleShoot()
@@ -79,7 +99,7 @@ public class Player : MonoBehaviour
 
   public void TakeDamage(float damage)
   {
-    health -= damage;
+    health = Mathf.Max(0, health - damage);
     UIManager.Instance.UpdateHealth(health, maxHealth);
     UIManager.Instance.FlashScreen();
     if (health <= 0)
@@ -90,14 +110,14 @@ public class Player : MonoBehaviour
 
   void Die()
   {
-      //Destroy(gameObject);
+    //Destroy(gameObject);
   }
 
   void OnCollisionEnter2D(Collision2D collision)
   {
     if (collision.gameObject.tag == "Enemy")
     {
-        Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+      Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
     }
     if (collision.gameObject.tag == "Tile")
     {
