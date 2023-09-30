@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 849348246327008450}
   - component: {fileID: 843119133038831369}
-  - component: {fileID: 3204842876201853148}
+  - component: {fileID: 8381134607264379081}
+  - component: {fileID: 5014621084884432761}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -47,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveNumber: 0
   waveSpawnerGO: {fileID: 0}
---- !u!114 &3204842876201853148
+--- !u!114 &8381134607264379081
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,5 +58,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e067c03a8f100a84f9507bcbbfdf1eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5014621084884432761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6464425052507374574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca704d6171ba43648acf5552f8b1a0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

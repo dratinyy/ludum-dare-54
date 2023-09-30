@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-  public Vector2 direction;
-  private static float speed = 10.0f;
-  private static float range = 10.0f;
-  public Vector3 startPosition;
+  public int type;
+  private Vector2 direction;
+  private Vector3 startPosition;
 
-  // Start is called before the first frame update
   void Start()
   {
     // Rotate toward direction
@@ -18,24 +16,23 @@ public class Projectile : MonoBehaviour
     transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
   }
 
-  // Update is called once per frame
+  public void Init(Vector2 direction, Vector3 startPosition)
+  {
+    this.direction = direction;
+    this.startPosition = startPosition;
+  }
+
   void Update()
   {
     Move();
-    AutoDestroy();
   }
 
   public void Move()
   {
-    // move up
-    Vector3 move = transform.up * speed * Time.deltaTime;
+    Vector3 move = transform.up * WeaponConstants.weaponStats[type].projectileSpeed * Time.deltaTime;
     transform.position += move;
-  }
-
-  public void AutoDestroy()
-  {
     // if out of bounds, destroy
-    if (Vector3.Distance(startPosition, transform.position) > range)
+    if (Vector3.Distance(startPosition, transform.position) > WeaponConstants.weaponStats[type].range)
     {
       Destroy(gameObject);
     }
@@ -43,6 +40,7 @@ public class Projectile : MonoBehaviour
 
   private void OnTriggerEnter2D(Collider2D other)
   {
+    // Collide with enemy hitbox
     if (other.gameObject.tag == "EnemyHitbox")
     {
       other.gameObject.GetComponentInParent<Enemy>().TakeDamage(10);

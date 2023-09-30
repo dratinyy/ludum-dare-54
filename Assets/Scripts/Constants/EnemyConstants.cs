@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class EnemyConstants : MonoBehaviour
 {
-
     public static readonly EnemyStats[] enemyStats = new EnemyStats[]
     {
         // Enemy 0
@@ -19,8 +18,8 @@ public class EnemyConstants : MonoBehaviour
         // Enemy 1
         new EnemyStats
         {
-            speed = 1f,
-            health = 100f,
+            speed = 3f,
+            health = 50,
             damage = 10f,
             attackSpeed = 1f
         },
