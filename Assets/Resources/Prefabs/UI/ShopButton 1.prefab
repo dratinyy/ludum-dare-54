@@ -61,8 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a25b1d2133de26246b024918a9112fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalDisplay: {fileID: 0}
-  hoverDisplay: {fileID: 0}
+  normalDisplay: {fileID: 3754925594015361877}
+  hoverDisplay: {fileID: 3822767129096835036}
 --- !u!61 &7836980166972849314
 BoxCollider2D:
   m_ObjectHideFlags: 0
