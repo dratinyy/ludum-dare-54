@@ -114,4 +114,9 @@ public class GameManager : MonoBehaviour
         Player.GetComponent<Player>().canShoot = false;
     }
 
+    public void Lose()
+    {
+        UIManager.Instance.DisplayLoseScreen();
+    }
+
 }

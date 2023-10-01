@@ -142,4 +142,9 @@ public class UIManager : MonoBehaviour
             shopButton.gameObject.GetComponent<HandleShop>().setOpen();
         }
     }
+
+    public void DisplayLoseScreen()
+    {
+        canvas.transform.Find("GameOverScreen").gameObject.SetActive(true);
+    }
 }

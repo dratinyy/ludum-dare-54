@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
 
   public bool canShoot = true;
 
+  public bool canMove = true;
 
   private float nextFire = 0.0f;
 
@@ -69,6 +70,11 @@ public class Player : MonoBehaviour
 
   public void Move()
   {
+    if(!canMove)
+    {
+      return;
+    }
+
     float x = Input.GetAxisRaw("Horizontal");
     float y = Input.GetAxisRaw("Vertical");
 
@@ -164,6 +170,12 @@ public class Player : MonoBehaviour
     UIManager.Instance.UpdateHealth(health, maxHealth);
   }
 
+    IEnumerator EndGameCoroutine()
+    {
+        yield return new WaitForSeconds(3f);
+        UIManager.Instance.GoToLoseScreen();
+    }
+
   public void TakeDamage(float damage)
   {
     health = Mathf.Max(0, health - damage);
@@ -171,7 +183,10 @@ public class Player : MonoBehaviour
     UIManager.Instance.FlashScreen();
     if (health <= 0)
     {
-      // GameManager.Instance.Lose();
+      canShoot = false;
+      canMove = false;
+      // start a coroutine to wait for 3 seconds and then go to lose screen
+      StartCoroutine(EndGameCoroutine());
     }
   }
 
