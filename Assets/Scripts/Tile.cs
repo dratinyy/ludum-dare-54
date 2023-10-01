@@ -98,20 +98,24 @@ public class Tile : MonoBehaviour
             break;
         }
     }
-  void OnMouseOver()
-  {
-    if (Input.GetMouseButtonDown(0))
+    void OnMouseOver()
     {
-        if(menu.activeSelf)
+        if(!GameManager.Instance.isDay)
         {
-            menu.SetActive(false);
+            return;
         }
-        else
+        if (Input.GetMouseButtonDown(0))
         {
-            menu.SetActive(true);
+            if(menu.activeSelf)
+            {
+                menu.SetActive(false);
+            }
+            else
+            {
+                menu.SetActive(true);
+            }
         }
     }
-  }
     public void buy()
     {
         print("buying");

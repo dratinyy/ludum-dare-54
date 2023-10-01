@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
   private float maxHealth = 100f;
   private float health;
   private float speed = 5f;
-  private int weaponType = 1;
+  public int weaponType = 0;
   public Animator animatorLegs;
   public SpriteRenderer spriteRendererLegs;
   public SpriteRenderer spriteRendererTop;
@@ -80,23 +80,31 @@ public class Player : MonoBehaviour
     if (isShooting && Time.time > nextFire)
     {
       nextFire = Time.time + 1 / WeaponConstants.weaponStats[weaponType].attackSpeed;
-      shootProjectile();
+      ShootProjectiles();
     }
   }
 
-  public void shootProjectile()
+  public void ShootProjectiles()
   {
-    // get vector toward mouse pos normalized 
+    // Vector towards mouse
     var worldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    Vector2 direction = new Vector2(worldMousePosition.x - transform.position.x, worldMousePosition.y - transform.position.y);
-    float randomAngle = UnityEngine.Random.Range(Mathf.Atan2(direction.y, direction.x) - WeaponConstants.weaponStats[weaponType].randomAngle,
-     Mathf.Atan2(direction.y, direction.x) + WeaponConstants.weaponStats[weaponType].randomAngle);
-
-    direction = new Vector2(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle));
-
+    Vector2 dirTowardsMouse = new Vector2(worldMousePosition.x - transform.position.x, worldMousePosition.y - transform.position.y);
     Vector2 gunPosition = transform.Find("GunPosition").position;
-    GameObject projectile = Instantiate(WeaponConstants.weaponStats[weaponType].projectilePrefab, gunPosition, Quaternion.identity);
-    projectile.GetComponent<Projectile>().Init(direction, transform.position);
+
+    // Instantiate projectiles
+    for (int i = 0; i < WeaponConstants.weaponStats[weaponType].projectileCount; i++)
+    {
+      // Randomize angle
+      float randomAngleDelta = UnityEngine.Random.Range(-WeaponConstants.maxDispersionDegrees * (100 - WeaponConstants.weaponStats[weaponType].accuracy) / 100f,
+      WeaponConstants.maxDispersionDegrees * (100 - WeaponConstants.weaponStats[weaponType].accuracy) / 100f) * Mathf.Deg2Rad;
+
+      // Rotate vector towards mouse by random angle
+      float randomAngle = Mathf.Atan2(dirTowardsMouse.y, dirTowardsMouse.x) + randomAngleDelta;
+      dirTowardsMouse = new Vector2(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle));
+
+      GameObject projectile = Instantiate(WeaponConstants.weaponStats[weaponType].projectilePrefab, gunPosition, Quaternion.identity);
+      projectile.GetComponent<Projectile>().Init(dirTowardsMouse, transform.position, weaponType);
+    }
   }
 
   public void cameraFollow()

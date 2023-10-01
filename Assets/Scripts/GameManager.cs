@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private bool isDay = false;
-
+    public bool isDay = false;
     private GameObject globalLight;
     private static GameManager _instance;
     public static GameManager Instance
@@ -65,10 +64,12 @@ public class GameManager : MonoBehaviour
         // on space bar, if it is day, start night, if it is night, start day
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (isDay)
-            {
-                StartNight();
-            }
+
+            player.GetComponent<Player>().weaponType = (player.GetComponent<Player>().weaponType + 1) % 5;
+            // if (isDay)
+            // {
+            //     StartNight();
+            // }
         }
     }
 
@@ -110,5 +111,5 @@ public class GameManager : MonoBehaviour
         // player cannot shoot 
         Player.GetComponent<Player>().canShoot = false;
     }
-    
+
 }
