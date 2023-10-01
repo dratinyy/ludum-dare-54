@@ -50,11 +50,29 @@ public class UIManager : MonoBehaviour
     public void SetNightDisplay(int waveNumber)
     {
         GameObject.Find("DayNightText").GetComponent<UnityEngine.UI.Text>().text = "Night " + waveNumber.ToString();
+        if (waveNumber == 1)
+        {
+            canvas.transform.Find("FirstNightHelper").gameObject.SetActive(true);
+            StartCoroutine(DestroyFirstNightHelper());
+        }
+        else if (waveNumber == 2)
+        {
+            GameObject.Destroy(canvas.transform.Find("FirstDayHelper").gameObject);
+        }
+    }
 
+    IEnumerator DestroyFirstNightHelper()
+    {
+        yield return new WaitForSeconds(15f);
+        GameObject.Destroy(canvas.transform.Find("FirstNightHelper").gameObject);
     }
 
     public void SetDayDisplay(int waveNumber)
     {
         GameObject.Find("DayNightText").GetComponent<UnityEngine.UI.Text>().text = "Day " + waveNumber.ToString();
+        if (waveNumber == 1)
+        {
+            canvas.transform.Find("FirstDayHelper").gameObject.SetActive(true);
+        }
     }
 }

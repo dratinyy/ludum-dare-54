@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    private const float spawnInterval = 0.2f;
+    private const float spawnInterval = 0.08f;
     private const float spawnDistanceFromOrigin = 20f;
 
     private int[] enemySpawnCounters;
