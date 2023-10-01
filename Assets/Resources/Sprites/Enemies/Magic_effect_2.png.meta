@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9ff6a080706e0b54aab05e960af9cb87
+guid: 58cbe34913de41e469203b32e4edc5ff
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,127 +123,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Walk_0
+      name: Magic_effect_2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 48
         height: 48
-      alignment: 9
-      pivot: {x: 0.32, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c73f915a87b5094eb73d7c3420d34e9
-      internalID: -514773137
+      spriteID: e8c9005f9aee4e14fad25207f6eaaa43
+      internalID: -1892762525
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_1
+      name: Magic_effect_2_1
       rect:
         serializedVersion: 2
         x: 48
         y: 0
         width: 48
         height: 48
-      alignment: 9
-      pivot: {x: 0.32, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f2745cdb03717541b248c13fcc2d97c
-      internalID: 360075395
+      spriteID: a3dc99255d46d3640b9dab81b4dd7376
+      internalID: -1783706492
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_2
+      name: Magic_effect_2_2
       rect:
         serializedVersion: 2
         x: 96
         y: 0
         width: 48
         height: 48
-      alignment: 9
-      pivot: {x: 0.32, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4150a4547279f244597d4868210fe497
-      internalID: 1708364728
+      spriteID: dcb54b557c4a5a24aa335a5447971765
+      internalID: 567606200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_3
+      name: Magic_effect_2_3
       rect:
         serializedVersion: 2
         x: 144
         y: 0
         width: 48
         height: 48
-      alignment: 9
-      pivot: {x: 0.32, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6518a834370c16349906a7ec598557be
-      internalID: -1632704635
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Walk_4
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 48
-        height: 48
-      alignment: 9
-      pivot: {x: 0.32, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e4c910e4c61144f4dbbc7f68f599d93e
-      internalID: 962439548
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Walk_5
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 0
-        width: 48
-        height: 48
-      alignment: 9
-      pivot: {x: 0.32, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 363cbcabaa20bca41bcd46b1d26ed64b
-      internalID: -1363802315
+      spriteID: 3f6d08561a050de41b7707ab2bea34a7
+      internalID: 441089841
       vertices: []
       indices: 
       edges: []
@@ -259,12 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Walk_0: -514773137
-      Walk_1: 360075395
-      Walk_2: 1708364728
-      Walk_3: -1632704635
-      Walk_4: 962439548
-      Walk_5: -1363802315
+      Magic_effect_2_0: -1892762525
+      Magic_effect_2_1: -1783706492
+      Magic_effect_2_2: 567606200
+      Magic_effect_2_3: 441089841
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

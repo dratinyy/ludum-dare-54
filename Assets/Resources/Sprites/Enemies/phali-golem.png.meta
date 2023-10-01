@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9a4249d13d6b9b64baef2c360011204a
+guid: f74488b064fcdfc4e99ec237f3db19bc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -123,85 +123,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle_0
+      name: phali-golem_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 63
       alignment: 9
-      pivot: {x: 0.32, y: 0}
+      pivot: {x: 0.37, y: 0.06}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1830b58e57453348806e5761dc9f07e
-      internalID: -1624895344
+      spriteID: 798a3586a001b3944baaf15d54317196
+      internalID: 1272535808
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_1
+      name: phali-golem_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 64
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 63
       alignment: 9
-      pivot: {x: 0.32, y: 0}
+      pivot: {x: 0.37, y: 0.06}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4639eb14c7ccd2743a8127e4a55939e3
-      internalID: 1856686645
+      spriteID: 4c8a2e0940ccd9d4095500a6870d94ec
+      internalID: 1071183448
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_2
+      name: phali-golem_2
       rect:
         serializedVersion: 2
-        x: 96
+        x: 128
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 63
       alignment: 9
-      pivot: {x: 0.32, y: 0}
+      pivot: {x: 0.37, y: 0.06}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d967482089901f74e970fb2a3ad56509
-      internalID: -383527692
+      spriteID: b51e703410bf52343957223126127510
+      internalID: 399980531
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_3
+      name: phali-golem_3
       rect:
         serializedVersion: 2
-        x: 144
+        x: 192
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 63
       alignment: 9
-      pivot: {x: 0.32, y: 0}
+      pivot: {x: 0.37, y: 0.06}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ff14c7d1747ba242b4ab297ad1e1a3e
-      internalID: -1439103754
+      spriteID: 90d5cefc792adc444ada9a32eb377efb
+      internalID: 1266232440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: phali-golem_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 63
+      alignment: 9
+      pivot: {x: 0.37, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6011fcde220bcf84aafdeb6eea2e005b
+      internalID: -488161424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: phali-golem_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 63
+      alignment: 9
+      pivot: {x: 0.37, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d480372c1ec27794889eedaa00d5ba4d
+      internalID: -662599200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: phali-golem_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 63
+      alignment: 9
+      pivot: {x: 0.37, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ace5fd746a3dc1a42adba8a2cf74ea56
+      internalID: 1824502850
       vertices: []
       indices: 
       edges: []
@@ -217,10 +280,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Idle_0: -1624895344
-      Idle_1: 1856686645
-      Idle_2: -383527692
-      Idle_3: -1439103754
+      phali-golem_0: 1272535808
+      phali-golem_1: 1071183448
+      phali-golem_2: 399980531
+      phali-golem_3: 1266232440
+      phali-golem_4: -488161424
+      phali-golem_5: -662599200
+      phali-golem_6: 1824502850
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

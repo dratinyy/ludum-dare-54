@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b0e5f321eab24b04b9a3ae9eb8fda0b2
+guid: bd88cb7a649820d45ab604782e09255f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,127 +123,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Attack_0
+      name: worm_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 48
+        width: 639.75
+        height: 511
       alignment: 9
-      pivot: {x: 0.31, y: 0}
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14a0f6c496b49a64bac273fe2b9a4640
-      internalID: 1906496449
+      spriteID: a1e856284bc6ab8478aeec70e5f288d7
+      internalID: -1593221941
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_1
+      name: worm_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 639
         y: 0
-        width: 48
-        height: 48
+        width: 639.75
+        height: 511
       alignment: 9
-      pivot: {x: 0.32, y: 0}
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 807a727aa713b3344879bff15c7dd872
-      internalID: 1733392211
+      spriteID: 43b703b4ecddaac499996048fb527a09
+      internalID: -822291072
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_2
+      name: worm_2
       rect:
         serializedVersion: 2
-        x: 96
+        x: 1278
         y: 0
-        width: 48
-        height: 48
+        width: 639.75
+        height: 511
       alignment: 9
-      pivot: {x: 0.32, y: 0}
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e230ba638c05d04298b5a609c7ff6cc
-      internalID: -2046434521
+      spriteID: ea414bcda458efb4a9d43b09be91d893
+      internalID: 139171605
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_3
+      name: worm_3
       rect:
         serializedVersion: 2
-        x: 144
+        x: 1917
         y: 0
-        width: 48
-        height: 48
+        width: 639.75
+        height: 511
       alignment: 9
-      pivot: {x: 0.32, y: 0}
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fb6de061c0433a4db83d58dd6f025cd
-      internalID: -1821995388
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_4
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 48
-        height: 48
-      alignment: 9
-      pivot: {x: 0.32, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 072e2d65959ad474280f77a38d6587c6
-      internalID: -303880525
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_5
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 0
-        width: 48
-        height: 48
-      alignment: 9
-      pivot: {x: 0.32, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cb1601a297c87a648ae9ae2eaed68800
-      internalID: 1786921711
+      spriteID: ff26d2e5537f79d4393ff864de5e9758
+      internalID: 209930260
       vertices: []
       indices: 
       edges: []
@@ -259,12 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Attack_0: 1906496449
-      Attack_1: 1733392211
-      Attack_2: -2046434521
-      Attack_3: -1821995388
-      Attack_4: -303880525
-      Attack_5: 1786921711
+      worm_0: -1593221941
+      worm_1: -822291072
+      worm_2: 139171605
+      worm_3: 209930260
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

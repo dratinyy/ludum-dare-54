@@ -7,7 +7,7 @@ public class EnemyConstants : MonoBehaviour
 {
     public static readonly EnemyStats[] enemyStats = new EnemyStats[]
     {
-        // Enemy 0
+        // Zombie
         new EnemyStats
         {
             speed = 1f,
@@ -16,7 +16,7 @@ public class EnemyConstants : MonoBehaviour
             attackSpeed = 1f,
             attackRange = 0.6f
         },
-        // Enemy 1
+        // Worm
         new EnemyStats
         {
             speed = 3f,
@@ -25,7 +25,25 @@ public class EnemyConstants : MonoBehaviour
             attackSpeed = 1f,
             attackRange = 0.6f
         },
-        // Enemy 2
+        // Golem
+        new EnemyStats
+        {
+            speed = 1f,
+            health = 100f,
+            damage = 10f,
+            attackSpeed = 1f,
+            attackRange = 0.6f
+        },
+        // Necromancer
+        new EnemyStats
+        {
+            speed = 1f,
+            health = 100f,
+            damage = 10f,
+            attackSpeed = 1f,
+            attackRange = 10f
+        },
+        // Boss
         new EnemyStats
         {
             speed = 1f,
