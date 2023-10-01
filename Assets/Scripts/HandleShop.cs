@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloseShop : MonoBehaviour
+public class HandleShop : MonoBehaviour
 {
 
     private bool isOpen = false;
