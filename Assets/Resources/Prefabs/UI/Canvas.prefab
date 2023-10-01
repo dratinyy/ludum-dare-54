@@ -1062,7 +1062,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8472590002844332836}
   - component: {fileID: 3839160447626198890}
-  - component: {fileID: 3556100240456119248}
+  - component: {fileID: 547698012443711283}
   - component: {fileID: 5869454893246047529}
   - component: {fileID: 2513651503845110064}
   - component: {fileID: 6924046869589549223}
@@ -1091,7 +1091,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.4, y: -505.5}
+  m_AnchoredPosition: {x: 0, y: -480}
   m_SizeDelta: {x: 230.805, y: 48.9749}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3839160447626198890
@@ -1102,7 +1102,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6023423791524355843}
   m_CullTransparentMesh: 1
---- !u!114 &3556100240456119248
+--- !u!114 &547698012443711283
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1128,8 +1128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a25b1d2133de26246b024918a9112fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalDisplay: {fileID: 8808178475906901703}
-  hoverDisplay: {fileID: 8876015672819810894}
+  normalDisplay: {fileID: 8876015672819810894}
+  hoverDisplay: {fileID: 8808178475906901703}
   Tile: {fileID: 0}
 --- !u!61 &2513651503845110064
 BoxCollider2D:
@@ -1727,7 +1727,7 @@ GameObject:
   - component: {fileID: 2197042879706244381}
   - component: {fileID: 2644248932385735681}
   m_Layer: 0
-  m_Name: Normal
+  m_Name: hover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1802,7 +1802,7 @@ GameObject:
   - component: {fileID: 4553998397198702560}
   - component: {fileID: 4014989494438813419}
   m_Layer: 0
-  m_Name: Shadow
+  m_Name: normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2035,10 +2035,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1000096756279517945}
     m_Modifications:
+    - target: {fileID: 1246462531102296009, guid: 001f6432f4277db4da6d1c38714cf2a5, type: 3}
+      propertyPath: m_Name
+      value: hover
+      objectReference: {fileID: 0}
     - target: {fileID: 2732105363058401416, guid: 001f6432f4277db4da6d1c38714cf2a5, type: 3}
       propertyPath: m_Name
-      value: Shadow
+      value: normal
       objectReference: {fileID: 0}
+    - target: {fileID: 3834391973323541475, guid: 001f6432f4277db4da6d1c38714cf2a5, type: 3}
+      propertyPath: hoverDisplay
+      value: 
+      objectReference: {fileID: 7670830142010725565}
+    - target: {fileID: 3834391973323541475, guid: 001f6432f4277db4da6d1c38714cf2a5, type: 3}
+      propertyPath: normalDisplay
+      value: 
+      objectReference: {fileID: 6832650114625860604}
     - target: {fileID: 4864391024900451775, guid: 001f6432f4277db4da6d1c38714cf2a5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2101,11 +2113,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4864391024900451775, guid: 001f6432f4277db4da6d1c38714cf2a5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 747.3
+      value: 759
       objectReference: {fileID: 0}
     - target: {fileID: 4864391024900451775, guid: 001f6432f4277db4da6d1c38714cf2a5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -493.6
+      value: -467.3
       objectReference: {fileID: 0}
     - target: {fileID: 4864391024900451775, guid: 001f6432f4277db4da6d1c38714cf2a5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2135,5 +2147,15 @@ PrefabInstance:
 --- !u!224 &4087537364162674379 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4864391024900451775, guid: 001f6432f4277db4da6d1c38714cf2a5, type: 3}
+  m_PrefabInstance: {fileID: 8878864593540567924}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6832650114625860604 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2732105363058401416, guid: 001f6432f4277db4da6d1c38714cf2a5, type: 3}
+  m_PrefabInstance: {fileID: 8878864593540567924}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7670830142010725565 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1246462531102296009, guid: 001f6432f4277db4da6d1c38714cf2a5, type: 3}
   m_PrefabInstance: {fileID: 8878864593540567924}
   m_PrefabAsset: {fileID: 0}
