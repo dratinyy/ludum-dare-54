@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
   public SpriteRenderer spriteRendererLegs;
   public SpriteRenderer spriteRendererTop;
 
+  public bool canShoot = true;
+
 
   private float nextFire = 0.0f;
 
@@ -64,6 +66,10 @@ public class Player : MonoBehaviour
 
   public void handleShoot()
   {
+    if (!canShoot)
+    {
+      return;
+    }
     // if mouse down anywhere on screen, shoot
     if (Input.GetMouseButtonDown(0))
     {
