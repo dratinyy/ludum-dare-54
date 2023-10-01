@@ -65,10 +65,12 @@ public class GameManager : MonoBehaviour
         // on space bar, if it is day, start night, if it is night, start day
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (isDay)
-            {
-                StartNight();
-            }
+
+            player.GetComponent<Player>().weaponType = (player.GetComponent<Player>().weaponType + 1) % 5;
+            // if (isDay)
+            // {
+            //     StartNight();
+            // }
         }
     }
 
@@ -110,5 +112,5 @@ public class GameManager : MonoBehaviour
         // player cannot shoot 
         Player.GetComponent<Player>().canShoot = false;
     }
-    
+
 }
