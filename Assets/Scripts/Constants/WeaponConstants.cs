@@ -5,16 +5,93 @@ using UnityEngine;
 public class WeaponConstants : MonoBehaviour
 {
 
+    public static readonly float maxDispersionDegrees = 30f;
+
+    /**
+    * Weapon Stats
+    * projectileSpeed: vitesse du projectile dans le jeu
+    * projectileCount: nombre de projectiles tirés par tir
+    * damage: dégâts infligé à l'ennemi lors d'une collision
+    * attackSpeed: vitesse de tir en balles par seconde
+    * range: portée du projectile
+    * accuracy: dispersion des projectiles. 100 = pas de dispersion, 0 = jusqu'à 30 degrés de dispersion
+    *
+    * piercing: nombre de cibles que le projectile peut traverser
+    * explosive: le projectile explose à l'impact
+    * explosiveRange: rayon de l'explosion
+    */
     public static readonly WeaponStats[] weaponStats = new WeaponStats[]
     {
-        // Weapon 0
+        // Weapon 0 Gun
         new WeaponStats
         {
             projectileSpeed = 8f,
-            damage = 10f,
-            attackSpeed = 6f,
-            range = 3f
-        }
+            projectileCount = 1f,
+            damage = 20f,
+            attackSpeed = 5f,
+            range = 6f,
+            accuracy = 100f,
+
+            piercing = 1,
+            explosive = false,
+            explosiveRange = 0f
+        },
+        // Weapon 1 Shotgun
+        new WeaponStats
+        {
+            projectileSpeed = 8f,
+            projectileCount = 8f,
+            damage = 15f,
+            attackSpeed = 3f,
+            range = 3f,
+            accuracy = 0f, // Dispersion maximale
+
+            piercing = 2,
+            explosive = false,
+            explosiveRange = 0f
+        },
+        // Weapon 2 Auto Rifle
+        new WeaponStats
+        {
+            projectileSpeed = 16f,
+            projectileCount = 1f,
+            damage = 4f,
+            attackSpeed = 20f,
+            range = 9f,
+            accuracy = 100f,
+
+            piercing = 1,
+            explosive = false,
+            explosiveRange = 0f
+        },
+        // Weapon 3 Sniper
+        new WeaponStats
+        {
+            projectileSpeed = 12f,
+            projectileCount = 1f,
+            damage = 8f,
+            attackSpeed = 7.5f,
+            range = 15f,
+            accuracy = 100f,
+
+            piercing = 3,
+            explosive = false,
+            explosiveRange = 0f
+        },
+        // Weapon 4 Rocket Launcher
+        new WeaponStats
+        {
+            projectileSpeed = 4f,
+            projectileCount = 1f,
+            damage = 30f,
+            attackSpeed = 1.67f,
+            range = 8f,
+            accuracy = 100f,
+
+            piercing = 1,
+            explosive = true,
+            explosiveRange = 1.5f
+        },
     };
 
     void Start()
@@ -29,8 +106,14 @@ public class WeaponConstants : MonoBehaviour
     {
         public GameObject projectilePrefab;
         public float projectileSpeed;
+        public float projectileCount;
         public float damage;
         public float attackSpeed;
         public float range;
+        public float accuracy;
+
+        public int piercing;
+        public bool explosive;
+        public float explosiveRange;
     }
 }
