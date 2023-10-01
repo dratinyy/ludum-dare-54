@@ -10,8 +10,10 @@ public class EconomyConstants : MonoBehaviour
     public readonly static int tileSellPrice = 80;
 
     public readonly static int burgerPrice = 10;
-    public readonly static float burgerHealth = 20f;
-    public readonly static int spaceshipPrice = 100;
+    public readonly static int burgerHealth = 20;
+    public readonly static int healpackHealth = 50;
+    public readonly static int healpackPrice = 50;
+    public readonly static int spaceshipPrice = 10000;
 
     public readonly static int[] weaponPrices = new int[]
     {

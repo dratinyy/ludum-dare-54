@@ -8,6 +8,9 @@ public class Projectile : MonoBehaviour
   private Vector2 direction;
   private Vector3 startPosition;
 
+  private float damageMultiplier = 1f;
+  private float rangeMultiplier = 1f;
+
   private int targetCount = 0;
   // Keep track of already hit targets
   private List<GameObject> hitTargets = new List<GameObject>();
@@ -20,11 +23,13 @@ public class Projectile : MonoBehaviour
     transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
   }
 
-  public void Init(Vector2 direction, Vector3 startPosition, int type)
+  public void Init(Vector2 direction, Vector3 startPosition, int type, float damageMultiplier, float rangeMultiplier)
   {
     this.direction = direction;
     this.startPosition = startPosition;
     this.type = type;
+    this.damageMultiplier = damageMultiplier;
+    this.rangeMultiplier = rangeMultiplier;
   }
 
   void Update()
@@ -38,7 +43,7 @@ public class Projectile : MonoBehaviour
     transform.position += move;
 
     // if out of bounds, destroy
-    if (Vector3.Distance(startPosition, transform.position) > WeaponConstants.weaponStats[type].range)
+    if (Vector3.Distance(startPosition, transform.position) > WeaponConstants.weaponStats[type].range * rangeMultiplier)
     {
       Destroy(gameObject);
     }
@@ -53,7 +58,8 @@ public class Projectile : MonoBehaviour
       targetCount++;
 
       // Deal damage to primary target
-      other.gameObject.GetComponentInParent<Enemy>().TakeDamage(WeaponConstants.weaponStats[type].damage);
+      float damageWithMulitplier = WeaponConstants.weaponStats[type].damage * damageMultiplier;
+      other.gameObject.GetComponentInParent<Enemy>().TakeDamage(damageWithMulitplier);
 
       // Deal damage to secondary targets
       if (WeaponConstants.weaponStats[type].explosive)
@@ -65,7 +71,7 @@ public class Projectile : MonoBehaviour
           {
             hitTargets.Add(collider.gameObject);
             targetCount++;
-            collider.gameObject.GetComponentInParent<Enemy>().TakeDamage(WeaponConstants.weaponStats[type].damage);
+            collider.gameObject.GetComponentInParent<Enemy>().TakeDamage(damageWithMulitplier);
           }
         }
       }

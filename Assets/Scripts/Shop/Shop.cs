@@ -38,6 +38,7 @@ public class Shop : MonoBehaviour
                 weaponBought[index] = true;
                 GetPlayer().GetComponent<Player>().SetWeaponType(index);
                 weapons.GetChild(index).Find("Price").gameObject.SetActive(false);
+                weapons.GetChild(index).Find("Money").gameObject.SetActive(false);
                 for (int i = 0; i < weapons.childCount; i++)
                 {
                     weapons.GetChild(i).Find("Equipped").gameObject.SetActive(i == index);
@@ -55,15 +56,14 @@ public class Shop : MonoBehaviour
         }
         else
         {
-            //TODO: update prices and acquired bonuses indicators
             GetPlayer().GetComponent<Player>().UpdateMoney(-EconomyConstants.bonusStats[index].price);
             bonusBought[index]++;
 
-            // TODO: add to shop and uncomment
-            // Transform stats = transform.Find("Stats").GetChild(index).Find("Aquired").gameObject.SetActive(i == index);
+            transform.Find("Stats").GetChild(index).Find("Aquired").GetComponent<UnityEngine.UI.Text>().text = bonusBought[index].ToString() + "  / " + EconomyConstants.bonusStats[index].maxQuantity.ToString();
             if (bonusBought[index] >= EconomyConstants.bonusStats[index].maxQuantity)
             {
                 transform.Find("Stats").GetChild(index).Find("Price").gameObject.SetActive(false);
+                transform.Find("Stats").GetChild(index).Find("Money").gameObject.SetActive(false);
             }
 
             switch (index)
@@ -98,11 +98,21 @@ public class Shop : MonoBehaviour
 
     public void BuyBurger()
     {
-        if (GetPlayer().GetComponent<Player>().Money >= EconomyConstants.burgerPrice &&
+        BuyHeal(EconomyConstants.burgerPrice, EconomyConstants.burgerHealth);
+    }
+
+    public void BuyHealPack()
+    {
+        BuyHeal(EconomyConstants.healpackPrice, EconomyConstants.healpackHealth);
+    }
+
+    private void BuyHeal(int price, int health)
+    {
+        if (GetPlayer().GetComponent<Player>().Money >= price &&
             GetPlayer().GetComponent<Player>().Health < GetPlayer().GetComponent<Player>().MaxHealth)
         {
-            GetPlayer().GetComponent<Player>().UpdateMoney(-EconomyConstants.burgerPrice);
-            GetPlayer().GetComponent<Player>().Heal(EconomyConstants.burgerHealth);
+            GetPlayer().GetComponent<Player>().UpdateMoney(-price);
+            GetPlayer().GetComponent<Player>().Heal(health);
         }
     }
 

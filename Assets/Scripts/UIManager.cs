@@ -42,7 +42,14 @@ public class UIManager : MonoBehaviour
         {
             canvas.transform.Find("Shop").Find("Stats").GetChild(i).Find("Price").GetComponent<UnityEngine.UI.Text>().text =
                 EconomyConstants.bonusStats[i].price.ToString();
+            canvas.transform.Find("Shop").Find("Stats").GetChild(i).Find("Aquired").GetComponent<UnityEngine.UI.Text>().text = "0 / " + EconomyConstants.bonusStats[i].maxQuantity.ToString();
+
         }
+        canvas.transform.Find("Shop").Find("Heal").Find("Burger").Find("Price").GetComponent<UnityEngine.UI.Text>().text = EconomyConstants.burgerPrice.ToString();
+        canvas.transform.Find("Shop").Find("Heal").Find("Burger").Find("Heal").GetComponent<UnityEngine.UI.Text>().text = "+" + EconomyConstants.burgerHealth.ToString();
+        canvas.transform.Find("Shop").Find("Heal").Find("Healpack").Find("Price").GetComponent<UnityEngine.UI.Text>().text = EconomyConstants.healpackPrice.ToString();
+        canvas.transform.Find("Shop").Find("Heal").Find("Healpack").Find("Heal").GetComponent<UnityEngine.UI.Text>().text = "+" + EconomyConstants.healpackHealth.ToString();
+        canvas.transform.Find("Shop").Find("Spaceship").Find("Spaceship").Find("Price").GetComponent<UnityEngine.UI.Text>().text = EconomyConstants.spaceshipPrice.ToString();
     }
 
     // Flash screen red when damage is taken
