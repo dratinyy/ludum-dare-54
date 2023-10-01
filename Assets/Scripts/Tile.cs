@@ -162,6 +162,11 @@ public class Tile : MonoBehaviour
         {
             return;
         }
+        // Prevent raycast which happens when clicking on UI elements
+        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
         if (Input.GetMouseButtonDown(0))
         {
             if (menu.activeSelf)

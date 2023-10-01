@@ -35,6 +35,11 @@ public class TileMenuButton : MonoBehaviour
         // print("mouseOver");
         if (Input.GetMouseButtonDown(0))
         {
+            // Prevent raycast which happens when clicking on UI elements
+            if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
             print("Tile menu button clicked");
             if (type == "rent")
             {
