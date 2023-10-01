@@ -59,7 +59,9 @@ public class TilesManager : MonoBehaviour
         if (!noTiles(i, j))
         {
           // update tile
-          Tiles[getTile(i, j)].GetComponent<Tile>().UpdateWalkable();
+          Tile tile = Tiles[getTile(i, j)].GetComponent<Tile>();
+          tile.UpdateWalkable();
+          tile.GiveRentMoney();
         }
       }
     }

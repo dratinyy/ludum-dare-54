@@ -89,6 +89,11 @@ public class GameManager : MonoBehaviour
         Debug.Log("Starting night " + waveNumber);
         UIManager.Instance.SetNightDisplay(waveNumber + 1);
 
+        if (waveNumber > 0)
+        {
+            Player.position = new Vector3(0, 0, 0);
+        }
+
         // Set global light intensity to  0.5 
         player.transform.Find("NightMask").gameObject.SetActive(true);
 
@@ -106,6 +111,11 @@ public class GameManager : MonoBehaviour
         isDay = true;
         Debug.Log("Starting day " + waveNumber);
         UIManager.Instance.SetDayDisplay(waveNumber + 1);
+
+        if (waveNumber < EconomyConstants.numberOfWavesWithIncome)
+        {
+            Player.GetComponent<Player>().UpdateMoney(100);
+        }
 
         // Set player child NightMask object to inactive
         player.transform.Find("NightMask").gameObject.SetActive(false);
