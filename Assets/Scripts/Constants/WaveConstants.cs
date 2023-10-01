@@ -8,25 +8,39 @@ public class WaveConstants : MonoBehaviour
 
     public static readonly EnemyWaveStats[] enemyWaveStats = new EnemyWaveStats[]
     {
-        // Enemy 0
+        // Zombie
         new EnemyWaveStats
         {
             startAtWave = 0,
             intialCount = 6,
             additionalPerWave = 3
         },
-        // Enemy 1
+        // Worm
         new EnemyWaveStats
         {
             startAtWave = 2,
             intialCount = 3,
             additionalPerWave = 3
         }, 
-        // Enemy 2
+        // Golem
         new EnemyWaveStats
         {
             startAtWave = 3,
             intialCount = 2,
+            additionalPerWave = 1
+        },
+        // Necromancer
+        new EnemyWaveStats
+        {
+            startAtWave = 5,
+            intialCount = 1,
+            additionalPerWave = 1
+        },
+        // Boss
+        new EnemyWaveStats
+        {
+            startAtWave = 6,
+            intialCount = 1,
             additionalPerWave = 1
         }
     };
