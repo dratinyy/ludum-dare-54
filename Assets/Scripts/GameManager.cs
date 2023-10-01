@@ -77,6 +77,8 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         StartNight();
+        UIManager.Instance.UpdateMoney(player.GetComponent<Player>().Money);
+        UIManager.Instance.UpdateHealth(player.GetComponent<Player>().Health, player.GetComponent<Player>().MaxHealth);
     }
 
 

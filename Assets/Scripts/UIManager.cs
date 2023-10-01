@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -52,9 +53,17 @@ public class UIManager : MonoBehaviour
         // Destroy(flash, 0.1f);
     }
 
+    public void UpdateMoney(float amount)
+    {
+        canvas.transform.Find("Money").gameObject.SetActive(true);
+        canvas.transform.Find("Money").Find("MoneyText").GetComponent<UnityEngine.UI.Text>().text = amount.ToString();
+    }
+
     public void UpdateHealth(float health, float maxHealth)
     {
-        GameObject.Find("HealthText").GetComponent<UnityEngine.UI.Text>().text = health.ToString();
+        canvas.transform.Find("Health").gameObject.SetActive(true);
+        canvas.transform.Find("Health").Find("HealthText").GetComponent<UnityEngine.UI.Text>().text = health.ToString();
+        canvas.transform.Find("Health").Find("MaxHealthText").GetComponent<UnityEngine.UI.Text>().text = "/ " + maxHealth.ToString();
     }
 
     public void DisplayShop(bool display)

@@ -34,7 +34,7 @@ public class Shop : MonoBehaviour
         {
             if (GetPlayer().GetComponent<Player>().Money >= EconomyConstants.weaponPrices[index])
             {
-                GetPlayer().GetComponent<Player>().Pay(EconomyConstants.weaponPrices[index]);
+                GetPlayer().GetComponent<Player>().UpdateMoney(-EconomyConstants.weaponPrices[index]);
                 weaponBought[index] = true;
                 GetPlayer().GetComponent<Player>().SetWeaponType(index);
                 weapons.GetChild(index).Find("Price").gameObject.SetActive(false);
@@ -56,14 +56,21 @@ public class Shop : MonoBehaviour
         else
         {
             //TODO: update prices and acquired bonuses indicators
-            GetPlayer().GetComponent<Player>().Pay(EconomyConstants.bonusStats[index].price);
+            GetPlayer().GetComponent<Player>().UpdateMoney(-EconomyConstants.bonusStats[index].price);
             bonusBought[index]++;
+
+            // TODO: add to shop and uncomment
+            // Transform stats = transform.Find("Stats").GetChild(index).Find("Aquired").gameObject.SetActive(i == index);
+            if (bonusBought[index] >= EconomyConstants.bonusStats[index].maxQuantity)
+            {
+                transform.Find("Stats").GetChild(index).Find("Price").gameObject.SetActive(false);
+            }
+
             switch (index)
             {
                 // Max Health
                 case 0:
-                    GetPlayer().GetComponent<Player>().maxHealth += EconomyConstants.bonusStats[index].increase;
-                    GetPlayer().GetComponent<Player>().Heal(EconomyConstants.bonusStats[index].increase);
+                    GetPlayer().GetComponent<Player>().IncreaseMaxHealth(EconomyConstants.bonusStats[index].increase);
                     break;
 
                 // Movespeed
@@ -92,9 +99,9 @@ public class Shop : MonoBehaviour
     public void BuyBurger()
     {
         if (GetPlayer().GetComponent<Player>().Money >= EconomyConstants.burgerPrice &&
-            GetPlayer().GetComponent<Player>().Health < GetPlayer().GetComponent<Player>().maxHealth)
+            GetPlayer().GetComponent<Player>().Health < GetPlayer().GetComponent<Player>().MaxHealth)
         {
-            GetPlayer().GetComponent<Player>().Pay(EconomyConstants.burgerPrice);
+            GetPlayer().GetComponent<Player>().UpdateMoney(-EconomyConstants.burgerPrice);
             GetPlayer().GetComponent<Player>().Heal(EconomyConstants.burgerHealth);
         }
     }
@@ -103,8 +110,7 @@ public class Shop : MonoBehaviour
     {
         if (GetPlayer().GetComponent<Player>().Money >= EconomyConstants.spaceshipPrice)
         {
-            GetPlayer().GetComponent<Player>().Pay(EconomyConstants.spaceshipPrice);
-            // GameManager.Instance.Win();
+            GetPlayer().GetComponent<Player>().UpdateMoney(-EconomyConstants.spaceshipPrice);
         }
     }
 

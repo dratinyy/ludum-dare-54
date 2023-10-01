@@ -3,7 +3,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-  public float maxHealth = 100f;
+  private float maxHealth = 100f;
+  public float MaxHealth
+  {
+    get
+    {
+      return maxHealth;
+    }
+  }
   public float damageMultiplier = 1f;
   public float movespeedMultiplier = 1f;
   public float attackSpeedMultiplier = 1f;
@@ -138,14 +145,22 @@ public class Player : MonoBehaviour
     Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
   }
 
-  public void Pay(int amount)
+  public void UpdateMoney(int amount)
   {
-    money -= amount;
+    money += amount;
+    UIManager.Instance.UpdateMoney(money);
   }
 
-  public void Heal(float damage)
+  public void Heal(float amount)
   {
-    health = Mathf.Min(maxHealth, health + damage);
+    health = Mathf.Min(maxHealth, health + amount);
+    UIManager.Instance.UpdateHealth(health, maxHealth);
+  }
+
+  public void IncreaseMaxHealth(float amount)
+  {
+    maxHealth += amount;
+    health += amount;
     UIManager.Instance.UpdateHealth(health, maxHealth);
   }
 
