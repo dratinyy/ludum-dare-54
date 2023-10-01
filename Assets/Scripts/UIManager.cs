@@ -32,6 +32,16 @@ public class UIManager : MonoBehaviour
     void Init()
     {
         canvas = GameObject.Find("Canvas");
+        for (int i = 0; i < WeaponConstants.weaponStats.Length; i++)
+        {
+            canvas.transform.Find("Shop").Find("Weapons").GetChild(i).Find("Price").GetComponent<UnityEngine.UI.Text>().text =
+                EconomyConstants.weaponPrices[i].ToString();
+        }
+        for (int i = 0; i < EconomyConstants.bonusStats.Length; i++)
+        {
+            canvas.transform.Find("Shop").Find("Stats").GetChild(i).Find("Price").GetComponent<UnityEngine.UI.Text>().text =
+                EconomyConstants.bonusStats[i].price.ToString();
+        }
     }
 
     // Flash screen red when damage is taken
@@ -55,9 +65,11 @@ public class UIManager : MonoBehaviour
     public void SetNightDisplay(int waveNumber)
     {
         canvas.transform.Find("NextWaveButton2").gameObject.SetActive(false);
-        GameObject.Find("DayNightText").GetComponent<UnityEngine.UI.Text>().text = "Night " + waveNumber.ToString();
-        canvas.transform.Find("day").gameObject.SetActive(false);
-        canvas.transform.Find("night").gameObject.SetActive(true);
+
+        Transform DayNightIndicator = canvas.transform.Find("DayNightIndicator");
+        DayNightIndicator.Find("DayNightText").GetComponent<UnityEngine.UI.Text>().text = "Night " + waveNumber.ToString();
+        DayNightIndicator.Find("day").gameObject.SetActive(false);
+        DayNightIndicator.Find("night").gameObject.SetActive(true);
 
         if (waveNumber == 1)
         {
@@ -87,11 +99,11 @@ public class UIManager : MonoBehaviour
 
     public void SetDayDisplay(int waveNumber)
     {
-        canvas.transform.Find("ShopButton 1").gameObject.GetComponent<HandleShop>().setOpen();
         canvas.transform.Find("NextWaveButton2").gameObject.SetActive(true);
-        canvas.transform.Find("DayNightText").GetComponent<UnityEngine.UI.Text>().text = "Day " + waveNumber.ToString();
-        canvas.transform.Find("day").gameObject.SetActive(true);
-        canvas.transform.Find("night").gameObject.SetActive(false);
+        Transform DayNightIndicator = canvas.transform.Find("DayNightIndicator");
+        DayNightIndicator.Find("DayNightText").GetComponent<UnityEngine.UI.Text>().text = "Day " + waveNumber.ToString();
+        DayNightIndicator.Find("day").gameObject.SetActive(true);
+        DayNightIndicator.Find("night").gameObject.SetActive(false);
 
         if (waveNumber == 1)
         {
@@ -99,10 +111,13 @@ public class UIManager : MonoBehaviour
         }
         else if (waveNumber > 1)
         {
+            Transform shopButton = canvas.transform.Find("ShopButton 1");
             if (waveNumber == 2)
             {
+                shopButton.gameObject.SetActive(true);
                 //TODO: shop helper
             }
+            shopButton.gameObject.GetComponent<HandleShop>().setOpen();
         }
     }
 }

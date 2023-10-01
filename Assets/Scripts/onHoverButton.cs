@@ -17,7 +17,6 @@ public class onHover : MonoBehaviour
 
     public void OnHoverEnter()
     {
-        print("hovering");
         normalDisplay.SetActive(false);
         hoverDisplay.SetActive(true);
     }
