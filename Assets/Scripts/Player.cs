@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -8,7 +6,7 @@ public class Player : MonoBehaviour
   private float maxHealth = 100f;
   private float health;
   private float speed = 5f;
-  private int weaponType = 0;
+  private int weaponType = 1;
   public Animator animatorLegs;
   public SpriteRenderer spriteRendererLegs;
   public SpriteRenderer spriteRendererTop;
@@ -91,10 +89,13 @@ public class Player : MonoBehaviour
     // get vector toward mouse pos normalized 
     var worldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     Vector2 direction = new Vector2(worldMousePosition.x - transform.position.x, worldMousePosition.y - transform.position.y);
-    direction = direction.normalized;
+    float randomAngle = UnityEngine.Random.Range(Mathf.Atan2(direction.y, direction.x) - WeaponConstants.weaponStats[weaponType].randomAngle,
+     Mathf.Atan2(direction.y, direction.x) + WeaponConstants.weaponStats[weaponType].randomAngle);
 
-    GameObject projectile = Instantiate(WeaponConstants.weaponStats[weaponType].projectilePrefab, transform.position, Quaternion.identity);
-    //TODO: shoot from gun
+    direction = new Vector2(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle));
+
+    Vector2 gunPosition = transform.Find("GunPosition").position;
+    GameObject projectile = Instantiate(WeaponConstants.weaponStats[weaponType].projectilePrefab, gunPosition, Quaternion.identity);
     projectile.GetComponent<Projectile>().Init(direction, transform.position);
   }
 
@@ -125,7 +126,7 @@ public class Player : MonoBehaviour
     {
       Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
     }
-    if (collision.gameObject.tag == "Tile")
+    else if (collision.gameObject.tag == "Tile")
     {
       if (collision.gameObject.GetComponent<Tile>().getIsWalkable())
       {
