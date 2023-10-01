@@ -4,10 +4,21 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    [SerializeField]
     private bool isWalkable = false;
 
-    public bool isCenter = false;
+    private bool isCenter = false;
+    private GameObject player;
+    private GameObject Player
+    {
+        get
+        {
+            if (player == null)
+            {
+                player = GameManager.Instance.Player.gameObject;
+            }
+            return player;
+        }
+    }
 
     public enum State
     {
@@ -132,6 +143,14 @@ public class Tile : MonoBehaviour
         Physics2D.IgnoreCollision(GameManager.Instance.Player.GetComponent<Collider2D>(), GetComponent<Collider2D>(), isWalkable);
     }
 
+    public void GiveRentMoney()
+    {
+        if (GameManager.Instance.isDay && currentState == State.Rented)
+        {
+            Player.GetComponent<Player>().UpdateMoney(EconomyConstants.tileRentBenefit);
+        }
+    }
+
     public void setMenuOwned()
     {
         buyButton.SetActive(false);
@@ -181,6 +200,11 @@ public class Tile : MonoBehaviour
     }
     public void buy()
     {
+        if (Player.GetComponent<Player>().Money < EconomyConstants.tileBuyPrice)
+        {
+            return;
+        }
+        Player.GetComponent<Player>().UpdateMoney(-EconomyConstants.tileBuyPrice);
         setState(State.Owned);
         menu.SetActive(false);
     }
@@ -199,6 +223,7 @@ public class Tile : MonoBehaviour
 
     public void sell()
     {
+        Player.GetComponent<Player>().UpdateMoney(EconomyConstants.tileSellPrice);
         setState(State.notOwned);
         menu.SetActive(false);
     }

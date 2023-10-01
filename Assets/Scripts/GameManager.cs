@@ -89,6 +89,11 @@ public class GameManager : MonoBehaviour
         Debug.Log("Starting night " + waveNumber);
         UIManager.Instance.SetNightDisplay(waveNumber + 1);
 
+        if (waveNumber > 0)
+        {
+            Player.position = new Vector3(0, 0, 0);
+        }
+
         // Set global light intensity to  0.5 
         player.transform.Find("NightMask").gameObject.SetActive(true);
 
