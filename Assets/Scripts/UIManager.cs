@@ -50,8 +50,13 @@ public class UIManager : MonoBehaviour
     public void SetNightDisplay(int waveNumber)
     {
         canvas.transform.Find("NextWaveButton2").gameObject.SetActive(false);
-        // GameObject.Find("ShopButton").GetComponent<HandleShop>().setClose();    
+        // canvas.transform.Find("ShopButton").GetComponent<HandleShop>().setClose();    
         GameObject.Find("DayNightText").GetComponent<UnityEngine.UI.Text>().text = "Night " + waveNumber.ToString();
+
+        canvas.transform.Find("day").gameObject.SetActive(false);
+        canvas.transform.Find("night").gameObject.SetActive(true);
+        canvas.transform.Find("Shop").gameObject.SetActive(false);
+
         if (waveNumber == 1)
         {
             canvas.transform.Find("FirstNightHelper").gameObject.SetActive(true);
@@ -73,7 +78,9 @@ public class UIManager : MonoBehaviour
     {
         // GameObject.Find("ShopButton").GetComponent<HandleShop>().setOpen();    
         canvas.transform.Find("NextWaveButton2").gameObject.SetActive(true);
-        GameObject.Find("DayNightText").GetComponent<UnityEngine.UI.Text>().text = "Day " + waveNumber.ToString();
+        canvas.transform.Find("DayNightText").GetComponent<UnityEngine.UI.Text>().text = "Day " + waveNumber.ToString();
+        canvas.transform.Find("day").gameObject.SetActive(true);
+        canvas.transform.Find("night").gameObject.SetActive(false);
         if (waveNumber == 1)
         {
             canvas.transform.Find("FirstDayHelper").gameObject.SetActive(true);

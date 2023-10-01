@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
 
-            player.GetComponent<Player>().weaponType = (player.GetComponent<Player>().weaponType + 1) % 5;
+            // player.GetComponent<Player>().weaponType = (player.GetComponent<Player>().weaponType + 1) % 5;
             // if (isDay)
             // {
             //     StartNight();
