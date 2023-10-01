@@ -20,7 +20,7 @@ public class EnemyConstants : MonoBehaviour
         new EnemyStats
         {
             speed = 3f,
-            health = 23f,
+            health = 17f,
             damage = 10f,
             attackSpeed = 1f,
             attackRange = 0.6f

@@ -12,34 +12,34 @@ public class WaveConstants : MonoBehaviour
         new EnemyWaveStats
         {
             startAtWave = 0,
-            intialCount = 6,
+            intialCount = 4,
             additionalPerWave = 5
         },
         // Worm
         new EnemyWaveStats
         {
             startAtWave = 2,
-            intialCount = 3,
-            additionalPerWave = 3
+            intialCount = 1,
+            additionalPerWave = 2
         }, 
         // Golem
         new EnemyWaveStats
         {
-            startAtWave = 3,
-            intialCount = 2,
+            startAtWave = 4,
+            intialCount = 1,
             additionalPerWave = 1
         },
         // Necromancer
         new EnemyWaveStats
         {
-            startAtWave = 5,
+            startAtWave = 7,
             intialCount = 1,
             additionalPerWave = 1
         },
         // Boss
         new EnemyWaveStats
         {
-            startAtWave = 6,
+            startAtWave = 10,
             intialCount = 1,
             additionalPerWave = 1
         }
