@@ -6,7 +6,7 @@ public class EconomyConstants : MonoBehaviour
 {
 
     public readonly static int tileBuyPrice = 100;
-    public readonly static int tileRentBenefit = 25;
+    public readonly static int tileRentBenefit = 30;
     public readonly static int tileSellPrice = 80;
 
     public readonly static int burgerPrice = 10;
@@ -25,16 +25,16 @@ public class EconomyConstants : MonoBehaviour
         0,
 
         // Weapon 1 Shotgun
-        200,
+        150,
 
         // Weapon 2 Auto Rifle
         300,
 
         // Weapon 3 Sniper
-        400,
+        500,
 
         // Weapon 4 Rocket Launcher
-        500
+        700
     };
 
     public readonly static BonusStats[] bonusStats = new BonusStats[]
@@ -42,41 +42,41 @@ public class EconomyConstants : MonoBehaviour
         // Max Health
         new BonusStats
         {
-            price = 100,
+            price = 30,
             increase = 20f, // not in percent
-            maxQuantity = 3f
+            maxQuantity = 10f
         },
 
         // Movespeed
         new BonusStats
         {
-            price = 100,
+            price = 70,
             increase = 10f, // in percent
-            maxQuantity = 3f
+            maxQuantity = 10f
         },
 
         // Damage
         new BonusStats
         {
-            price = 100,
+            price = 70,
             increase = 10f, // in percent
-            maxQuantity = 3f
+            maxQuantity = 10f
         },
 
         // Attack Speed
         new BonusStats
         {
-            price = 100,
+            price = 80,
             increase = 10f, // in percent
-            maxQuantity = 3f
+            maxQuantity = 10f
         },
 
         // Range
         new BonusStats
         {
-            price = 100,
+            price = 70,
             increase = 10f, // in percent
-            maxQuantity = 3f
+            maxQuantity = 10f
         }
     };
 

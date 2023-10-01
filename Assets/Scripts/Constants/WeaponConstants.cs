@@ -29,8 +29,8 @@ public class WeaponConstants : MonoBehaviour
             projectileCount = 1f,
             damage = 8f,
             attackSpeed = 3f,
-            range = 6f,
-            accuracy = 0f,
+            range = 7f,
+            accuracy = 50f,
 
             piercing = 1,
             explosive = false,
@@ -57,7 +57,7 @@ public class WeaponConstants : MonoBehaviour
             projectileCount = 1f,
             damage = 4f,
             attackSpeed = 8f,
-            range = 9f,
+            range = 4f,
             accuracy = 80f,
 
             piercing = 1,

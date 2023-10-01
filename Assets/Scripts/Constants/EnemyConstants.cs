@@ -10,8 +10,8 @@ public class EnemyConstants : MonoBehaviour
         // Zombie
         new EnemyStats
         {
-            speed = 1f,
-            health = 32f,
+            speed = 0.7f,
+            health = 31f,
             damage = 10f,
             attackSpeed = 1f,
             attackRange = 0.6f

@@ -20,7 +20,7 @@ public class WaveConstants : MonoBehaviour
         {
             startAtWave = 2,
             intialCount = 1,
-            additionalPerWave = 2
+            additionalPerWave = 3
         }, 
         // Golem
         new EnemyWaveStats
