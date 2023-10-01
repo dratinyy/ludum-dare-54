@@ -26,7 +26,7 @@ public class TilesManager : MonoBehaviour
         Tiles.Add(tile);
 
         // set menu not owned
-        tile.GetComponent<Tile>().setState(Tile.State.notOwned);
+        tile.GetComponent<Tile>().initFirstDay();
 
         // in the corners of the map, there are no tiles
         if (noTiles(i, j))
@@ -37,13 +37,25 @@ public class TilesManager : MonoBehaviour
       }
     }
     // center tile is owned by player
-    Tiles[getTile(width / 2, width / 2)].GetComponent<Tile>().setState(Tile.State.Owned);
+    Tiles[getTile(width / 2, width / 2)].GetComponent<Tile>().initFirstDayCenter();
   }
 
   // Update is called once per frame
-  void Update()
+  public void UpdateTiles()
   {
-
+    print("UPDATING TILES");
+    for (int i = 0; i < width; i++)
+    {
+      for (int j = 0; j < width; j++)
+      {
+        // if tile is active 
+        if (getTile(i, j) > 0 && Tiles[getTile(i, j)].activeSelf)
+        {
+            // update tile
+            Tiles[getTile(i, j)].GetComponent<Tile>().UpdateWalkable();
+        }
+      }
+    }
   }
 
   public int getTile(int x, int y)

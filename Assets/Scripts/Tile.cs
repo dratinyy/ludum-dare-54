@@ -6,6 +6,8 @@ public class Tile : MonoBehaviour
 {
     private bool isWalkable = false;
 
+    public bool isCenter = false;
+
     public enum State 
     {
         notOwned, 
@@ -58,25 +60,27 @@ public class Tile : MonoBehaviour
         
     }
 
-    public void setIsWalkable(bool isWalkable)
-    {
-      this.isWalkable = isWalkable;
-      // change color
-      if(isWalkable)
-      {
-        GetComponent<SpriteRenderer>().color = Color.white;
-        overlay.SetActive(false);
-      }
-      else
-      {
-        GetComponent<SpriteRenderer>().color = Color.black;
-        overlay.SetActive(true);
-      }
-    }
-
     public bool getIsWalkable()
     {
       return isWalkable;
+    }
+
+    public void initFirstDay()
+    {
+        currentState = State.notOwned;
+        overlay.SetActive(true);
+        rentedOverlay.SetActive(false);
+        setMenuNotOwned();
+        isWalkable = false;
+    }
+
+    public void initFirstDayCenter()
+    {
+        currentState = State.Owned;
+        overlay.SetActive(false);
+        rentedOverlay.SetActive(false);
+        isWalkable = true;
+        isCenter = true;
     }
 
     public void setState(State newState)
@@ -88,17 +92,44 @@ public class Tile : MonoBehaviour
                 overlay.SetActive(true);
                 rentedOverlay.SetActive(false);
                 setMenuNotOwned();
+                UpdateWalkable();
                 break;
             case State.Owned:
                 overlay.SetActive(false);
                 rentedOverlay.SetActive(false);
                 setMenuOwned();
+                UpdateWalkable();
                 break;
             case State.Rented:
                 overlay.SetActive(true);
                 rentedOverlay.SetActive(true);
                 setMenuRented();
+                UpdateWalkable();
                 break;
+        }
+    }
+
+    public void UpdateWalkable()
+    {
+        print("updating walkable");
+        if(GameManager.Instance.isDay)
+        {
+            isWalkable = true;
+        }
+        else 
+        {
+            switch(currentState)
+            {
+                case State.notOwned:
+                    isWalkable = false;
+                    break;
+                case State.Owned:
+                    isWalkable = true;
+                    break;
+                case State.Rented:
+                    isWalkable = false;
+                    break;
+            }
         }
     }
 
@@ -128,7 +159,7 @@ public class Tile : MonoBehaviour
 
     void OnMouseOver()
     {
-        if(!GameManager.Instance.isDay)
+        if(isCenter || !GameManager.Instance.isDay )
         {
             return;
         }
