@@ -11,18 +11,18 @@ public class WeaponConstants : MonoBehaviour
         new WeaponStats
         {
             projectileSpeed = 8f,
-            damage = 7f,
+            damage = 20f,
             attackSpeed = 5f,
-            range = 3f,
+            range = 6f,
             randomAngle = 0.05f
         },
         // Weapon 1 Shotgun
         new WeaponStats
         {
             projectileSpeed = 8f,
-            damage = 12f,
+            damage = 15f,
             attackSpeed = 3f,
-            range = 1.5f,
+            range = 3f,
             randomAngle = 0.25f
         },
         // Weapon 2 Auto Rifle
@@ -31,7 +31,7 @@ public class WeaponConstants : MonoBehaviour
             projectileSpeed = 16f,
             damage = 4f,
             attackSpeed = 20f,
-            range = 4.5f,
+            range = 9f,
             randomAngle = 0.25f
         },
         // Weapon 3 Sniper
@@ -40,7 +40,7 @@ public class WeaponConstants : MonoBehaviour
             projectileSpeed = 12f,
             damage = 8f,
             attackSpeed = 7.5f,
-            range = 6f,
+            range = 15f,
             randomAngle = 0.25f
         },
         // Weapon 4 Rocket Launcher
@@ -49,7 +49,7 @@ public class WeaponConstants : MonoBehaviour
             projectileSpeed = 4f,
             damage = 30f,
             attackSpeed = 1.67f,
-            range = 9f,
+            range = 8f,
             randomAngle = 0.25f
         },
     };
