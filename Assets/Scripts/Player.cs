@@ -156,13 +156,8 @@ public class Player : MonoBehaviour
     UIManager.Instance.FlashScreen();
     if (health <= 0)
     {
-      Die();
+      // GameManager.Instance.Lose();
     }
-  }
-
-  void Die()
-  {
-    //Destroy(gameObject);
   }
 
   void OnCollisionEnter2D(Collision2D collision)
@@ -175,8 +170,7 @@ public class Player : MonoBehaviour
     {
       if (collision.gameObject.GetComponent<Tile>().getIsWalkable())
       {
-        // ignore collision
-        Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider);
       }
     }
   }

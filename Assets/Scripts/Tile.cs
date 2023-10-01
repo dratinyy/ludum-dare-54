@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
+    [SerializeField]
     private bool isWalkable = false;
 
-    public enum State 
+    public bool isCenter = false;
+
+    public enum State
     {
-        notOwned, 
+        notOwned,
         Owned,
         Rented
     };
@@ -21,11 +24,16 @@ public class Tile : MonoBehaviour
     private State currentState = State.notOwned;
 
     public GameObject overlay;
-    
+
     public GameObject menu;
 
     public GameObject rentedOverlay;
     private GameObject gameManager;
+
+    public GameObject sellButton;
+    public GameObject buyButton;
+    public GameObject rentButton;
+    public GameObject unRentButton;
 
     // Start is called before the first frame update
     void Start()
@@ -37,76 +45,126 @@ public class Tile : MonoBehaviour
 
         rentedOverlay.SetActive(false);
 
-        if(isWalkable)
+        if (isWalkable)
         {
-          overlay.SetActive(false);
+            overlay.SetActive(false);
         }
         else
         {
-          overlay.SetActive(true);
+            overlay.SetActive(true);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
 
-    public void setIsWalkable(bool isWalkable)
-    {
-      this.isWalkable = isWalkable;
-      // change color
-      if(isWalkable)
-      {
-        GetComponent<SpriteRenderer>().color = Color.white;
-        overlay.SetActive(false);
-      }
-      else
-      {
-        GetComponent<SpriteRenderer>().color = Color.black;
-        overlay.SetActive(true);
-      }
     }
 
     public bool getIsWalkable()
     {
-      return isWalkable;
+        return isWalkable;
+    }
+
+    public void initFirstDay()
+    {
+        currentState = State.notOwned;
+        overlay.SetActive(true);
+        rentedOverlay.SetActive(false);
+        setMenuNotOwned();
+        isWalkable = false;
+    }
+
+    public void initFirstDayCenter()
+    {
+        currentState = State.Owned;
+        overlay.SetActive(false);
+        rentedOverlay.SetActive(false);
+        isWalkable = true;
+        isCenter = true;
     }
 
     public void setState(State newState)
     {
         currentState = newState;
-        switch(newState)
+        switch (newState)
         {
             case State.notOwned:
-            overlay.SetActive(true);
-            rentedOverlay.SetActive(false);
-            overlay.GetComponent<SpriteRenderer>().color = notOwnedColor;
-            setIsWalkable(false);
-            break;
+                overlay.SetActive(true);
+                rentedOverlay.SetActive(false);
+                setMenuNotOwned();
+                break;
             case State.Owned:
-            overlay.SetActive(false);
-            rentedOverlay.SetActive(false);
-            setIsWalkable(true);
-            break;
+                overlay.SetActive(false);
+                rentedOverlay.SetActive(false);
+                setMenuOwned();
+                break;
             case State.Rented:
-            overlay.SetActive(true);
-            rentedOverlay.SetActive(true);
-            overlay.GetComponent<SpriteRenderer>().color = RentedColor;
-            setIsWalkable(false);
-            break;
+                overlay.SetActive(true);
+                rentedOverlay.SetActive(true);
+                setMenuRented();
+                break;
         }
     }
+
+    public void UpdateWalkable()
+    {
+        if (GameManager.Instance.isDay)
+        {
+            isWalkable = true;
+        }
+        else
+        {
+            menu.SetActive(false);
+            switch (currentState)
+            {
+                case State.notOwned:
+                    isWalkable = false;
+                    break;
+                case State.Owned:
+                    isWalkable = true;
+                    break;
+                case State.Rented:
+                    isWalkable = false;
+                    break;
+            }
+        }
+        Physics2D.IgnoreCollision(GameManager.Instance.Player.GetComponent<Collider2D>(), GetComponent<Collider2D>(), isWalkable);
+    }
+
+    public void setMenuOwned()
+    {
+        buyButton.SetActive(false);
+        sellButton.SetActive(true);
+        rentButton.SetActive(true);
+        unRentButton.SetActive(false);
+    }
+
+    public void setMenuNotOwned()
+    {
+        buyButton.SetActive(true);
+        sellButton.SetActive(false);
+        rentButton.SetActive(false);
+        unRentButton.SetActive(false);
+    }
+
+    public void setMenuRented()
+    {
+        buyButton.SetActive(false);
+        sellButton.SetActive(false);
+        rentButton.SetActive(false);
+        unRentButton.SetActive(true);
+    }
+
     void OnMouseOver()
     {
-        if(!GameManager.Instance.isDay)
+        if (isCenter || !GameManager.Instance.isDay)
         {
             return;
         }
         if (Input.GetMouseButtonDown(0))
         {
-            if(menu.activeSelf)
+            if (menu.activeSelf)
             {
                 menu.SetActive(false);
             }
@@ -118,21 +176,24 @@ public class Tile : MonoBehaviour
     }
     public void buy()
     {
-        print("buying");
         setState(State.Owned);
         menu.SetActive(false);
     }
 
     public void rent()
     {
-        print("renting");
         setState(State.Rented);
+        menu.SetActive(false);
+    }
+
+    public void unrent()
+    {
+        setState(State.Owned);
         menu.SetActive(false);
     }
 
     public void sell()
     {
-        print("selling");
         setState(State.notOwned);
         menu.SetActive(false);
     }

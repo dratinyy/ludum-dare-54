@@ -9,6 +9,7 @@ TagManager:
   - Tile
   - GlobalLight
   - Projectile
+  - TilesManager
   layers:
   - Default
   - TransparentFX

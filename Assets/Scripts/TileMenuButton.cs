@@ -48,6 +48,10 @@ public class TileMenuButton : MonoBehaviour
             {
                 Tile.GetComponent<Tile>().sell();
             }
+            else if (type == "unrent")
+            {
+                Tile.GetComponent<Tile>().unrent();
+            }
         }
     }
 

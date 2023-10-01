@@ -587,7 +587,7 @@ GameObject:
   - component: {fileID: 438536840}
   m_Layer: 0
   m_Name: Tiles
-  m_TagString: Untagged
+  m_TagString: TilesManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3805,4 +3805,3 @@ SceneRoots:
   - {fileID: 2024250284292162359}
   - {fileID: 811099402}
   - {fileID: 928003232}
-  - {fileID: 1903650818}

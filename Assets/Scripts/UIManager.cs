@@ -71,6 +71,11 @@ public class UIManager : MonoBehaviour
         DayNightIndicator.Find("day").gameObject.SetActive(false);
         DayNightIndicator.Find("night").gameObject.SetActive(true);
 
+        if (waveNumber > 1)
+        {
+            GameObject.FindGameObjectsWithTag("TilesManager")[0].GetComponent<TilesManager>().UpdateTiles();
+        }
+
         if (waveNumber == 1)
         {
             canvas.transform.Find("FirstNightHelper").gameObject.SetActive(true);
@@ -104,6 +109,7 @@ public class UIManager : MonoBehaviour
         DayNightIndicator.Find("DayNightText").GetComponent<UnityEngine.UI.Text>().text = "Day " + waveNumber.ToString();
         DayNightIndicator.Find("day").gameObject.SetActive(true);
         DayNightIndicator.Find("night").gameObject.SetActive(false);
+        GameObject.FindGameObjectsWithTag("TilesManager")[0].GetComponent<TilesManager>().UpdateTiles();
 
         if (waveNumber == 1)
         {

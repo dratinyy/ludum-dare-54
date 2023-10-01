@@ -9,21 +9,34 @@ public class TilesManager : MonoBehaviour
   public int width = 7;
   public float tileWidth = 4;
 
-  private List<GameObject> Tiles;
+  private GameObject[] Tiles;
 
   // Start is called before the first frame update
   void Start()
   {
     // initialize Tiles 
-    Tiles = new List<GameObject>(width * width);
+    Tiles = new GameObject[width * width];
     // create tiles
     for (int i = 0; i < width; i++)
     {
       for (int j = 0; j < width; j++)
       {
         // create tile
-        GameObject tile = Instantiate(tilePrefab, new Vector3(i * tileWidth - (width / 2 * tileWidth), j * tileWidth - (width / 2 * tileWidth), 1), Quaternion.identity, transform);
-        Tiles.Add(tile);
+        float xCoordinate = (i - width / 2) * tileWidth;
+        float yCoordinate = (j - width / 2) * tileWidth;
+        GameObject tile = Instantiate(tilePrefab, new Vector3(xCoordinate, yCoordinate, 1), Quaternion.identity, transform);
+        Tiles[getTile(i, j)] = tile;
+
+        // set menu not owned
+        // center tile is owned by player
+        if (i == width / 2 && j == width / 2)
+        {
+          tile.GetComponent<Tile>().initFirstDayCenter();
+        }
+        else
+        {
+          tile.GetComponent<Tile>().initFirstDay();
+        }
 
         // in the corners of the map, there are no tiles
         if (noTiles(i, j))
@@ -33,27 +46,28 @@ public class TilesManager : MonoBehaviour
         }
       }
     }
-    // center tile is walkable
-    Tiles[getTile(width / 2, width / 2)].GetComponent<Tile>().setIsWalkable(true);
   }
 
   // Update is called once per frame
-  void Update()
+  public void UpdateTiles()
   {
-
+    for (int i = 0; i < width; i++)
+    {
+      for (int j = 0; j < width; j++)
+      {
+        // if tile is active 
+        if (!noTiles(i, j))
+        {
+          // update tile
+          Tiles[getTile(i, j)].GetComponent<Tile>().UpdateWalkable();
+        }
+      }
+    }
   }
 
-  public int getTile(int x, int y)
+  private int getTile(int x, int y)
   {
-    if (noTiles(x, y))
-    {
-      return -1;
-    }
-    if (x < 0 || x >= width || y < 0 || y >= width)
-    {
-      return -1;
-    }
-    return x * width + y;
+    return y * width + x;
   }
 
   private bool noTiles(int x, int y)
