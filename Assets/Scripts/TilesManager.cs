@@ -25,6 +25,9 @@ public class TilesManager : MonoBehaviour
         GameObject tile = Instantiate(tilePrefab, new Vector3(i * tileWidth - (width / 2 * tileWidth), j * tileWidth - (width / 2 * tileWidth), 1), Quaternion.identity, transform);
         Tiles.Add(tile);
 
+        // set menu not owned
+        tile.GetComponent<Tile>().setState(Tile.State.notOwned);
+
         // in the corners of the map, there are no tiles
         if (noTiles(i, j))
         {
@@ -33,8 +36,8 @@ public class TilesManager : MonoBehaviour
         }
       }
     }
-    // center tile is walkable
-    Tiles[getTile(width / 2, width / 2)].GetComponent<Tile>().setIsWalkable(true);
+    // center tile is owned by player
+    Tiles[getTile(width / 2, width / 2)].GetComponent<Tile>().setState(Tile.State.Owned);
   }
 
   // Update is called once per frame

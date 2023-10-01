@@ -27,6 +27,11 @@ public class Tile : MonoBehaviour
     public GameObject rentedOverlay;
     private GameObject gameManager;
 
+    public GameObject sellButton;
+    public GameObject buyButton;
+    public GameObject rentButton;
+    public GameObject unRentButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -80,24 +85,47 @@ public class Tile : MonoBehaviour
         switch(newState)
         {
             case State.notOwned:
-            overlay.SetActive(true);
-            rentedOverlay.SetActive(false);
-            overlay.GetComponent<SpriteRenderer>().color = notOwnedColor;
-            setIsWalkable(false);
-            break;
+                overlay.SetActive(true);
+                rentedOverlay.SetActive(false);
+                setMenuNotOwned();
+                break;
             case State.Owned:
-            overlay.SetActive(false);
-            rentedOverlay.SetActive(false);
-            setIsWalkable(true);
-            break;
+                overlay.SetActive(false);
+                rentedOverlay.SetActive(false);
+                setMenuOwned();
+                break;
             case State.Rented:
-            overlay.SetActive(true);
-            rentedOverlay.SetActive(true);
-            overlay.GetComponent<SpriteRenderer>().color = RentedColor;
-            setIsWalkable(false);
-            break;
+                overlay.SetActive(true);
+                rentedOverlay.SetActive(true);
+                setMenuRented();
+                break;
         }
     }
+
+    public void setMenuOwned()
+    {
+        buyButton.SetActive(false);
+        sellButton.SetActive(true);
+        rentButton.SetActive(true);
+        unRentButton.SetActive(false);
+    }
+
+    public void setMenuNotOwned()
+    {
+        buyButton.SetActive(true);
+        sellButton.SetActive(false);
+        rentButton.SetActive(false);
+        unRentButton.SetActive(false);
+    }
+
+    public void setMenuRented()
+    {
+        buyButton.SetActive(false);
+        sellButton.SetActive(false);
+        rentButton.SetActive(false);
+        unRentButton.SetActive(true);
+    }
+
     void OnMouseOver()
     {
         if(!GameManager.Instance.isDay)
@@ -118,21 +146,24 @@ public class Tile : MonoBehaviour
     }
     public void buy()
     {
-        print("buying");
         setState(State.Owned);
         menu.SetActive(false);
     }
 
     public void rent()
     {
-        print("renting");
         setState(State.Rented);
+        menu.SetActive(false);
+    }
+
+    public void unrent()
+    {
+        setState(State.Owned);
         menu.SetActive(false);
     }
 
     public void sell()
     {
-        print("selling");
         setState(State.notOwned);
         menu.SetActive(false);
     }
