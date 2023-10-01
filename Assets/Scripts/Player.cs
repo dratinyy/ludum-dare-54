@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     }
   }
   private float speed = 5f;
-  private int money = 1000;
+  private int money = 0;
   public int Money
   {
     get

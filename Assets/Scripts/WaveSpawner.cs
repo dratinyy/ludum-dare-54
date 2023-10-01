@@ -6,6 +6,7 @@ public class WaveSpawner : MonoBehaviour
 {
     private const float spawnInterval = 0.08f;
     private const float spawnDistanceFromOrigin = 20f;
+    private float currentSpawnDistance;
 
     private int[] enemySpawnCounters;
     private bool spawning = false;
@@ -15,6 +16,7 @@ public class WaveSpawner : MonoBehaviour
     {
         enemySpawnCounters = WaveConstants.EnemyWaveCounts(waveNumber);
         spawning = true;
+        currentSpawnDistance = spawnDistanceFromOrigin / 2f;
     }
 
     void Update()
@@ -55,7 +57,8 @@ public class WaveSpawner : MonoBehaviour
     void SpawnEnemyOfType(int type)
     {
         float randomRotation = Random.Range(0, 2 * Mathf.PI);
-        Vector2 spawnPosition = new Vector3(Mathf.Cos(randomRotation), Mathf.Sin(randomRotation), 0) * spawnDistanceFromOrigin;
+        Vector2 spawnPosition = new Vector3(Mathf.Cos(randomRotation), Mathf.Sin(randomRotation), 0) * currentSpawnDistance;
+        currentSpawnDistance = Mathf.Min(spawnDistanceFromOrigin, currentSpawnDistance + spawnDistanceFromOrigin / 200f);
         Instantiate(WaveConstants.enemyPrefabs[type], spawnPosition, Quaternion.identity, transform);
     }
 }

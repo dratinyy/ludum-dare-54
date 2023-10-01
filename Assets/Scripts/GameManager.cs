@@ -112,6 +112,11 @@ public class GameManager : MonoBehaviour
         Debug.Log("Starting day " + waveNumber);
         UIManager.Instance.SetDayDisplay(waveNumber + 1);
 
+        if (waveNumber < EconomyConstants.numberOfWavesWithIncome)
+        {
+            Player.GetComponent<Player>().UpdateMoney(100);
+        }
+
         // Set player child NightMask object to inactive
         player.transform.Find("NightMask").gameObject.SetActive(false);
 

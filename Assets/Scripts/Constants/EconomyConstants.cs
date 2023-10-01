@@ -15,6 +15,9 @@ public class EconomyConstants : MonoBehaviour
     public readonly static int healpackPrice = 50;
     public readonly static int spaceshipPrice = 10000;
 
+    public readonly static int dailyIncome = 100;
+    public readonly static int numberOfWavesWithIncome = 7;
+
     public readonly static int[] weaponPrices = new int[]
     {
         // Weapon 0 Gun (cannot be bought)
