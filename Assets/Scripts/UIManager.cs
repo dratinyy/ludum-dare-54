@@ -49,6 +49,8 @@ public class UIManager : MonoBehaviour
 
     public void SetNightDisplay(int waveNumber)
     {
+        canvas.transform.Find("NextWaveButton2").gameObject.SetActive(false);
+        // GameObject.Find("ShopButton").GetComponent<HandleShop>().setClose();    
         GameObject.Find("DayNightText").GetComponent<UnityEngine.UI.Text>().text = "Night " + waveNumber.ToString();
         if (waveNumber == 1)
         {
@@ -69,6 +71,8 @@ public class UIManager : MonoBehaviour
 
     public void SetDayDisplay(int waveNumber)
     {
+        // GameObject.Find("ShopButton").GetComponent<HandleShop>().setOpen();    
+        canvas.transform.Find("NextWaveButton2").gameObject.SetActive(true);
         GameObject.Find("DayNightText").GetComponent<UnityEngine.UI.Text>().text = "Day " + waveNumber.ToString();
         if (waveNumber == 1)
         {
