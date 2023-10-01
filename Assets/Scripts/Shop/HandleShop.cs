@@ -6,13 +6,14 @@ public class HandleShop : MonoBehaviour
 {
 
     private bool isOpen = false;
-    private bool isTogggled = false;
+    private bool isToggled = false;
     public GameObject closedShopButton;
     public GameObject openShopButton;
 
     public void setClosed()
     {
         isOpen = false;
+        isToggled = false;
         closedShopButton.SetActive(true);
         openShopButton.SetActive(false);
     }
@@ -24,21 +25,12 @@ public class HandleShop : MonoBehaviour
         openShopButton.SetActive(true);
     }
 
-    public void Toggleshop(boolean toggled)
-    {
-        isTogggled = toggled;
-        UIManager.Instance.
-    }
-
     public void ToggleShop()
     {
         if (isOpen)
         {
-            setClosed();
-        }
-        else
-        {
-            setOpen();
+            isToggled = !isToggled;
+            UIManager.Instance.DisplayShop(isToggled);
         }
     }
 }

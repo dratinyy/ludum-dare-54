@@ -19,7 +19,14 @@ public class Player : MonoBehaviour
     }
   }
   private float speed = 5f;
-  public int money = 1000;
+  private int money = 1000;
+  public int Money
+  {
+    get
+    {
+      return money;
+    }
+  }
   public Animator animatorLegs;
   public SpriteRenderer spriteRendererLegs;
   public SpriteRenderer spriteRendererTop;
@@ -129,6 +136,11 @@ public class Player : MonoBehaviour
   public void cameraFollow()
   {
     Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
+  }
+
+  public void Pay(int amount)
+  {
+    money -= amount;
   }
 
   public void Heal(float damage)
