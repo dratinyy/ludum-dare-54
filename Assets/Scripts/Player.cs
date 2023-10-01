@@ -3,7 +3,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-  public float maxHealth = 100f;
+  private float maxHealth = 100f;
+  public float MaxHealth
+  {
+    get
+    {
+      return maxHealth;
+    }
+  }
   public float damageMultiplier = 1f;
   public float movespeedMultiplier = 1f;
   public float attackSpeedMultiplier = 1f;
@@ -79,7 +86,7 @@ public class Player : MonoBehaviour
       spriteRendererLegs.flipX = x < 0;
     }
 
-    GetComponent<Rigidbody2D>().velocity = move * speed;
+    GetComponent<Rigidbody2D>().velocity = move * speed * movespeedMultiplier;
   }
 
   void FaceMouse()
@@ -105,7 +112,7 @@ public class Player : MonoBehaviour
     }
     if (isShooting && Time.time > nextFire)
     {
-      nextFire = Time.time + 1 / WeaponConstants.weaponStats[weaponType].attackSpeed;
+      nextFire = Time.time + 1 / (WeaponConstants.weaponStats[weaponType].attackSpeed * attackSpeedMultiplier);
       ShootProjectiles();
     }
   }
@@ -114,8 +121,8 @@ public class Player : MonoBehaviour
   {
     // Vector towards mouse
     var worldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    Vector2 dirTowardsMouse = new Vector2(worldMousePosition.x - transform.position.x, worldMousePosition.y - transform.position.y);
     Vector2 gunPosition = transform.Find("GunPosition").position;
+    Vector2 dirTowardsMouse = new Vector2(worldMousePosition.x - gunPosition.x, worldMousePosition.y - gunPosition.y);
 
     // Instantiate projectiles
     for (int i = 0; i < WeaponConstants.weaponStats[weaponType].projectileCount; i++)
@@ -129,7 +136,7 @@ public class Player : MonoBehaviour
       dirTowardsMouse = new Vector2(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle));
 
       GameObject projectile = Instantiate(WeaponConstants.weaponStats[weaponType].projectilePrefab, gunPosition, Quaternion.identity);
-      projectile.GetComponent<Projectile>().Init(dirTowardsMouse, transform.position, weaponType);
+      projectile.GetComponent<Projectile>().Init(dirTowardsMouse, transform.position, weaponType, damageMultiplier, attackRangeMultiplier);
     }
   }
 
@@ -138,14 +145,22 @@ public class Player : MonoBehaviour
     Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
   }
 
-  public void Pay(int amount)
+  public void UpdateMoney(int amount)
   {
-    money -= amount;
+    money += amount;
+    UIManager.Instance.UpdateMoney(money);
   }
 
-  public void Heal(float damage)
+  public void Heal(float amount)
   {
-    health = Mathf.Min(maxHealth, health + damage);
+    health = Mathf.Min(maxHealth, health + amount);
+    UIManager.Instance.UpdateHealth(health, maxHealth);
+  }
+
+  public void IncreaseMaxHealth(float amount)
+  {
+    maxHealth += amount;
+    health += amount;
     UIManager.Instance.UpdateHealth(health, maxHealth);
   }
 
