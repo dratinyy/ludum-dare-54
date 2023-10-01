@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private bool isDay = false;
-
+    public bool isDay = false;
     private GameObject globalLight;
     private static GameManager _instance;
     public static GameManager Instance
