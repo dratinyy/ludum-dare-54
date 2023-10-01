@@ -102,7 +102,6 @@ public class Tile : MonoBehaviour
   {
     if (Input.GetMouseButtonDown(0))
     {
-        print("clicked");
         if(menu.activeSelf)
         {
             menu.SetActive(false);
@@ -113,4 +112,25 @@ public class Tile : MonoBehaviour
         }
     }
   }
+    public void buy()
+    {
+        print("buying");
+        setState(State.Owned);
+        menu.SetActive(false);
+    }
+
+    public void rent()
+    {
+        print("renting");
+        setState(State.Rented);
+        menu.SetActive(false);
+    }
+
+    public void sell()
+    {
+        print("selling");
+        setState(State.notOwned);
+        menu.SetActive(false);
+    }
+
 }
