@@ -27,8 +27,8 @@ public class WeaponConstants : MonoBehaviour
         {
             projectileSpeed = 8f,
             projectileCount = 1f,
-            damage = 20f,
-            attackSpeed = 5f,
+            damage = 7f,
+            attackSpeed = 2f,
             range = 6f,
             accuracy = 100f,
 
@@ -41,8 +41,8 @@ public class WeaponConstants : MonoBehaviour
         {
             projectileSpeed = 8f,
             projectileCount = 8f,
-            damage = 15f,
-            attackSpeed = 3f,
+            damage = 12f,
+            attackSpeed = 1.2f,
             range = 3f,
             accuracy = 0f, // Dispersion maximale
 
@@ -50,21 +50,21 @@ public class WeaponConstants : MonoBehaviour
             explosive = false,
             explosiveRange = 0f
         },
-        // Weapon 2 Auto Rifle
+        // Weapon 2 uzi
         new WeaponStats
         {
             projectileSpeed = 16f,
             projectileCount = 1f,
             damage = 4f,
-            attackSpeed = 20f,
+            attackSpeed = 8f,
             range = 9f,
-            accuracy = 100f,
+            accuracy = 80f,
 
             piercing = 1,
             explosive = false,
             explosiveRange = 0f
         },
-        // Weapon 3 Sniper
+        // Weapon 3 auto rifle
         new WeaponStats
         {
             projectileSpeed = 12f,
@@ -74,7 +74,7 @@ public class WeaponConstants : MonoBehaviour
             range = 15f,
             accuracy = 100f,
 
-            piercing = 3,
+            piercing = 6,
             explosive = false,
             explosiveRange = 0f
         },
@@ -84,7 +84,7 @@ public class WeaponConstants : MonoBehaviour
             projectileSpeed = 4f,
             projectileCount = 1f,
             damage = 30f,
-            attackSpeed = 1.67f,
+            attackSpeed = 1.5f,
             range = 8f,
             accuracy = 100f,
 
