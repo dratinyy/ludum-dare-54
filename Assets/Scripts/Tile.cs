@@ -21,6 +21,8 @@ public class Tile : MonoBehaviour
     private State currentState = State.notOwned;
 
     public GameObject overlay;
+    
+    public GameObject menu;
 
     public GameObject rentedOverlay;
     private GameObject gameManager;
@@ -100,20 +102,35 @@ public class Tile : MonoBehaviour
   {
     if (Input.GetMouseButtonDown(0))
     {
-        print("clicked");
-        // carrousel states 
-        if (currentState == State.notOwned)
+        if(menu.activeSelf)
         {
-            setState(State.Owned);
+            menu.SetActive(false);
         }
-        else if (currentState == State.Owned)
+        else
         {
-            setState(State.Rented);
-        }
-        else if (currentState == State.Rented)
-        {
-            setState(State.notOwned);
+            menu.SetActive(true);
         }
     }
   }
+    public void buy()
+    {
+        print("buying");
+        setState(State.Owned);
+        menu.SetActive(false);
+    }
+
+    public void rent()
+    {
+        print("renting");
+        setState(State.Rented);
+        menu.SetActive(false);
+    }
+
+    public void sell()
+    {
+        print("selling");
+        setState(State.notOwned);
+        menu.SetActive(false);
+    }
+
 }

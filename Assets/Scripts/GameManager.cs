@@ -92,6 +92,9 @@ public class GameManager : MonoBehaviour
         // Spawn enemies or other night-time events
         waveSpawnerGO.SetActive(true);
         waveSpawnerGO.GetComponent<WaveSpawner>().InitSpawn(waveNumber);
+
+        // player can shoot 
+        Player.GetComponent<Player>().canShoot = true;
     }
 
     public void StartDay()
@@ -104,7 +107,8 @@ public class GameManager : MonoBehaviour
         // Set player child NightMask object to inactive
         player.transform.Find("NightMask").gameObject.SetActive(false);
 
+        // player cannot shoot 
+        Player.GetComponent<Player>().canShoot = false;
     }
-
-
+    
 }

@@ -7,6 +7,7 @@ public class onHover : MonoBehaviour
 
     public GameObject normalDisplay;
     public GameObject hoverDisplay;
+    public GameObject Tile;
 
     void Start()
     {
@@ -16,6 +17,7 @@ public class onHover : MonoBehaviour
 
     public void OnHoverEnter()
     {
+        print("hovering");
         normalDisplay.SetActive(false);
         hoverDisplay.SetActive(true);
     }
