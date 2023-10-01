@@ -47,12 +47,18 @@ public class UIManager : MonoBehaviour
         GameObject.Find("HealthText").GetComponent<UnityEngine.UI.Text>().text = health.ToString();
     }
 
+    public void DisplayShop(bool display)
+    {
+        canvas.transform.Find("Shop").gameObject.SetActive(display);
+    }
+
     public void SetNightDisplay(int waveNumber)
     {
         canvas.transform.Find("NextWaveButton2").gameObject.SetActive(false);
-        canvas.transform.Find("ShopButton 1").gameObject.GetComponent<HandleShop>().setClosed();
-        // GameObject.Find("ShopButton").GetComponent<HandleShop>().setClose();    
         GameObject.Find("DayNightText").GetComponent<UnityEngine.UI.Text>().text = "Night " + waveNumber.ToString();
+        canvas.transform.Find("day").gameObject.SetActive(false);
+        canvas.transform.Find("night").gameObject.SetActive(true);
+
         if (waveNumber == 1)
         {
             canvas.transform.Find("FirstNightHelper").gameObject.SetActive(true);
@@ -61,6 +67,15 @@ public class UIManager : MonoBehaviour
         else if (waveNumber == 2)
         {
             GameObject.Destroy(canvas.transform.Find("FirstDayHelper").gameObject);
+        }
+        else if (waveNumber > 2)
+        {
+            if (waveNumber == 3)
+            {
+                //TODO: shop helper
+            }
+            canvas.transform.Find("ShopButton 1").gameObject.GetComponent<HandleShop>().setClosed();
+            DisplayShop(false);
         }
     }
 
@@ -72,13 +87,22 @@ public class UIManager : MonoBehaviour
 
     public void SetDayDisplay(int waveNumber)
     {
-        // GameObject.Find("ShopButton").GetComponent<HandleShop>().setOpen();    
         canvas.transform.Find("ShopButton 1").gameObject.GetComponent<HandleShop>().setOpen();
         canvas.transform.Find("NextWaveButton2").gameObject.SetActive(true);
-        GameObject.Find("DayNightText").GetComponent<UnityEngine.UI.Text>().text = "Day " + waveNumber.ToString();
+        canvas.transform.Find("DayNightText").GetComponent<UnityEngine.UI.Text>().text = "Day " + waveNumber.ToString();
+        canvas.transform.Find("day").gameObject.SetActive(true);
+        canvas.transform.Find("night").gameObject.SetActive(false);
+
         if (waveNumber == 1)
         {
             canvas.transform.Find("FirstDayHelper").gameObject.SetActive(true);
+        }
+        else if (waveNumber > 1)
+        {
+            if (waveNumber == 2)
+            {
+                //TODO: shop helper
+            }
         }
     }
 }
