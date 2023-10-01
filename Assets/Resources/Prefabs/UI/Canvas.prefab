@@ -2123,6 +2123,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NextWaveButton2
       objectReference: {fileID: 0}
+    - target: {fileID: 9031859291179179674, guid: 001f6432f4277db4da6d1c38714cf2a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
