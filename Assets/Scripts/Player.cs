@@ -3,10 +3,23 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-  private float maxHealth = 100f;
+  public float maxHealth = 100f;
+  public float damageMultiplier = 1f;
+  public float movespeedMultiplier = 1f;
+  public float attackSpeedMultiplier = 1f;
+  public float attackRangeMultiplier = 1f;
+  private int weaponType = 0;
+
   private float health;
+  public float Health
+  {
+    get
+    {
+      return health;
+    }
+  }
   private float speed = 5f;
-  public int weaponType = 0;
+  public int money = 1000;
   public Animator animatorLegs;
   public SpriteRenderer spriteRendererLegs;
   public SpriteRenderer spriteRendererTop;
@@ -32,6 +45,12 @@ public class Player : MonoBehaviour
     FaceMouse();
     cameraFollow();
     handleShoot();
+  }
+
+  public void SetWeaponType(int weaponType)
+  {
+    // TODO: update sprite
+    this.weaponType = weaponType;
   }
 
   public void Move()
@@ -110,6 +129,12 @@ public class Player : MonoBehaviour
   public void cameraFollow()
   {
     Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
+  }
+
+  public void Heal(float damage)
+  {
+    health = Mathf.Min(maxHealth, health + damage);
+    UIManager.Instance.UpdateHealth(health, maxHealth);
   }
 
   public void TakeDamage(float damage)
