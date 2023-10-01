@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections;
 
 public class UIManager : MonoBehaviour
 {
@@ -141,6 +142,23 @@ public class UIManager : MonoBehaviour
             }
             shopButton.gameObject.GetComponent<HandleShop>().setOpen();
         }
+    }
+
+    IEnumerator GameOverCoroutine()
+    {
+        launchFadeOut();
+        yield return new WaitForSeconds(3f);
+        DisplayLoseScreen();
+    }
+
+    public void GameOverRoutine()
+    {
+        StartCoroutine(GameOverCoroutine());
+    }
+
+    public void launchFadeOut()
+    {
+        canvas.transform.Find("GameOverFadeOut").gameObject.SetActive(true);
     }
 
     public void DisplayLoseScreen()

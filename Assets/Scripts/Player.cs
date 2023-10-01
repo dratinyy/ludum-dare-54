@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections;
 
 public class Player : MonoBehaviour
 {
@@ -170,12 +171,6 @@ public class Player : MonoBehaviour
     UIManager.Instance.UpdateHealth(health, maxHealth);
   }
 
-    IEnumerator EndGameCoroutine()
-    {
-        yield return new WaitForSeconds(3f);
-        UIManager.Instance.GoToLoseScreen();
-    }
-
   public void TakeDamage(float damage)
   {
     health = Mathf.Max(0, health - damage);
@@ -185,8 +180,7 @@ public class Player : MonoBehaviour
     {
       canShoot = false;
       canMove = false;
-      // start a coroutine to wait for 3 seconds and then go to lose screen
-      StartCoroutine(EndGameCoroutine());
+      GameManager.Instance.GameOver();
     }
   }
 
