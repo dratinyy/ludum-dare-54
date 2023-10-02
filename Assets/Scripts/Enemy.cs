@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     {
         attackClock += Time.deltaTime;
         Vector2 distanceToPlayer = player.position - transform.position;
+        transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = distanceToPlayer.x < 0;
         if (distanceToPlayer.magnitude <= EnemyConstants.enemyStats[type].attackRange)
         {
             Attack();
@@ -57,12 +58,12 @@ public class Enemy : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    
+
     void OnCollisionEnter2D(Collision2D collision)
     {
-      if(collision.gameObject.tag == "Tile")
-      {
-          Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
-      }
+        if (collision.gameObject.tag == "Tile")
+        {
+            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+        }
     }
 }
