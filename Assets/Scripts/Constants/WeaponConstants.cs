@@ -44,7 +44,7 @@ public class WeaponConstants : MonoBehaviour
             damage = 13f,
             attackSpeed = 1.2f,
             range = 3f,
-            accuracy = 80f, // Dispersion maximale
+            accuracy = 0f, // Dispersion maximale
 
             piercing = 1,
             explosive = false,
