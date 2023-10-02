@@ -23,15 +23,17 @@ public class WaveSpawner : MonoBehaviour
         indexList = new List<int>();
         for (int i = 0; i < enemySpawnCounters.Length; i++)
         {
-            for (int j = 0; j < enemySpawnCounters[i] * (waveNumber > 24 ? 2 : 1); j++)
+            // Double spawn rate eventually
+            for (int j = 0; j < enemySpawnCounters[i] * (waveNumber >= WaveConstants.waveNumberIncrease ? 2 : 1); j++)
             {
                 indexList.Add(i);
             }
         }
 
-        if (waveNumber > 24)
+        if (waveNumber >= WaveConstants.waveNumberIncrease)
         {
-            spawnInterval = 0.04f;
+            print("IMPORVED SPAWN RATE");
+            spawnInterval = 0.02f;
         }
     }
 
