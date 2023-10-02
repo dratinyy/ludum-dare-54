@@ -126,7 +126,6 @@ public class GameManager : MonoBehaviour
 
         // Set player child NightMask object to inactive
         player.transform.Find("NightMask").gameObject.SetActive(false);
-
         // player cannot shoot 
         Player.GetComponent<Player>().canShoot = false;
     }

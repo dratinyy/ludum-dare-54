@@ -103,6 +103,7 @@ public class UIManager : MonoBehaviour
         }
         else if (waveNumber > 2)
         {
+            GameObject.FindGameObjectsWithTag("Environment")[0].transform.Find("Merchant").gameObject.SetActive(false);
             if (waveNumber == 3)
             {
                 GameObject.Destroy(canvas.transform.Find("ShopHelper").gameObject);
@@ -138,6 +139,7 @@ public class UIManager : MonoBehaviour
         }
         else if (waveNumber > 1)
         {
+            GameObject.FindGameObjectsWithTag("Environment")[0].transform.Find("Merchant").gameObject.SetActive(true);
             Transform shopButton = canvas.transform.Find("ShopButton 1");
             if (waveNumber == 2)
             {
@@ -211,7 +213,7 @@ public class UIManager : MonoBehaviour
             if (LeaderboardManager.Instance.enemyKilled[i] > 0)
             {
                 canvas.transform.Find("GameOverScreen").Find("Enemies").Find("Enemy" + i).gameObject.SetActive(true);
-                canvas.transform.Find("GameOverScreen").Find("Enemies").Find("Enemy" + i).Find("Count").GetComponent<UnityEngine.UI.Text>().text = LeaderboardManager.Instance.enemyKilled[i].ToString() + " kills";
+                canvas.transform.Find("GameOverScreen").Find("Enemies").Find("Enemy" + i).Find("Count").GetComponent<UnityEngine.UI.Text>().text = LeaderboardManager.Instance.enemyKilled[i].ToString();
             }
             else
             {
@@ -246,7 +248,7 @@ public class UIManager : MonoBehaviour
         canvas.transform.Find("GameOverScreen").Find("Successful escapes").Find("Amount").GetComponent<UnityEngine.UI.Text>().text =
         LeaderboardManager.Instance.timesWon.ToString();
 
-        canvas.transform.Find("GameOverScreen").Find("Net Worth").Find("Amount").GetComponent<UnityEngine.UI.Text>().text = netWorth.ToString();
+        canvas.transform.Find("GameOverScreen").Find("Net Worth").Find("Amount").GetComponent<UnityEngine.UI.Text>().text = (netWorth < 0 ? "-" : "+") + "$" + Mathf.Abs(netWorth).ToString();
         canvas.transform.Find("GameOverScreen").gameObject.SetActive(true);
     }
 }

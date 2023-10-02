@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.ReorderableList.Element_Adder_Menu;
 using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    private const float spawnInterval = 0.08f;
+    private float spawnInterval = 0.08f;
     private const float spawnDistanceFromOrigin = 20f;
     private float currentSpawnDistance;
 
@@ -24,10 +23,15 @@ public class WaveSpawner : MonoBehaviour
         indexList = new List<int>();
         for (int i = 0; i < enemySpawnCounters.Length; i++)
         {
-            for (int j = 0; j < enemySpawnCounters[i]; j++)
+            for (int j = 0; j < enemySpawnCounters[i] * (waveNumber > 24 ? 2 : 1); j++)
             {
                 indexList.Add(i);
             }
+        }
+
+        if (waveNumber > 24)
+        {
+            spawnInterval = 0.04f;
         }
     }
 
