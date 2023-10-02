@@ -45,7 +45,7 @@ public class WaveConstants : MonoBehaviour
         }
     };
 
-    public static int enemyTypeCount = 3;
+    public static int enemyTypeCount = WaveConstants.enemyWaveStats.Length;
     public static GameObject[] enemyPrefabs;
 
     void Start()
