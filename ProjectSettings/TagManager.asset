@@ -11,6 +11,7 @@ TagManager:
   - Projectile
   - TilesManager
   - Borders
+  - Environment
   layers:
   - Default
   - TransparentFX

@@ -40,10 +40,10 @@ public class WeaponConstants : MonoBehaviour
         new WeaponStats
         {
             projectileSpeed = 10f,
-            projectileCount = 9,
+            projectileCount = 13,
             damage = 14f,
             attackSpeed = 1.3f,
-            range = 3f,
+            range = 2.5f,
             accuracy = 80f,
 
             piercing = 1,
@@ -56,8 +56,8 @@ public class WeaponConstants : MonoBehaviour
             projectileSpeed = 25f,
             projectileCount = 1,
             damage = 6f,
-            attackSpeed = 24f,
-            range = 5f,
+            attackSpeed = 26f,
+            range = 4f,
             accuracy = 0f,
 
             piercing = 1,
@@ -67,25 +67,25 @@ public class WeaponConstants : MonoBehaviour
         // Weapon 3 auto rifle
         new WeaponStats
         {
-            projectileSpeed = 15f,
+            projectileSpeed = 20f,
             projectileCount = 1,
-            damage = 16f,
+            damage = 12f,
             attackSpeed = 20f,
-            range = 10f,
-            accuracy = 70f,
+            range = 6f,
+            accuracy = 50f,
 
-            piercing = 1,
-            explosive = true,
-            explosiveRange = 0.2f
+            piercing = 2,
+            explosive = false,
+            explosiveRange = 0.5f
         },
         // Weapon 4 Rocket Launcher
         new WeaponStats
         {
-            projectileSpeed = 4f,
+            projectileSpeed = 8f,
             projectileCount = 1,
             damage = 40f,
-            attackSpeed = 1.5f,
-            range = 8f,
+            attackSpeed = 5f,
+            range = 7f,
             accuracy = 0f,
 
             piercing = 1,

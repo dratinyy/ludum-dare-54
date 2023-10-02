@@ -103,6 +103,7 @@ public class UIManager : MonoBehaviour
         }
         else if (waveNumber > 2)
         {
+            GameObject.FindGameObjectsWithTag("Environment")[0].transform.Find("Merchant").gameObject.SetActive(false);
             if (waveNumber == 3)
             {
                 GameObject.Destroy(canvas.transform.Find("ShopHelper").gameObject);
@@ -138,6 +139,7 @@ public class UIManager : MonoBehaviour
         }
         else if (waveNumber > 1)
         {
+            GameObject.FindGameObjectsWithTag("Environment")[0].transform.Find("Merchant").gameObject.SetActive(true);
             Transform shopButton = canvas.transform.Find("ShopButton 1");
             if (waveNumber == 2)
             {
@@ -160,9 +162,21 @@ public class UIManager : MonoBehaviour
         DisplayLoseScreen();
     }
 
+    IEnumerator WinCoroutine()
+    {
+        launchFadeOut();
+        yield return new WaitForSeconds(2.5f);
+        DisplayWinScreen();
+    }
+
     public void GameOverRoutine()
     {
         StartCoroutine("GameOverCoroutine");
+    }
+
+    public void WinRoutine()
+    {
+        StartCoroutine("WinCoroutine");
     }
 
     public void launchFadeOut()
@@ -172,6 +186,69 @@ public class UIManager : MonoBehaviour
 
     public void DisplayLoseScreen()
     {
+        canvas.transform.Find("GameOverScreen").Find("Defeat").gameObject.SetActive(true);
+        canvas.transform.Find("GameOverScreen").Find("Victory").gameObject.SetActive(false);
+        canvas.transform.Find("GameOverScreen").Find("Flavor").GetComponent<UnityEngine.UI.Text>().text = "\"" + TextConstants.loseFunTexts[Random.Range(0, TextConstants.winFunTexts.Length)] + "\"";
+        canvas.transform.Find("GameOverScreen").Find("Nights Survived").Find("Amount").GetComponent<UnityEngine.UI.Text>().text = GameManager.Instance.waveNumber.ToString();
+        UpdateLeaderboard();
+    }
+
+    public void DisplayWinScreen()
+    {
+        canvas.transform.Find("GameOverScreen").Find("Defeat").gameObject.SetActive(false);
+        canvas.transform.Find("GameOverScreen").Find("Victory").gameObject.SetActive(true);
+        canvas.transform.Find("GameOverScreen").Find("Flavor").GetComponent<UnityEngine.UI.Text>().text = "\"" + TextConstants.winFunTexts[Random.Range(0, TextConstants.winFunTexts.Length)] + "\"";
+        canvas.transform.Find("GameOverScreen").Find("Nights Survived").Find("Amount").GetComponent<UnityEngine.UI.Text>().text =
+        (GameManager.Instance.waveNumber + 1).ToString();
+        UpdateLeaderboard();
+    }
+
+    private void UpdateLeaderboard()
+    {
+        canvas.transform.Find("Shop").gameObject.SetActive(false);
+        canvas.transform.Find("ShopButton 1").gameObject.SetActive(false);
+
+        for (int i = 0; i < WaveConstants.enemyTypeCount; i++)
+        {
+            if (LeaderboardManager.Instance.enemyKilled[i] > 0)
+            {
+                canvas.transform.Find("GameOverScreen").Find("Enemies").Find("Enemy" + i).gameObject.SetActive(true);
+                canvas.transform.Find("GameOverScreen").Find("Enemies").Find("Enemy" + i).Find("Count").GetComponent<UnityEngine.UI.Text>().text = LeaderboardManager.Instance.enemyKilled[i].ToString();
+            }
+            else
+            {
+                canvas.transform.Find("GameOverScreen").Find("Enemies").Find("Enemy" + i).gameObject.SetActive(false);
+            }
+        }
+
+
+        canvas.transform.Find("GameOverScreen").Find("Money").Find("moneyInvestedInUpgrades").Find("Amount").GetComponent<UnityEngine.UI.Text>().text = "-$" + LeaderboardManager.Instance.moneyInvestedInUpgrades.ToString();
+        canvas.transform.Find("GameOverScreen").Find("Money").Find("moneyInvestedInWeapons").Find("Amount").GetComponent<UnityEngine.UI.Text>().text = "-$" + LeaderboardManager.Instance.moneyInvestedInWeapons.ToString();
+        canvas.transform.Find("GameOverScreen").Find("Money").Find("moneyInvestedInHeal").Find("Amount").GetComponent<UnityEngine.UI.Text>().text = "-$" + LeaderboardManager.Instance.moneyInvestedInHeal.ToString();
+        canvas.transform.Find("GameOverScreen").Find("Money").Find("moneyInvestedInRocket").Find("Amount").GetComponent<UnityEngine.UI.Text>().text = "-$" + LeaderboardManager.Instance.moneyInvestedInRocket.ToString();
+        canvas.transform.Find("GameOverScreen").Find("Money").Find("moneyInvestedInTiles").Find("Amount").GetComponent<UnityEngine.UI.Text>().text = "-$" + LeaderboardManager.Instance.moneyInvestedInTiles.ToString();
+
+        canvas.transform.Find("GameOverScreen").Find("Money").Find("moneyGainedFromIncome").Find("Amount").GetComponent<UnityEngine.UI.Text>().text = "+$" + LeaderboardManager.Instance.moneyGainedFromIncome.ToString();
+        canvas.transform.Find("GameOverScreen").Find("Money").Find("moneyGainedFromTileSales").Find("Amount").GetComponent<UnityEngine.UI.Text>().text = "+$" + LeaderboardManager.Instance.moneyGainedFromTileSales.ToString();
+        canvas.transform.Find("GameOverScreen").Find("Money").Find("moneyGainedFromTilesOwned").Find("Amount").GetComponent<UnityEngine.UI.Text>().text = "+$" + LeaderboardManager.Instance.moneyGainedFromTilesOwned.ToString();
+        canvas.transform.Find("GameOverScreen").Find("Money").Find("moneyGainedFromWeaponsOwned").Find("Amount").GetComponent<UnityEngine.UI.Text>().text = "+$" + LeaderboardManager.Instance.moneyGainedFromWeaponsOwned.ToString();
+        canvas.transform.Find("GameOverScreen").Find("Money").Find("moneyGainedFromRents").Find("Amount").GetComponent<UnityEngine.UI.Text>().text = "+$" + LeaderboardManager.Instance.moneyGainedFromRents.ToString();
+        canvas.transform.Find("GameOverScreen").Find("Money").Find("moneyOwned").Find("Amount").GetComponent<UnityEngine.UI.Text>().text = "+$" + GameManager.Instance.Player.GetComponent<Player>().Money.ToString();
+
+        int netWorth = 0 - LeaderboardManager.Instance.moneyInvestedInUpgrades - LeaderboardManager.Instance.moneyInvestedInWeapons
+        - LeaderboardManager.Instance.moneyInvestedInHeal - LeaderboardManager.Instance.moneyInvestedInRocket
+        - LeaderboardManager.Instance.moneyInvestedInTiles + LeaderboardManager.Instance.moneyGainedFromIncome
+        + LeaderboardManager.Instance.moneyGainedFromTileSales + LeaderboardManager.Instance.moneyGainedFromTilesOwned
+        + LeaderboardManager.Instance.moneyGainedFromWeaponsOwned + LeaderboardManager.Instance.moneyGainedFromRents
+        + GameManager.Instance.Player.GetComponent<Player>().Money;
+
+        canvas.transform.Find("GameOverScreen").Find("Games played").Find("Amount").GetComponent<UnityEngine.UI.Text>().text =
+        LeaderboardManager.Instance.timesPlayed.ToString();
+
+        canvas.transform.Find("GameOverScreen").Find("Successful escapes").Find("Amount").GetComponent<UnityEngine.UI.Text>().text =
+        LeaderboardManager.Instance.timesWon.ToString();
+
+        canvas.transform.Find("GameOverScreen").Find("Net Worth").Find("Amount").GetComponent<UnityEngine.UI.Text>().text = (netWorth < 0 ? "-" : "+") + "$" + Mathf.Abs(netWorth).ToString();
         canvas.transform.Find("GameOverScreen").gameObject.SetActive(true);
     }
 }

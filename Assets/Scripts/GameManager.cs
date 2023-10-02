@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private int waveNumber = -1;
+    public int waveNumber = -1;
 
     public GameObject waveSpawnerGO;
 
@@ -94,6 +94,10 @@ public class GameManager : MonoBehaviour
         {
             Player.position = new Vector3(0, 0, 0);
         }
+        else
+        {
+            LeaderboardManager.Instance.ResetValues();
+        }
 
         // Set global light intensity to  0.5 
         player.transform.Find("NightMask").gameObject.SetActive(true);
@@ -117,13 +121,20 @@ public class GameManager : MonoBehaviour
         if (waveNumber < EconomyConstants.numberOfWavesWithIncome)
         {
             Player.GetComponent<Player>().UpdateMoney(EconomyConstants.dailyIncome);
+            LeaderboardManager.Instance.moneyGainedFromIncome += EconomyConstants.dailyIncome;
         }
 
         // Set player child NightMask object to inactive
         player.transform.Find("NightMask").gameObject.SetActive(false);
-
         // player cannot shoot 
         Player.GetComponent<Player>().canShoot = false;
+    }
+
+    public void Win()
+    {
+        LeaderboardManager.Instance.wavesSurvived = waveNumber + 1;
+        LeaderboardManager.Instance.timesWon++;
+        UIManager.Instance.WinRoutine();
     }
 
     public void GameOver()
@@ -131,5 +142,4 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.PlayRandomMusicEnding();
         UIManager.Instance.GameOverRoutine();
     }
-
 }

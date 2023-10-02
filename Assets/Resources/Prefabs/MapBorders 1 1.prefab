@@ -3768,7 +3768,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8896512572394055648}
   - component: {fileID: 237363525222628040}
-  - component: {fileID: 1595606978556849684}
   - component: {fileID: 1141453265199049658}
   m_Layer: 0
   m_Name: Tile (3)
@@ -3849,27 +3848,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1595606978556849684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1703124252454452809}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edcad6faf009ce14da7a476df7fa00c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  notOwnedColor: {r: 0, g: 0, b: 0, a: 0.47058824}
-  RentedColor: {r: 1, g: 0.92, b: 0.016, a: 0.5}
-  overlay: {fileID: 6670365776214212765}
-  menu: {fileID: 1146327551022071108}
-  rentedOverlay: {fileID: 6970866674161825350}
-  sellButton: {fileID: 7587540850569060464}
-  buyButton: {fileID: 3039565630163297417}
-  rentButton: {fileID: 2502180845183901792}
-  unRentButton: {fileID: 2037580575565954436}
 --- !u!61 &1141453265199049658
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6703,7 +6681,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3202961771679570545}
   - component: {fileID: 6124602641651557509}
-  - component: {fileID: 2012986584238460924}
   - component: {fileID: 3520007259506074145}
   m_Layer: 0
   m_Name: Tile(Clone)
@@ -6784,27 +6761,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2012986584238460924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2630905337129892013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edcad6faf009ce14da7a476df7fa00c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  notOwnedColor: {r: 0, g: 0, b: 0, a: 0.47058824}
-  RentedColor: {r: 1, g: 0.92, b: 0.016, a: 0.5}
-  overlay: {fileID: 191988713979887089}
-  menu: {fileID: 3041856371376263120}
-  rentedOverlay: {fileID: 220300142355925344}
-  sellButton: {fileID: 7353302286890907771}
-  buyButton: {fileID: 8326425007715721986}
-  rentButton: {fileID: 5025955492847600891}
-  unRentButton: {fileID: 3574392790652162898}
 --- !u!61 &3520007259506074145
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7606,7 +7562,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2437309137890558870}
   - component: {fileID: 35660978033905678}
-  - component: {fileID: 4691209604122818177}
   - component: {fileID: 5846980858774262166}
   m_Layer: 0
   m_Name: Tile (1)
@@ -7687,27 +7642,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4691209604122818177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2953925455157125763}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edcad6faf009ce14da7a476df7fa00c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  notOwnedColor: {r: 0, g: 0, b: 0, a: 0.47058824}
-  RentedColor: {r: 1, g: 0.92, b: 0.016, a: 0.5}
-  overlay: {fileID: 5945349197239102327}
-  menu: {fileID: 7352185740114412770}
-  rentedOverlay: {fileID: 3211180517640921211}
-  sellButton: {fileID: 151260576926300505}
-  buyButton: {fileID: 9071171296745132394}
-  rentButton: {fileID: 256881244459573608}
-  unRentButton: {fileID: 8585856080012642450}
 --- !u!61 &5846980858774262166
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12847,7 +12781,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2862504433003915146}
   - component: {fileID: 6234812027708610980}
-  - component: {fileID: 1328609606701125398}
   - component: {fileID: 502038715461864014}
   m_Layer: 0
   m_Name: Tile(Clone) (2)
@@ -12929,27 +12862,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1328609606701125398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4963354637239190585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edcad6faf009ce14da7a476df7fa00c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  notOwnedColor: {r: 0, g: 0, b: 0, a: 0.47058824}
-  RentedColor: {r: 1, g: 0.92, b: 0.016, a: 0.5}
-  overlay: {fileID: 5846000501381324918}
-  menu: {fileID: 1803112285125029468}
-  rentedOverlay: {fileID: 6130504092778971085}
-  sellButton: {fileID: 8461056048151257842}
-  buyButton: {fileID: 3672907998145521236}
-  rentButton: {fileID: 3761481165177269993}
-  unRentButton: {fileID: 2180054088818161932}
 --- !u!61 &502038715461864014
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18364,7 +18276,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1396600364763267072}
   - component: {fileID: 7608703089647843504}
-  - component: {fileID: 2727628717031414310}
   - component: {fileID: 59863021040267339}
   m_Layer: 0
   m_Name: Tile(Clone) (3)
@@ -18446,27 +18357,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2727628717031414310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7010505277199531004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edcad6faf009ce14da7a476df7fa00c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  notOwnedColor: {r: 0, g: 0, b: 0, a: 0.47058824}
-  RentedColor: {r: 1, g: 0.92, b: 0.016, a: 0.5}
-  overlay: {fileID: 5673392093776448791}
-  menu: {fileID: 9085917317089749785}
-  rentedOverlay: {fileID: 5321449483918235383}
-  sellButton: {fileID: 3851622159821653033}
-  buyButton: {fileID: 958648727068870439}
-  rentButton: {fileID: 7104945876259010838}
-  unRentButton: {fileID: 1322936187698661713}
 --- !u!61 &59863021040267339
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20249,7 +20139,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9080071239057748484}
   - component: {fileID: 7261489036033717457}
-  - component: {fileID: 5539510314108557261}
   - component: {fileID: 4426246029145787471}
   m_Layer: 0
   m_Name: Tile
@@ -20330,27 +20219,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5539510314108557261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7832158363060530984}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edcad6faf009ce14da7a476df7fa00c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  notOwnedColor: {r: 0, g: 0, b: 0, a: 0.47058824}
-  RentedColor: {r: 1, g: 0.92, b: 0.016, a: 0.5}
-  overlay: {fileID: 2432815220732350599}
-  menu: {fileID: 8975765263598157813}
-  rentedOverlay: {fileID: 5270621131966144941}
-  sellButton: {fileID: 5429129823595597697}
-  buyButton: {fileID: 1502447530404684524}
-  rentButton: {fileID: 2488833243499088739}
-  unRentButton: {fileID: 3158613953516109871}
 --- !u!61 &4426246029145787471
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21093,7 +20961,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8716797300762392961}
   - component: {fileID: 5534091640768205837}
-  - component: {fileID: 8716659139367645027}
   - component: {fileID: 5375640559884839737}
   m_Layer: 0
   m_Name: Tile (2)
@@ -21174,27 +21041,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8716659139367645027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8247140907536092981}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edcad6faf009ce14da7a476df7fa00c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  notOwnedColor: {r: 0, g: 0, b: 0, a: 0.47058824}
-  RentedColor: {r: 1, g: 0.92, b: 0.016, a: 0.5}
-  overlay: {fileID: 6554204568875879134}
-  menu: {fileID: 3198880530124868464}
-  rentedOverlay: {fileID: 5948303822072060902}
-  sellButton: {fileID: 7218122853090677645}
-  buyButton: {fileID: 3372698023751210969}
-  rentButton: {fileID: 8416430902430701509}
-  unRentButton: {fileID: 5148572940568346263}
 --- !u!61 &5375640559884839737
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23081,7 +22927,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1442318487213186623}
   - component: {fileID: 1734309025879043941}
-  - component: {fileID: 9178080016856468759}
   - component: {fileID: 4671411641363075675}
   m_Layer: 0
   m_Name: Tile(Clone) (1)
@@ -23163,27 +23008,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9178080016856468759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8983548082093144320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edcad6faf009ce14da7a476df7fa00c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  notOwnedColor: {r: 0, g: 0, b: 0, a: 0.47058824}
-  RentedColor: {r: 1, g: 0.92, b: 0.016, a: 0.5}
-  overlay: {fileID: 4392078513690280287}
-  menu: {fileID: 3183632478930456125}
-  rentedOverlay: {fileID: 8665319989208560087}
-  sellButton: {fileID: 3808846461219221650}
-  buyButton: {fileID: 5708155181781331713}
-  rentButton: {fileID: 4191236123771724503}
-  unRentButton: {fileID: 7294594128552687032}
 --- !u!61 &4671411641363075675
 BoxCollider2D:
   m_ObjectHideFlags: 0
