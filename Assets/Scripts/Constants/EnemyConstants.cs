@@ -41,7 +41,7 @@ public class EnemyConstants : MonoBehaviour
             health = 57f,
             damage = 10f,
             attackSpeed = 0.5f,
-            attackRange = 8f
+            attackRange = 12f
         },
         // Boss
         new EnemyStats
