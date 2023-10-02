@@ -44,20 +44,20 @@ public class WeaponConstants : MonoBehaviour
             damage = 14f,
             attackSpeed = 1.3f,
             range = 3f,
-            accuracy = 90f,
+            accuracy = 80f,
 
-            piercing = 2,
+            piercing = 1,
             explosive = false,
             explosiveRange = 100f
         },
         // Weapon 2 uzi
         new WeaponStats
         {
-            projectileSpeed = 24f,
+            projectileSpeed = 25f,
             projectileCount = 1,
             damage = 6f,
             attackSpeed = 24f,
-            range = 6f,
+            range = 5f,
             accuracy = 0f,
 
             piercing = 1,
@@ -67,11 +67,11 @@ public class WeaponConstants : MonoBehaviour
         // Weapon 3 auto rifle
         new WeaponStats
         {
-            projectileSpeed = 18f,
+            projectileSpeed = 15f,
             projectileCount = 1,
             damage = 16f,
-            attackSpeed = 18f,
-            range = 15f,
+            attackSpeed = 20f,
+            range = 10f,
             accuracy = 70f,
 
             piercing = 1,

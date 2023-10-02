@@ -6,13 +6,13 @@ public class EconomyConstants : MonoBehaviour
 {
 
     public readonly static int tileBuyPrice = 100;
-    public readonly static int tileRentBenefit = 27;
+    public readonly static int tileRentBenefit = 23;
     public readonly static int tileSellPrice = 80;
 
     public readonly static int burgerPrice = 5;
     public readonly static int burgerHealth = 10;
-    public readonly static int healpackPrice = 35;
-    public readonly static int healpackHealth = 250;
+    public readonly static int healpackPrice = 45;
+    public readonly static int healpackHealth = 200;
     
     public readonly static int spaceshipPrice = 10000;
 
@@ -44,7 +44,7 @@ public class EconomyConstants : MonoBehaviour
         {
             price = 30,
             increase = 20f, // not in percent
-            maxQuantity = 20f
+            maxQuantity = 15f
         },
 
         // Movespeed
@@ -52,7 +52,7 @@ public class EconomyConstants : MonoBehaviour
         {
             price = 50,
             increase = 10f, // in percent
-            maxQuantity = 10f
+            maxQuantity = 5f
         },
 
         // Damage

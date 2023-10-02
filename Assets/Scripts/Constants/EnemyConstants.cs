@@ -12,7 +12,7 @@ public class EnemyConstants : MonoBehaviour
         {
             speed = 0.7f,
             health = 31f,
-            damage = 7f,
+            damage = 8f,
             attackSpeed = 1f,
             attackRange = 0.6f
         },
@@ -22,7 +22,7 @@ public class EnemyConstants : MonoBehaviour
             speed = 3f,
             health = 17f,
             damage = 3f,
-            attackSpeed = 2f,
+            attackSpeed = 3f,
             attackRange = 0.6f
         },
         // Golem
