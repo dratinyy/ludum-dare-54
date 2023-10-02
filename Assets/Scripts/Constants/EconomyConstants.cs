@@ -17,7 +17,7 @@ public class EconomyConstants : MonoBehaviour
     public readonly static int spaceshipPrice = 10000;
 
     public readonly static int dailyIncome = 100;
-    public readonly static int numberOfWavesWithIncome = 7;
+    public readonly static int numberOfWavesWithIncome = 10;
 
     public readonly static int[] weaponPrices = new int[]
     {
@@ -31,10 +31,10 @@ public class EconomyConstants : MonoBehaviour
         300,
 
         // Weapon 3 auto rifle
-        800,
+        1000,
 
         // Weapon 4 Rocket Launcher
-        1000
+        2000
     };
 
     public readonly static BonusStats[] bonusStats = new BonusStats[]
@@ -58,7 +58,7 @@ public class EconomyConstants : MonoBehaviour
         // Damage
         new BonusStats
         {
-            price = 70,
+            price = 60,
             increase = 10f, // in percent
             maxQuantity = 15f
         },
