@@ -430,6 +430,7 @@ MonoBehaviour:
   musicClipsDay:
   - {fileID: 8300000, guid: a4c822e58568b1447b52a93e0b0c8dae, type: 3}
   - {fileID: 8300000, guid: 6a193d125c8f5084ab2430b7f2e07cdc, type: 3}
+  - {fileID: 8300000, guid: fe4e3cf52189a4b4e88db740d8cafa48, type: 3}
   musicClipsEnding:
   - {fileID: 8300000, guid: 0ba7343f146025f4184e6fe9c8294012, type: 3}
   musicClipsGoodending:
