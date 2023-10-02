@@ -128,6 +128,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        AudioManager.Instance.PlayRandomMusicEnding();
         UIManager.Instance.GameOverRoutine();
     }
 

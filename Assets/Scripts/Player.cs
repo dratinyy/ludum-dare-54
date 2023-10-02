@@ -229,7 +229,7 @@ public class Player : MonoBehaviour
 
   public void Dies()
   {
-    canShoot = false;
+        canShoot = false;
     canMove = false;
     isDead = true;
     GetComponent<Rigidbody2D>().velocity = Vector2.zero;
