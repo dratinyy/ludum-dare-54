@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Tile")
+        if (collision.gameObject.tag == "Tile" || collision.gameObject.tag == "Borders")
         {
             Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
         }
