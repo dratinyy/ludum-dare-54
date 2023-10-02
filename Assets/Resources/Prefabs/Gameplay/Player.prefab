@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5426033597765167081}
   - component: {fileID: 698621758465765640}
   - component: {fileID: 1404226625690149572}
+  - component: {fileID: 8635976010309529943}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -58,6 +59,7 @@ MonoBehaviour:
   spriteRendererLegs: {fileID: 0}
   spriteRendererTop: {fileID: 0}
   canShoot: 1
+  godMode: 0
 --- !u!61 &698621758465765640
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -130,6 +132,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!95 &8635976010309529943
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800970826609056381}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1421160229585162243
 GameObject:
   m_ObjectHideFlags: 0

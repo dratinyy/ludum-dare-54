@@ -6,7 +6,7 @@ public class EconomyConstants : MonoBehaviour
 {
 
     public readonly static int tileBuyPrice = 100;
-    public readonly static int tileRentBenefit = 30;
+    public readonly static int tileRentBenefit = 27;
     public readonly static int tileSellPrice = 80;
 
     public readonly static int burgerPrice = 10;
@@ -63,18 +63,18 @@ public class EconomyConstants : MonoBehaviour
             maxQuantity = 10f
         },
 
-        // Attack Speed
-        new BonusStats
-        {
-            price = 80,
-            increase = 10f, // in percent
-            maxQuantity = 10f
-        },
-
         // Range
         new BonusStats
         {
             price = 70,
+            increase = 10f, // in percent
+            maxQuantity = 10f
+        },
+
+        // Attack Speed
+        new BonusStats
+        {
+            price = 80,
             increase = 10f, // in percent
             maxQuantity = 10f
         }
