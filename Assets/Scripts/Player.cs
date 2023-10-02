@@ -46,6 +46,7 @@ public class Player : MonoBehaviour
   private bool isDead = false;
 
   public bool godMode = false;
+  public bool bornRichMode = false;
 
   private float nextFire = 0.0f;
 
@@ -60,6 +61,11 @@ public class Player : MonoBehaviour
     for (int i = 0; i < WeaponConstants.weaponStats.Length; i++)
     {
       spriteRendererTop[i] = transform.Find("SpriteTopWeapon" + i.ToString()).GetComponent<SpriteRenderer>();
+    }
+
+    if (bornRichMode)
+    {
+      money = 100000;
     }
   }
 

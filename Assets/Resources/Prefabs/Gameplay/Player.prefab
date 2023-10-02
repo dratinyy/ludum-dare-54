@@ -65,6 +65,7 @@ MonoBehaviour:
   - {fileID: 0}
   canShoot: 1
   godMode: 0
+  bornRichMode: 0
 --- !u!61 &698621758465765640
 BoxCollider2D:
   m_ObjectHideFlags: 0
