@@ -75,6 +75,7 @@ public class TilesManager : MonoBehaviour
         {
           // update tile
           Tile tile = Tiles[getTile(i, j)].GetComponent<Tile>();
+          tile.UpdateNeighborsAvailability();
           tile.UpdateWalkable();
           tile.GiveRentMoney();
         }
