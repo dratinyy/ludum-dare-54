@@ -147,18 +147,18 @@ public class UIManager : MonoBehaviour
     IEnumerator GameOverCoroutine()
     {
         launchFadeOut();
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2.5f);
         DisplayLoseScreen();
     }
 
     public void GameOverRoutine()
     {
-        StartCoroutine(GameOverCoroutine());
+        StartCoroutine("GameOverCoroutine");
     }
 
     public void launchFadeOut()
     {
-        canvas.transform.Find("GameOverFadeOut").gameObject.SetActive(true);
+        canvas.transform.Find("GameOverFadeOut").GameObject().SetActive(true);
     }
 
     public void DisplayLoseScreen()

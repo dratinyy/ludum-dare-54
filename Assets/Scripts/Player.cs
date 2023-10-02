@@ -43,6 +43,8 @@ public class Player : MonoBehaviour
 
   public bool canMove = true;
 
+  public bool isDead = false;
+
   private float nextFire = 0.0f;
 
   private bool isShooting = false;
@@ -176,10 +178,11 @@ public class Player : MonoBehaviour
     health = Mathf.Max(0, health - damage);
     UIManager.Instance.UpdateHealth(health, maxHealth);
     UIManager.Instance.FlashScreen();
-    if (health <= 0)
+    if (health <= 0 && !isDead)
     {
       canShoot = false;
       canMove = false;
+      isDead = true;
       GameManager.Instance.GameOver();
     }
   }
