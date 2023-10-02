@@ -71,16 +71,13 @@ public class Player : MonoBehaviour
   {
     float x = Input.GetAxisRaw("Horizontal");
     float y = Input.GetAxisRaw("Vertical");
-
-    // normalize the vector if magnitude > 1
-    float magnitude = Mathf.Sqrt(x * x + y * y);
     Vector3 move = new Vector3(x, y, 0);
 
-    if (magnitude > 1)
+    if (move.magnitude < 1)
     {
       move = move.normalized;
     }
-    animatorLegs.SetFloat("Speed", Mathf.Abs(magnitude));
+    animatorLegs.SetFloat("Speed", Mathf.Abs(move.magnitude));
     if (x != 0)
     {
       spriteRendererLegs.flipX = x < 0;
