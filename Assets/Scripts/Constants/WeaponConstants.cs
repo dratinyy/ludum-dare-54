@@ -57,7 +57,7 @@ public class WeaponConstants : MonoBehaviour
             projectileCount = 1,
             damage = 6f,
             attackSpeed = 26f,
-            range = 5f,
+            range = 4f,
             accuracy = 0f,
 
             piercing = 1,
@@ -71,20 +71,20 @@ public class WeaponConstants : MonoBehaviour
             projectileCount = 1,
             damage = 16f,
             attackSpeed = 20f,
-            range = 10f,
+            range = 12f,
             accuracy = 70f,
 
-            piercing = 1,
-            explosive = true,
+            piercing = 2,
+            explosive = false,
             explosiveRange = 0.5f
         },
         // Weapon 4 Rocket Launcher
         new WeaponStats
         {
-            projectileSpeed = 4f,
+            projectileSpeed = 8f,
             projectileCount = 1,
             damage = 40f,
-            attackSpeed = 1.5f,
+            attackSpeed = 7f,
             range = 8f,
             accuracy = 0f,
 
