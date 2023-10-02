@@ -126,6 +126,7 @@ public class Shop : MonoBehaviour
         {
             LeaderboardManager.Instance.moneyInvestedInRocket += EconomyConstants.spaceshipPrice;
             GetPlayer().GetComponent<Player>().UpdateMoney(-EconomyConstants.spaceshipPrice);
+            GameManager.Instance.Win();
         }
     }
 

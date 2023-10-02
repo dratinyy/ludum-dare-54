@@ -203,6 +203,9 @@ public class UIManager : MonoBehaviour
 
     private void UpdateLeaderboard()
     {
+        canvas.transform.Find("Shop").gameObject.SetActive(false);
+        canvas.transform.Find("ShopButton 1").gameObject.SetActive(false);
+
         for (int i = 0; i < WaveConstants.enemyTypeCount; i++)
         {
             if (LeaderboardManager.Instance.enemyKilled[i] > 0)
