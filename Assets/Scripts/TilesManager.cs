@@ -46,6 +46,21 @@ public class TilesManager : MonoBehaviour
         }
       }
     }
+
+    // Set neighbors 
+    for (int i = 0; i < width; i++)
+    {
+      for (int j = 0; j < width; j++)
+      {
+        // if tile is active 
+        if (!noTiles(i, j))
+        {
+          // get neighbors
+          List<GameObject> neighbors = getNeighbors(i, j);
+          Tiles[getTile(i, j)].GetComponent<Tile>().neighbors = neighbors;
+        }
+      }
+    }
   }
 
   // Update is called once per frame
@@ -64,6 +79,44 @@ public class TilesManager : MonoBehaviour
           tile.GiveRentMoney();
         }
       }
+    }
+  }
+
+  public void getNeighbors(int x, int y)
+  {
+    // get neighbors
+    List<GameObject> neighbors = new List<GameObject>();
+    if (x > 0)
+    {
+      neighbors.Add(Tiles[getTile(x - 1, y)]);
+    }
+    if (x < width - 1)
+    {
+      neighbors.Add(Tiles[getTile(x + 1, y)]);
+    }
+    if (y > 0)
+    {
+      neighbors.Add(Tiles[getTile(x, y - 1)]);
+    }
+    if (y < width - 1)
+    {
+      neighbors.Add(Tiles[getTile(x, y + 1)]);
+    }
+    if (x > 0 && y > 0)
+    {
+      neighbors.Add(Tiles[getTile(x - 1, y - 1)]);
+    }
+    if (x < width - 1 && y < width - 1)
+    {
+      neighbors.Add(Tiles[getTile(x + 1, y + 1)]);
+    }
+    if (x > 0 && y < width - 1)
+    {
+      neighbors.Add(Tiles[getTile(x - 1, y + 1)]);
+    }
+    if (x < width - 1 && y > 0)
+    {
+      neighbors.Add(Tiles[getTile(x + 1, y - 1)]);
     }
   }
 

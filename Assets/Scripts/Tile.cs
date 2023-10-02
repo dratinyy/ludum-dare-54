@@ -5,9 +5,11 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     private bool isWalkable = false;
-
     private bool isCenter = false;
     private GameObject player;
+
+    public List<GameObject> neighbors = new List<GameObject>();
+    
     private GameObject Player
     {
         get
