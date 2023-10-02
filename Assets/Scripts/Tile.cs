@@ -115,17 +115,16 @@ public class Tile : MonoBehaviour
                 overlay.SetActive(false);
                 rentedOverlay.SetActive(false);
                 setMenuOwned();
-                setIsAvailable(false);
                 UpdateNeighborsAvailability();
                 break;
             case State.Rented:
                 overlay.SetActive(true);
                 rentedOverlay.SetActive(true);
                 setMenuRented();
-                setIsAvailable(false);
                 UpdateNeighborsAvailability();
                 break;
         }
+        updateAvailable();
     }
 
     public void UpdateWalkable()
