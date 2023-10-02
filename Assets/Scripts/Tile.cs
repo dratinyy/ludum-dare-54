@@ -5,9 +5,13 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     private bool isWalkable = false;
-
     private bool isCenter = false;
     private GameObject player;
+
+    private bool isAvailable = false;
+
+    public List<GameObject> neighbors = new List<GameObject>();
+    
     private GameObject Player
     {
         get
@@ -93,6 +97,7 @@ public class Tile : MonoBehaviour
         rentedOverlay.SetActive(false);
         isWalkable = true;
         isCenter = true;
+        UpdateNeighborsAvailability();
     }
 
     public void setState(State newState)
@@ -104,18 +109,22 @@ public class Tile : MonoBehaviour
                 overlay.SetActive(true);
                 rentedOverlay.SetActive(false);
                 setMenuNotOwned();
+                UpdateNeighborsAvailability();
                 break;
             case State.Owned:
                 overlay.SetActive(false);
                 rentedOverlay.SetActive(false);
                 setMenuOwned();
+                UpdateNeighborsAvailability();
                 break;
             case State.Rented:
                 overlay.SetActive(true);
                 rentedOverlay.SetActive(true);
                 setMenuRented();
+                UpdateNeighborsAvailability();
                 break;
         }
+        updateAvailable();
     }
 
     public void UpdateWalkable()
@@ -123,9 +132,11 @@ public class Tile : MonoBehaviour
         if (GameManager.Instance.isDay)
         {
             isWalkable = true;
+            transform.Find("Available").gameObject.SetActive(isAvailable);
         }
         else
         {
+            transform.Find("Available").gameObject.SetActive(false);
             menu.SetActive(false);
             switch (currentState)
             {
@@ -176,6 +187,55 @@ public class Tile : MonoBehaviour
         unRentButton.SetActive(true);
     }
 
+    public void openMenu()
+    {
+        menu.SetActive(false);
+    }
+
+    public void closeMenu()
+    {
+        menu.SetActive(false);
+    }
+    public void UpdateNeighborsAvailability()
+    {
+        foreach (GameObject neighbor in neighbors)
+        {
+            neighbor.GetComponent<Tile>().updateAvailable();
+        }
+    }
+
+    public void setIsAvailable(bool available)
+    {
+        isAvailable = available;
+        if(isAvailable)
+        {
+            transform.Find("Available").gameObject.SetActive(true);
+        }
+        else
+        {
+            transform.Find("Available").gameObject.SetActive(false);
+        }
+    }
+
+    public void updateAvailable()
+    {
+        // If owned or rented, not available
+        if(currentState != State.notOwned)
+        {
+            setIsAvailable(false);
+            return;
+        }
+        // If adjacent to owned or rented, available
+        if(isAdjacentToOwnedOrRented())
+        {
+            setIsAvailable(true);
+        }
+        else 
+        {
+            setIsAvailable(false);
+        }
+    }
+
     void OnMouseOver()
     {
         if (isCenter || !GameManager.Instance.isDay)
@@ -187,7 +247,7 @@ public class Tile : MonoBehaviour
         {
             return;
         }
-        if (Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && ( currentState != State.notOwned || isAvailable))
         {
             if (menu.activeSelf)
             {
@@ -199,6 +259,19 @@ public class Tile : MonoBehaviour
             }
         }
     }
+
+    private bool isAdjacentToOwnedOrRented()
+    {
+        foreach (GameObject neighbor in neighbors)
+        {
+            if (neighbor.GetComponent<Tile>().currentState == State.Owned || neighbor.GetComponent<Tile>().currentState == State.Rented)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void buy()
     {
         if (Player.GetComponent<Player>().Money < EconomyConstants.tileBuyPrice)

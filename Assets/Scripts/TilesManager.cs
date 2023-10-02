@@ -46,6 +46,21 @@ public class TilesManager : MonoBehaviour
         }
       }
     }
+
+    // Set neighbors 
+    for (int i = 0; i < width; i++)
+    {
+      for (int j = 0; j < width; j++)
+      {
+        // if tile is active 
+        if (!noTiles(i, j))
+        {
+          // get neighbors
+          List<GameObject> neighbors = getNeighbors(i, j);
+          Tiles[getTile(i, j)].GetComponent<Tile>().neighbors = neighbors;
+        }
+      }
+    }
   }
 
   // Update is called once per frame
@@ -60,11 +75,35 @@ public class TilesManager : MonoBehaviour
         {
           // update tile
           Tile tile = Tiles[getTile(i, j)].GetComponent<Tile>();
+          tile.updateAvailable();
           tile.UpdateWalkable();
           tile.GiveRentMoney();
         }
       }
     }
+  }
+
+  public List<GameObject> getNeighbors(int x, int y)
+  {
+    // get neighbors no diagonals
+    List<GameObject> neighbors = new List<GameObject>();
+    if (x > 0)
+    {
+      neighbors.Add(Tiles[getTile(x - 1, y)]);
+    }
+    if (x < width - 1)
+    {
+      neighbors.Add(Tiles[getTile(x + 1, y)]);
+    }
+    if (y > 0)
+    {
+      neighbors.Add(Tiles[getTile(x, y - 1)]);
+    }
+    if (y < width - 1)
+    {
+      neighbors.Add(Tiles[getTile(x, y + 1)]);
+    }
+    return neighbors;
   }
 
   private int getTile(int x, int y)
