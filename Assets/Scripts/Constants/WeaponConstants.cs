@@ -27,10 +27,10 @@ public class WeaponConstants : MonoBehaviour
         {
             projectileSpeed = 8f,
             projectileCount = 1f,
-            damage = 20f,
-            attackSpeed = 5f,
-            range = 6f,
-            accuracy = 100f,
+            damage = 8f,
+            attackSpeed = 3f,
+            range = 7f,
+            accuracy = 50f,
 
             piercing = 1,
             explosive = false,
@@ -41,8 +41,8 @@ public class WeaponConstants : MonoBehaviour
         {
             projectileSpeed = 8f,
             projectileCount = 8f,
-            damage = 15f,
-            attackSpeed = 3f,
+            damage = 12f,
+            attackSpeed = 1.2f,
             range = 3f,
             accuracy = 0f, // Dispersion maximale
 
@@ -50,21 +50,21 @@ public class WeaponConstants : MonoBehaviour
             explosive = false,
             explosiveRange = 0f
         },
-        // Weapon 2 Auto Rifle
+        // Weapon 2 uzi
         new WeaponStats
         {
             projectileSpeed = 16f,
             projectileCount = 1f,
             damage = 4f,
-            attackSpeed = 20f,
-            range = 9f,
-            accuracy = 100f,
+            attackSpeed = 8f,
+            range = 4f,
+            accuracy = 80f,
 
             piercing = 1,
             explosive = false,
             explosiveRange = 0f
         },
-        // Weapon 3 Sniper
+        // Weapon 3 auto rifle
         new WeaponStats
         {
             projectileSpeed = 12f,
@@ -72,9 +72,9 @@ public class WeaponConstants : MonoBehaviour
             damage = 8f,
             attackSpeed = 7.5f,
             range = 15f,
-            accuracy = 100f,
+            accuracy = 0f,
 
-            piercing = 3,
+            piercing = 6,
             explosive = false,
             explosiveRange = 0f
         },
@@ -84,9 +84,9 @@ public class WeaponConstants : MonoBehaviour
             projectileSpeed = 4f,
             projectileCount = 1f,
             damage = 30f,
-            attackSpeed = 1.67f,
+            attackSpeed = 1.5f,
             range = 8f,
-            accuracy = 100f,
+            accuracy = 0f,
 
             piercing = 1,
             explosive = true,
