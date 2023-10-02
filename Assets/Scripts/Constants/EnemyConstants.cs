@@ -22,7 +22,7 @@ public class EnemyConstants : MonoBehaviour
             speed = 2.8f,
             health = 17f,
             damage = 3f,
-            attackSpeed = 2.8f,
+            attackSpeed = 2.5f,
             attackRange = 0.6f
         },
         // Golem
