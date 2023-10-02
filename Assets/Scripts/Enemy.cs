@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour
 
     void Attack()
     {
-        if (attackClock > EnemyConstants.enemyStats[type].attackSpeed)
+        if (attackClock > 1f / EnemyConstants.enemyStats[type].attackSpeed)
         {
             attackClock = 0f;
             Vector2 direction = player.position - transform.position;
@@ -77,6 +77,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        LeaderboardManager.Instance.enemyKilled[type]++;
         if (enemyDeathPrefab == null)
             enemyDeathPrefab = Resources.Load<GameObject>("Prefabs/Particles/DeathPurple");
         GameObject particle = GameObject.Instantiate(enemyDeathPrefab, transform.Find("BloodParticle").position, Quaternion.identity);
