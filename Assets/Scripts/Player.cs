@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
   }
   public Animator animatorLegs;
   public SpriteRenderer spriteRendererLegs;
-  public SpriteRenderer spriteRendererTop;
+  public SpriteRenderer[] spriteRendererTop = new SpriteRenderer[WeaponConstants.weaponStats.Length];
 
   public bool canShoot = true;
 
@@ -56,7 +56,11 @@ public class Player : MonoBehaviour
     health = maxHealth;
     animatorLegs = transform.Find("SpriteLegs").GetComponent<Animator>();
     spriteRendererLegs = transform.Find("SpriteLegs").GetComponent<SpriteRenderer>();
-    spriteRendererTop = transform.Find("SpriteTop").GetComponent<SpriteRenderer>();
+    spriteRendererTop = new SpriteRenderer[WeaponConstants.weaponStats.Length];
+    for (int i = 0; i < WeaponConstants.weaponStats.Length; i++)
+    {
+      spriteRendererTop[i] = transform.Find("SpriteTopWeapon" + i.ToString()).GetComponent<SpriteRenderer>();
+    }
   }
 
   void Update()
@@ -69,8 +73,19 @@ public class Player : MonoBehaviour
 
   public void SetWeaponType(int weaponType)
   {
-    // TODO: update sprite
     this.weaponType = weaponType;
+
+    for (int i = 0; i < spriteRendererTop.Length; i++)
+    {
+      if (i == weaponType)
+      {
+        spriteRendererTop[i].enabled = true;
+      }
+      else
+      {
+        spriteRendererTop[i].enabled = false;
+      }
+    }
   }
 
   public void Move()
@@ -104,7 +119,10 @@ public class Player : MonoBehaviour
   void FaceMouse()
   {
     Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    spriteRendererTop.flipX = worldMousePosition.x < transform.position.x;
+    for (int i = 0; i < spriteRendererTop.Length; i++)
+    {
+      spriteRendererTop[i].flipX = worldMousePosition.x < transform.position.x;
+    }
   }
 
   public void handleShoot()
