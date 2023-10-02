@@ -63,18 +63,18 @@ public class EconomyConstants : MonoBehaviour
             maxQuantity = 10f
         },
 
-        // Attack Speed
-        new BonusStats
-        {
-            price = 80,
-            increase = 10f, // in percent
-            maxQuantity = 10f
-        },
-
         // Range
         new BonusStats
         {
             price = 70,
+            increase = 10f, // in percent
+            maxQuantity = 10f
+        },
+
+        // Attack Speed
+        new BonusStats
+        {
+            price = 80,
             increase = 10f, // in percent
             maxQuantity = 10f
         }
