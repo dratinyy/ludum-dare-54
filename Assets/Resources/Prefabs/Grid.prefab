@@ -40826,7 +40826,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1225408341636695541}
   - component: {fileID: 6528946767711142046}
-  - component: {fileID: 4676232347876264476}
+  - component: {fileID: 2022746945919814702}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -40863,7 +40863,7 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
---- !u!95 &4676232347876264476
+--- !u!95 &2022746945919814702
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
