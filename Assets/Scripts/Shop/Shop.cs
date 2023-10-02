@@ -83,14 +83,14 @@ public class Shop : MonoBehaviour
                     GetPlayer().GetComponent<Player>().damageMultiplier += EconomyConstants.bonusStats[index].increase / 100f;
                     break;
 
-                // Attack Speed
-                case 3:
-                    GetPlayer().GetComponent<Player>().attackSpeedMultiplier += EconomyConstants.bonusStats[index].increase / 100f;
-                    break;
-
                 // Range
                 case 4:
                     GetPlayer().GetComponent<Player>().attackRangeMultiplier += EconomyConstants.bonusStats[index].increase / 100f;
+                    break;
+
+                // Attack Speed
+                case 3:
+                    GetPlayer().GetComponent<Player>().attackSpeedMultiplier += EconomyConstants.bonusStats[index].increase / 100f;
                     break;
             }
         }
