@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
   public float movespeedMultiplier = 1f;
   public float attackSpeedMultiplier = 1f;
   public float attackRangeMultiplier = 1f;
-  private int weaponType = 0;
+  private int weaponType = 4;
 
   private float health;
   public float Health
@@ -214,7 +214,7 @@ public class Player : MonoBehaviour
     if (particleClock >= particleMinInterval)
     {
       GameObject particle = GameObject.Instantiate(playerBloodPrefab, transform.Find("BloodParticle").position, rotation);
-      GameObject.Destroy(particle, 1.3f);
+      GameObject.Destroy(particle, 1.5f);
       particleClock = 0f;
     }
 
@@ -223,7 +223,7 @@ public class Player : MonoBehaviour
     UIManager.Instance.FlashScreen();
     if (health <= 0 && !isDead && !godMode)
     {
-        Dies();
+      Dies();
     }
   }
 

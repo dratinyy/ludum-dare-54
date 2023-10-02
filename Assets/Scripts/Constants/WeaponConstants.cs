@@ -83,7 +83,7 @@ public class WeaponConstants : MonoBehaviour
         {
             projectileSpeed = 4f,
             projectileCount = 1,
-            damage = 30f,
+            damage = 40f,
             attackSpeed = 1.5f,
             range = 8f,
             accuracy = 0f,

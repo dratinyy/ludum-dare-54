@@ -8,6 +8,8 @@ public class Projectile : MonoBehaviour
   private Vector2 direction;
   private Vector3 startPosition;
 
+  private static GameObject explosionPrefab;
+
   private float damageMultiplier = 1f;
   private float rangeMultiplier = 1f;
 
@@ -65,6 +67,11 @@ public class Projectile : MonoBehaviour
       // Deal damage to secondary targets
       if (WeaponConstants.weaponStats[type].explosive)
       {
+        if (explosionPrefab == null)
+          explosionPrefab = Resources.Load<GameObject>("Prefabs/Particles/Explosion");
+        GameObject particle = GameObject.Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        GameObject.Destroy(particle, 1.5f);
+
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, WeaponConstants.weaponStats[type].explosiveRange);
         foreach (Collider2D collider in colliders)
         {

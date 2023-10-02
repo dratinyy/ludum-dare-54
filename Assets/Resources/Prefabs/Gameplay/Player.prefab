@@ -65,7 +65,7 @@ MonoBehaviour:
   spriteRendererTop:
   - {fileID: 0}
   canShoot: 1
-  godMode: 0
+  godMode: 1
   bornRichMode: 1
 --- !u!61 &698621758465765640
 BoxCollider2D:

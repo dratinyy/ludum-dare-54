@@ -65,7 +65,7 @@ public class Enemy : MonoBehaviour
         if (particleClock >= particleMinInterval)
         {
             GameObject particle = GameObject.Instantiate(enemyBloodPrefab, transform.Find("BloodParticle").position, rotation);
-            GameObject.Destroy(particle, 1.3f);
+            GameObject.Destroy(particle, 1.5f);
             particleClock = 0f;
         }
 
@@ -80,7 +80,7 @@ public class Enemy : MonoBehaviour
         if (enemyDeathPrefab == null)
             enemyDeathPrefab = Resources.Load<GameObject>("Prefabs/Particles/DeathPurple");
         GameObject particle = GameObject.Instantiate(enemyDeathPrefab, transform.Find("BloodParticle").position, Quaternion.identity);
-        GameObject.Destroy(particle, 0.5f);
+        GameObject.Destroy(particle, 1.5f);
         Destroy(gameObject);
     }
 
