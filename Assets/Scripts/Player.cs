@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
   public float movespeedMultiplier = 1f;
   public float attackSpeedMultiplier = 1f;
   public float attackRangeMultiplier = 1f;
-  private int weaponType = 4;
+  private int weaponType = 0;
 
   private float health;
   public float Health
