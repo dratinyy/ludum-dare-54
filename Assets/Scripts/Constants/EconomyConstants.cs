@@ -6,7 +6,7 @@ public class EconomyConstants : MonoBehaviour
 {
 
     public readonly static int tileBuyPrice = 100;
-    public readonly static int tileRentBenefit = 23;
+    public readonly static int tileRentBenefit = 26;
     public readonly static int tileSellPrice = 80;
 
     public readonly static int burgerPrice = 5;
