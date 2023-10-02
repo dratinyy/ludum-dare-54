@@ -54,12 +54,13 @@ public class Projectile : MonoBehaviour
     // Collide with enemy hitbox
     if (other.gameObject.tag == "EnemyHitbox" && !hitTargets.Contains(other.gameObject))
     {
+      print("hit");
       hitTargets.Add(other.gameObject);
       targetCount++;
 
       // Deal damage to primary target
       float damageWithMulitplier = WeaponConstants.weaponStats[type].damage * damageMultiplier;
-      other.gameObject.GetComponentInParent<Enemy>().TakeDamage(damageWithMulitplier);
+      other.gameObject.GetComponentInParent<Enemy>().TakeDamage(damageWithMulitplier, transform.rotation);
 
       // Deal damage to secondary targets
       if (WeaponConstants.weaponStats[type].explosive)
@@ -71,7 +72,7 @@ public class Projectile : MonoBehaviour
           {
             hitTargets.Add(collider.gameObject);
             targetCount++;
-            collider.gameObject.GetComponentInParent<Enemy>().TakeDamage(damageWithMulitplier);
+            collider.gameObject.GetComponentInParent<Enemy>().TakeDamage(damageWithMulitplier, transform.rotation);
           }
         }
       }

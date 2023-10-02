@@ -4,6 +4,9 @@ using System.Collections;
 
 public class Player : MonoBehaviour
 {
+  private static GameObject playerBloodPrefab;
+  private static readonly float particleMinInterval = 0.3f;
+  private float particleClock = 0f;
   private float maxHealth = 100f;
   public float MaxHealth
   {
@@ -71,6 +74,7 @@ public class Player : MonoBehaviour
 
   void Update()
   {
+    particleClock += Time.deltaTime;
     Move();
     FaceMouse();
     cameraFollow();
@@ -156,23 +160,24 @@ public class Player : MonoBehaviour
   public void ShootProjectiles()
   {
     // Vector towards mouse
-    var worldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    Vector2 worldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     Vector2 gunPosition = transform.Find("GunPosition").position;
-    Vector2 dirTowardsMouse = new Vector2(worldMousePosition.x - gunPosition.x, worldMousePosition.y - gunPosition.y);
+    Vector2 dirTowardsMouse = worldMousePosition - gunPosition;
+
+    // Randomize angle
+    float randomAngleDelta = UnityEngine.Random.Range(-WeaponConstants.maxDispersionDegrees * (100 - WeaponConstants.weaponStats[weaponType].accuracy) / 100f,
+  WeaponConstants.maxDispersionDegrees * (100 - WeaponConstants.weaponStats[weaponType].accuracy) / 100f) * Mathf.Deg2Rad;
 
     // Instantiate projectiles
     for (int i = 0; i < WeaponConstants.weaponStats[weaponType].projectileCount; i++)
     {
-      // Randomize angle
-      float randomAngleDelta = UnityEngine.Random.Range(-WeaponConstants.maxDispersionDegrees * (100 - WeaponConstants.weaponStats[weaponType].accuracy) / 100f,
-      WeaponConstants.maxDispersionDegrees * (100 - WeaponConstants.weaponStats[weaponType].accuracy) / 100f) * Mathf.Deg2Rad;
 
+      float projectileAngle = Mathf.PI / 48f * (i - WeaponConstants.weaponStats[weaponType].projectileCount / 2);
       // Rotate vector towards mouse by random angle
-      float randomAngle = Mathf.Atan2(dirTowardsMouse.y, dirTowardsMouse.x) + randomAngleDelta;
-      dirTowardsMouse = new Vector2(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle));
+      float randomAngle = Mathf.Atan2(dirTowardsMouse.y, dirTowardsMouse.x) + randomAngleDelta + projectileAngle;
 
       GameObject projectile = Instantiate(WeaponConstants.weaponStats[weaponType].projectilePrefab, gunPosition, Quaternion.identity);
-      projectile.GetComponent<Projectile>().Init(dirTowardsMouse, transform.position, weaponType, damageMultiplier, attackRangeMultiplier);
+      projectile.GetComponent<Projectile>().Init(new Vector2(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle)), gunPosition, weaponType, damageMultiplier, attackRangeMultiplier);
     }
   }
 
@@ -200,8 +205,19 @@ public class Player : MonoBehaviour
     UIManager.Instance.UpdateHealth(health, maxHealth);
   }
 
-  public void TakeDamage(float damage)
+  public void TakeDamage(float damage, Quaternion rotation)
   {
+
+    if (playerBloodPrefab == null)
+      playerBloodPrefab = Resources.Load<GameObject>("Prefabs/Particles/BloodRed");
+
+    if (particleClock >= particleMinInterval)
+    {
+      GameObject particle = GameObject.Instantiate(playerBloodPrefab, transform.Find("BloodParticle").position, rotation);
+      GameObject.Destroy(particle, 1.3f);
+      particleClock = 0f;
+    }
+
     health = Mathf.Max(0, health - damage);
     UIManager.Instance.UpdateHealth(health, maxHealth);
     UIManager.Instance.FlashScreen();

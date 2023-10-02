@@ -26,7 +26,7 @@ public class WeaponConstants : MonoBehaviour
         new WeaponStats
         {
             projectileSpeed = 8f,
-            projectileCount = 1f,
+            projectileCount = 1,
             damage = 8f,
             attackSpeed = 3f,
             range = 6f,
@@ -40,21 +40,21 @@ public class WeaponConstants : MonoBehaviour
         new WeaponStats
         {
             projectileSpeed = 8f,
-            projectileCount = 8f,
+            projectileCount = 7,
             damage = 13f,
             attackSpeed = 1.2f,
             range = 3f,
-            accuracy = 0f, // Dispersion maximale
+            accuracy = 90f,
 
             piercing = 1,
             explosive = false,
-            explosiveRange = 0f
+            explosiveRange = 100f
         },
         // Weapon 2 uzi
         new WeaponStats
         {
             projectileSpeed = 16f,
-            projectileCount = 1f,
+            projectileCount = 1,
             damage = 4f,
             attackSpeed = 12f,
             range = 6f,
@@ -68,7 +68,7 @@ public class WeaponConstants : MonoBehaviour
         new WeaponStats
         {
             projectileSpeed = 12f,
-            projectileCount = 1f,
+            projectileCount = 1,
             damage = 8f,
             attackSpeed = 7.5f,
             range = 15f,
@@ -82,7 +82,7 @@ public class WeaponConstants : MonoBehaviour
         new WeaponStats
         {
             projectileSpeed = 4f,
-            projectileCount = 1f,
+            projectileCount = 1,
             damage = 30f,
             attackSpeed = 1.5f,
             range = 8f,
@@ -106,7 +106,7 @@ public class WeaponConstants : MonoBehaviour
     {
         public GameObject projectilePrefab;
         public float projectileSpeed;
-        public float projectileCount;
+        public int projectileCount;
         public float damage;
         public float attackSpeed;
         public float range;

@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+
+    private static readonly float particleMinInterval = 0.3f;
+    private float particleClock = 0f;
+
+    private static GameObject enemyBloodPrefab;
+    private static GameObject enemyDeathPrefab;
     public int type;
     private float currentHealth;
     private float attackClock = 0f;
@@ -19,6 +25,8 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         attackClock += Time.deltaTime;
+        particleClock += Time.deltaTime;
+
         Vector2 distanceToPlayer = player.position - transform.position;
         transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = distanceToPlayer.x < 0;
         if (distanceToPlayer.magnitude <= EnemyConstants.enemyStats[type].attackRange)
@@ -41,13 +49,26 @@ public class Enemy : MonoBehaviour
         if (attackClock > EnemyConstants.enemyStats[type].attackSpeed)
         {
             attackClock = 0f;
-            player.GetComponent<Player>().TakeDamage(EnemyConstants.enemyStats[type].damage);
+            Vector2 direction = player.position - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            angle -= 90;
+            player.GetComponent<Player>().TakeDamage(EnemyConstants.enemyStats[type].damage, Quaternion.Euler(new Vector3(0, 0, angle)));
         }
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, Quaternion rotation)
     {
         currentHealth -= damage;
+        if (enemyBloodPrefab == null)
+            enemyBloodPrefab = Resources.Load<GameObject>("Prefabs/Particles/BloodPurple");
+
+        if (particleClock >= particleMinInterval)
+        {
+            GameObject particle = GameObject.Instantiate(enemyBloodPrefab, transform.Find("BloodParticle").position, rotation);
+            GameObject.Destroy(particle, 1.3f);
+            particleClock = 0f;
+        }
+
         if (currentHealth <= 0)
         {
             Die();
@@ -56,6 +77,10 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        if (enemyDeathPrefab == null)
+            enemyDeathPrefab = Resources.Load<GameObject>("Prefabs/Particles/DeathPurple");
+        GameObject particle = GameObject.Instantiate(enemyDeathPrefab, transform.Find("BloodParticle").position, Quaternion.identity);
+        GameObject.Destroy(particle, 0.5f);
         Destroy(gameObject);
     }
 
