@@ -59,19 +59,14 @@ public class GameManager : MonoBehaviour
         StartCoroutine(StartFirstNightCoroutine());
     }
 
-    void Update()
-    {
-        // on space bar, if it is day, start night, if it is night, start day
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-
-            // player.GetComponent<Player>().weaponType = (player.GetComponent<Player>().weaponType + 1) % 5;
-            // if (isDay)
-            // {
-            //     StartNight();
-            // }
-        }
-    }
+    // void Update()
+    // {
+    //     // When spacebar is pressed
+    //     if (Input.GetKeyDown(KeyCode.Space))
+    //     {
+    //         StartDay();
+    //     }
+    // }
 
     IEnumerator StartFirstNightCoroutine()
     {

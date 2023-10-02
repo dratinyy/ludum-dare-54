@@ -32,7 +32,6 @@ public class WaveSpawner : MonoBehaviour
 
         if (waveNumber >= WaveConstants.waveNumberIncrease)
         {
-            print("IMPORVED SPAWN RATE");
             spawnInterval = 0.02f;
         }
     }
