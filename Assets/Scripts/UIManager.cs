@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour
     {
         canvas.transform.Find("Health").gameObject.SetActive(true);
         canvas.transform.Find("Health").Find("HealthText").GetComponent<UnityEngine.UI.Text>().text = health.ToString();
-        canvas.transform.Find("Health").Find("MaxHealthText").GetComponent<UnityEngine.UI.Text>().text = "/ " + maxHealth.ToString();
+        canvas.transform.Find("Health").Find("MaxHealthText").GetComponent<UnityEngine.UI.Text>().text = "/" + maxHealth.ToString();
     }
 
     public void DisplayShop(bool display)
