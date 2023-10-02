@@ -6,6 +6,9 @@ using UnityEngine;
 public class WaveConstants : MonoBehaviour
 {
 
+    public static bool modeChenille = false;
+    public static bool modeNecro = true;
+
     public static readonly EnemyWaveStats[] enemyWaveStats = new EnemyWaveStats[]
     {
         // Zombie

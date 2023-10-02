@@ -64,6 +64,14 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnEnemyOfType(int type)
     {
+        if (WaveConstants.modeChenille)
+        {
+            type = 1;
+        }
+        else if (WaveConstants.modeNecro)
+        {
+            type = 3;
+        }
         float randomRotation = Random.Range(0, 2 * Mathf.PI);
         Vector2 spawnPosition = new Vector3(Mathf.Cos(randomRotation), Mathf.Sin(randomRotation), 0) * currentSpawnDistance;
         currentSpawnDistance = Mathf.Min(spawnDistanceFromOrigin, currentSpawnDistance + spawnDistanceFromOrigin / 200f);
