@@ -6,18 +6,18 @@ public class EconomyConstants : MonoBehaviour
 {
 
     public readonly static int tileBuyPrice = 100;
-    public readonly static int tileRentBenefit = 27;
+    public readonly static int tileRentBenefit = 26;
     public readonly static int tileSellPrice = 80;
 
     public readonly static int burgerPrice = 5;
     public readonly static int burgerHealth = 10;
-    public readonly static int healpackPrice = 35;
-    public readonly static int healpackHealth = 250;
+    public readonly static int healpackPrice = 50;
+    public readonly static int healpackHealth = 200;
     
     public readonly static int spaceshipPrice = 10000;
 
-    public readonly static int dailyIncome = 100;
-    public readonly static int numberOfWavesWithIncome = 7;
+    public readonly static int dailyIncome = 120;
+    public readonly static int numberOfWavesWithIncome = 8;
 
     public readonly static int[] weaponPrices = new int[]
     {
@@ -28,13 +28,13 @@ public class EconomyConstants : MonoBehaviour
         150,
 
         // Weapon 2 uzi
-        300,
+        350,
 
         // Weapon 3 auto rifle
-        800,
+        1000,
 
         // Weapon 4 Rocket Launcher
-        1000
+        2000
     };
 
     public readonly static BonusStats[] bonusStats = new BonusStats[]
@@ -42,23 +42,23 @@ public class EconomyConstants : MonoBehaviour
         // Max Health
         new BonusStats
         {
-            price = 30,
+            price = 25,
             increase = 20f, // not in percent
-            maxQuantity = 20f
+            maxQuantity = 15f
         },
 
         // Movespeed
         new BonusStats
         {
-            price = 50,
+            price = 40,
             increase = 10f, // in percent
-            maxQuantity = 10f
+            maxQuantity = 5f
         },
 
         // Damage
         new BonusStats
         {
-            price = 70,
+            price = 60,
             increase = 10f, // in percent
             maxQuantity = 15f
         },
@@ -66,7 +66,7 @@ public class EconomyConstants : MonoBehaviour
         // Range
         new BonusStats
         {
-            price = 70,
+            price = 60,
             increase = 10f, // in percent
             maxQuantity = 20f
         },
@@ -74,9 +74,9 @@ public class EconomyConstants : MonoBehaviour
         // Attack Speed
         new BonusStats
         {
-            price = 80,
+            price = 70,
             increase = 10f, // in percent
-            maxQuantity = 10f
+            maxQuantity = 20f
         }
     };
 

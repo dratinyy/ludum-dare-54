@@ -120,8 +120,7 @@ public class GameManager : MonoBehaviour
 
         if (waveNumber < EconomyConstants.numberOfWavesWithIncome)
         {
-            Player.GetComponent<Player>().UpdateMoney(100);
-
+            Player.GetComponent<Player>().UpdateMoney(EconomyConstants.dailyIncome);
             LeaderboardManager.Instance.moneyGainedFromIncome += EconomyConstants.dailyIncome;
         }
 
