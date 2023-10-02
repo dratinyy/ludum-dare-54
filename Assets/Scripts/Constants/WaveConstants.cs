@@ -13,7 +13,7 @@ public class WaveConstants : MonoBehaviour
         {
             startAtWave = 0,
             intialCount = 4,
-            additionalPerWave = 5
+            additionalPerWave = 4
         },
         // Worm
         new EnemyWaveStats
