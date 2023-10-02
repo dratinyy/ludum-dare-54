@@ -223,11 +223,17 @@ public class Player : MonoBehaviour
     UIManager.Instance.FlashScreen();
     if (health <= 0 && !isDead && !godMode)
     {
-      canShoot = false;
-      canMove = false;
-      isDead = true;
-      GameManager.Instance.GameOver();
+        Dies();
     }
+  }
+
+  public void Dies()
+  {
+    canShoot = false;
+    canMove = false;
+    isDead = true;
+    GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    GameManager.Instance.GameOver();
   }
 
   void OnCollisionEnter2D(Collision2D collision)

@@ -3772,7 +3772,7 @@ GameObject:
   - component: {fileID: 1141453265199049658}
   m_Layer: 0
   m_Name: Tile (3)
-  m_TagString: Tile
+  m_TagString: Borders
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6707,7 +6707,7 @@ GameObject:
   - component: {fileID: 3520007259506074145}
   m_Layer: 0
   m_Name: Tile(Clone)
-  m_TagString: Untagged
+  m_TagString: Borders
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7610,7 +7610,7 @@ GameObject:
   - component: {fileID: 5846980858774262166}
   m_Layer: 0
   m_Name: Tile (1)
-  m_TagString: Tile
+  m_TagString: Borders
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12851,7 +12851,7 @@ GameObject:
   - component: {fileID: 502038715461864014}
   m_Layer: 0
   m_Name: Tile(Clone) (2)
-  m_TagString: Untagged
+  m_TagString: Borders
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18368,7 +18368,7 @@ GameObject:
   - component: {fileID: 59863021040267339}
   m_Layer: 0
   m_Name: Tile(Clone) (3)
-  m_TagString: Untagged
+  m_TagString: Borders
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20253,7 +20253,7 @@ GameObject:
   - component: {fileID: 4426246029145787471}
   m_Layer: 0
   m_Name: Tile
-  m_TagString: Tile
+  m_TagString: Borders
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21097,7 +21097,7 @@ GameObject:
   - component: {fileID: 5375640559884839737}
   m_Layer: 0
   m_Name: Tile (2)
-  m_TagString: Tile
+  m_TagString: Borders
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23085,7 +23085,7 @@ GameObject:
   - component: {fileID: 4671411641363075675}
   m_Layer: 0
   m_Name: Tile(Clone) (1)
-  m_TagString: Untagged
+  m_TagString: Borders
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -27,8 +27,8 @@ public class WeaponConstants : MonoBehaviour
         {
             projectileSpeed = 8f,
             projectileCount = 1,
-            damage = 8f,
-            attackSpeed = 3f,
+            damage = 9f,
+            attackSpeed = 3.5f,
             range = 6f,
             accuracy = 70f,
 
@@ -39,24 +39,24 @@ public class WeaponConstants : MonoBehaviour
         // Weapon 1 Shotgun
         new WeaponStats
         {
-            projectileSpeed = 8f,
-            projectileCount = 7,
-            damage = 13f,
-            attackSpeed = 1.2f,
+            projectileSpeed = 10f,
+            projectileCount = 9,
+            damage = 14f,
+            attackSpeed = 1.3f,
             range = 3f,
             accuracy = 90f,
 
-            piercing = 1,
+            piercing = 2,
             explosive = false,
             explosiveRange = 100f
         },
         // Weapon 2 uzi
         new WeaponStats
         {
-            projectileSpeed = 16f,
+            projectileSpeed = 24f,
             projectileCount = 1,
-            damage = 4f,
-            attackSpeed = 12f,
+            damage = 6f,
+            attackSpeed = 24f,
             range = 6f,
             accuracy = 0f,
 
@@ -67,16 +67,16 @@ public class WeaponConstants : MonoBehaviour
         // Weapon 3 auto rifle
         new WeaponStats
         {
-            projectileSpeed = 12f,
+            projectileSpeed = 18f,
             projectileCount = 1,
-            damage = 8f,
-            attackSpeed = 7.5f,
+            damage = 16f,
+            attackSpeed = 18f,
             range = 15f,
             accuracy = 70f,
 
-            piercing = 6,
-            explosive = false,
-            explosiveRange = 0f
+            piercing = 1,
+            explosive = true,
+            explosiveRange = 0.2f
         },
         // Weapon 4 Rocket Launcher
         new WeaponStats
@@ -86,7 +86,7 @@ public class WeaponConstants : MonoBehaviour
             damage = 30f,
             attackSpeed = 1.5f,
             range = 8f,
-            accuracy = 60f,
+            accuracy = 0f,
 
             piercing = 1,
             explosive = true,
