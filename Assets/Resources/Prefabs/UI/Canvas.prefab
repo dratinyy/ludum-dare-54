@@ -213,11 +213,11 @@ RectTransform:
   - {fileID: 4552099572192438861}
   - {fileID: 1442405584573961671}
   - {fileID: 7653733237385262567}
-  - {fileID: 911166966608197112}
   - {fileID: 5942518952142543154}
   - {fileID: 7595767731232008581}
   - {fileID: 2291462884032775044}
   - {fileID: 8472590002844332836}
+  - {fileID: 911166966608197112}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3069,15 +3069,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4090070516341191266, guid: c0e2769334d5c1749ad6bf2f5e90daed, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6002063348948491612, guid: c0e2769334d5c1749ad6bf2f5e90daed, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 9c273a5edabd65b489761a380e54c91f, type: 3}
     - target: {fileID: 7731540835949532111, guid: c0e2769334d5c1749ad6bf2f5e90daed, type: 3}
       propertyPath: m_Name
       value: GameOverScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 7731540835949532111, guid: c0e2769334d5c1749ad6bf2f5e90daed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
