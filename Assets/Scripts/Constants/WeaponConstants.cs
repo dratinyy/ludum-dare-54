@@ -27,8 +27,8 @@ public class WeaponConstants : MonoBehaviour
         {
             projectileSpeed = 8f,
             projectileCount = 1f,
-            damage = 8f,
-            attackSpeed = 3f,
+            damage = 9f,
+            attackSpeed = 3.5f,
             range = 6f,
             accuracy = 70f,
 
@@ -40,13 +40,13 @@ public class WeaponConstants : MonoBehaviour
         new WeaponStats
         {
             projectileSpeed = 8f,
-            projectileCount = 8f,
-            damage = 13f,
-            attackSpeed = 1.2f,
-            range = 3f,
+            projectileCount = 10f,
+            damage = 14f,
+            attackSpeed = 1.3f,
+            range = 3.2f,
             accuracy = 0f, // Dispersion maximale
 
-            piercing = 1,
+            piercing = 2,
             explosive = false,
             explosiveRange = 0f
         },
@@ -55,8 +55,8 @@ public class WeaponConstants : MonoBehaviour
         {
             projectileSpeed = 16f,
             projectileCount = 1f,
-            damage = 4f,
-            attackSpeed = 12f,
+            damage = 6f,
+            attackSpeed = 21f,
             range = 6f,
             accuracy = 0f,
 
@@ -69,8 +69,8 @@ public class WeaponConstants : MonoBehaviour
         {
             projectileSpeed = 12f,
             projectileCount = 1f,
-            damage = 8f,
-            attackSpeed = 7.5f,
+            damage = 16f,
+            attackSpeed = 15f,
             range = 15f,
             accuracy = 70f,
 
@@ -82,11 +82,11 @@ public class WeaponConstants : MonoBehaviour
         new WeaponStats
         {
             projectileSpeed = 4f,
-            projectileCount = 1f,
+            projectileCount = 3f,
             damage = 30f,
             attackSpeed = 1.5f,
             range = 8f,
-            accuracy = 60f,
+            accuracy = 0f,
 
             piercing = 1,
             explosive = true,
