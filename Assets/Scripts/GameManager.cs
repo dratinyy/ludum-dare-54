@@ -116,7 +116,7 @@ public class GameManager : MonoBehaviour
 
         if (waveNumber < EconomyConstants.numberOfWavesWithIncome)
         {
-            Player.GetComponent<Player>().UpdateMoney(100);
+            Player.GetComponent<Player>().UpdateMoney(EconomyConstants.dailyIncome);
         }
 
         // Set player child NightMask object to inactive
