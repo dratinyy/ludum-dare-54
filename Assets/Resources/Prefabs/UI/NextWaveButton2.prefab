@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6218877107532621640}
   - component: {fileID: 7952550197224073414}
   m_Layer: 0
-  m_Name: Normal
+  m_Name: hover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 6672854267627887585}
   - component: {fileID: 1840659198044760115}
   m_Layer: 0
-  m_Name: shadow
+  m_Name: normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -169,7 +169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4864391024900451775
 RectTransform:
   m_ObjectHideFlags: 0
@@ -211,8 +211,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a25b1d2133de26246b024918a9112fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalDisplay: {fileID: 1246462531102296009}
-  hoverDisplay: {fileID: 2732105363058401416}
+  normalDisplay: {fileID: 2732105363058401416}
+  hoverDisplay: {fileID: 1246462531102296009}
+  Tile: {fileID: 0}
 --- !u!61 &5630372383542834413
 BoxCollider2D:
   m_ObjectHideFlags: 0

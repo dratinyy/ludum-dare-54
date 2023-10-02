@@ -148,6 +148,7 @@ public class Tile : MonoBehaviour
         if (GameManager.Instance.isDay && currentState == State.Rented)
         {
             Player.GetComponent<Player>().UpdateMoney(EconomyConstants.tileRentBenefit);
+            LeaderboardManager.Instance.moneyGainedFromRents += EconomyConstants.tileRentBenefit;
         }
     }
 
@@ -207,6 +208,9 @@ public class Tile : MonoBehaviour
         Player.GetComponent<Player>().UpdateMoney(-EconomyConstants.tileBuyPrice);
         setState(State.Owned);
         menu.SetActive(false);
+
+        LeaderboardManager.Instance.moneyGainedFromTilesOwned += EconomyConstants.tileSellPrice;
+        LeaderboardManager.Instance.moneyInvestedInTiles += EconomyConstants.tileBuyPrice;
     }
 
     public void rent()
@@ -226,6 +230,9 @@ public class Tile : MonoBehaviour
         Player.GetComponent<Player>().UpdateMoney(EconomyConstants.tileSellPrice);
         setState(State.notOwned);
         menu.SetActive(false);
+
+        LeaderboardManager.Instance.moneyGainedFromTilesOwned -= EconomyConstants.tileSellPrice;
+        LeaderboardManager.Instance.moneyGainedFromTileSales += EconomyConstants.tileSellPrice;
     }
 
 }

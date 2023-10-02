@@ -56,7 +56,6 @@ public class Projectile : MonoBehaviour
     // Collide with enemy hitbox
     if (other.gameObject.tag == "EnemyHitbox" && !hitTargets.Contains(other.gameObject))
     {
-      print("hit");
       hitTargets.Add(other.gameObject);
       targetCount++;
 

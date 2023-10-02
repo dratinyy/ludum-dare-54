@@ -77,6 +77,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        LeaderboardManager.Instance.enemyKilled[type]++;
         if (enemyDeathPrefab == null)
             enemyDeathPrefab = Resources.Load<GameObject>("Prefabs/Particles/DeathPurple");
         GameObject particle = GameObject.Instantiate(enemyDeathPrefab, transform.Find("BloodParticle").position, Quaternion.identity);

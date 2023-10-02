@@ -34,6 +34,8 @@ public class Shop : MonoBehaviour
         {
             if (GetPlayer().GetComponent<Player>().Money >= EconomyConstants.weaponPrices[index])
             {
+                LeaderboardManager.Instance.moneyInvestedInWeapons += EconomyConstants.weaponPrices[index];
+                LeaderboardManager.Instance.moneyGainedFromWeaponsOwned += EconomyConstants.weaponPrices[index];
                 GetPlayer().GetComponent<Player>().UpdateMoney(-EconomyConstants.weaponPrices[index]);
                 weaponBought[index] = true;
                 GetPlayer().GetComponent<Player>().SetWeaponType(index);
@@ -56,6 +58,7 @@ public class Shop : MonoBehaviour
         }
         else
         {
+            LeaderboardManager.Instance.moneyInvestedInUpgrades += EconomyConstants.bonusStats[index].price;
             GetPlayer().GetComponent<Player>().UpdateMoney(-EconomyConstants.bonusStats[index].price);
             bonusBought[index]++;
 
@@ -111,6 +114,7 @@ public class Shop : MonoBehaviour
         if (GetPlayer().GetComponent<Player>().Money >= price &&
             GetPlayer().GetComponent<Player>().Health < GetPlayer().GetComponent<Player>().MaxHealth)
         {
+            LeaderboardManager.Instance.moneyInvestedInHeal += price;
             GetPlayer().GetComponent<Player>().UpdateMoney(-price);
             GetPlayer().GetComponent<Player>().Heal(health);
         }
@@ -120,6 +124,7 @@ public class Shop : MonoBehaviour
     {
         if (GetPlayer().GetComponent<Player>().Money >= EconomyConstants.spaceshipPrice)
         {
+            LeaderboardManager.Instance.moneyInvestedInRocket += EconomyConstants.spaceshipPrice;
             GetPlayer().GetComponent<Player>().UpdateMoney(-EconomyConstants.spaceshipPrice);
         }
     }
