@@ -7,7 +7,7 @@ public class WaveConstants : MonoBehaviour
 {
 
     public static bool modeChenille = false;
-    public static bool modeNecro = true;
+    public static bool modeNecro = false;
 
     public static readonly EnemyWaveStats[] enemyWaveStats = new EnemyWaveStats[]
     {
