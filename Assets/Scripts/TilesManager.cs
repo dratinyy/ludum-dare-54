@@ -82,9 +82,9 @@ public class TilesManager : MonoBehaviour
     }
   }
 
-  public void getNeighbors(int x, int y)
+  public List<GameObject> getNeighbors(int x, int y)
   {
-    // get neighbors
+    // get neighbors no diagonals
     List<GameObject> neighbors = new List<GameObject>();
     if (x > 0)
     {
@@ -102,22 +102,7 @@ public class TilesManager : MonoBehaviour
     {
       neighbors.Add(Tiles[getTile(x, y + 1)]);
     }
-    if (x > 0 && y > 0)
-    {
-      neighbors.Add(Tiles[getTile(x - 1, y - 1)]);
-    }
-    if (x < width - 1 && y < width - 1)
-    {
-      neighbors.Add(Tiles[getTile(x + 1, y + 1)]);
-    }
-    if (x > 0 && y < width - 1)
-    {
-      neighbors.Add(Tiles[getTile(x - 1, y + 1)]);
-    }
-    if (x < width - 1 && y > 0)
-    {
-      neighbors.Add(Tiles[getTile(x + 1, y - 1)]);
-    }
+    return neighbors;
   }
 
   private int getTile(int x, int y)

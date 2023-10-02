@@ -188,7 +188,7 @@ public class Tile : MonoBehaviour
         {
             return;
         }
-        if (Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && ( currentState != State.notOwned || isAdjacentToOwned()))
         {
             if (menu.activeSelf)
             {
@@ -200,6 +200,19 @@ public class Tile : MonoBehaviour
             }
         }
     }
+
+    private bool isAdjacentToOwned()
+    {
+        foreach (GameObject neighbor in neighbors)
+        {
+            if (neighbor.GetComponent<Tile>().currentState == State.Owned)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void buy()
     {
         if (Player.GetComponent<Player>().Money < EconomyConstants.tileBuyPrice)
