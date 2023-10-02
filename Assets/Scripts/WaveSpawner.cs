@@ -77,7 +77,7 @@ public class WaveSpawner : MonoBehaviour
             type = 3;
         }
         float randomRotation = Random.Range(0, 2 * Mathf.PI);
-        Vector2 spawnPosition = new Vector3(Mathf.Cos(randomRotation), Mathf.Sin(randomRotation), 0) * currentSpawnDistance;
+        Vector3 spawnPosition = new Vector3(Mathf.Cos(randomRotation) * currentSpawnDistance, Mathf.Sin(randomRotation) * currentSpawnDistance, -1);
         currentSpawnDistance = Mathf.Min(spawnDistanceFromOrigin, currentSpawnDistance + spawnDistanceFromOrigin / 200f);
         Instantiate(WaveConstants.enemyPrefabs[type], spawnPosition, Quaternion.identity, transform);
     }
