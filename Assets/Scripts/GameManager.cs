@@ -132,6 +132,7 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
+        AudioManager.Instance.PlayRandomMusicGoodEnding();
         LeaderboardManager.Instance.wavesSurvived = waveNumber + 1;
         LeaderboardManager.Instance.timesWon++;
         UIManager.Instance.WinRoutine();
