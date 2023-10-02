@@ -103,9 +103,10 @@ public class UIManager : MonoBehaviour
         }
         else if (waveNumber > 2)
         {
-            if (waveNumber == 4)
+            if (waveNumber == 3)
             {
                 GameObject.Destroy(canvas.transform.Find("ShopHelper").gameObject);
+                GameObject.Destroy(canvas.transform.Find("ShopArrowHelper").gameObject);
             }
             if (waveNumber == EconomyConstants.numberOfWavesWithIncome + 2)
             {
@@ -138,10 +139,11 @@ public class UIManager : MonoBehaviour
         else if (waveNumber > 1)
         {
             Transform shopButton = canvas.transform.Find("ShopButton 1");
-            if (waveNumber == 3)
+            if (waveNumber == 2)
             {
                 shopButton.gameObject.SetActive(true);
                 canvas.transform.Find("ShopHelper").gameObject.SetActive(true);
+                canvas.transform.Find("ShopArrowHelper").gameObject.SetActive(true);
             }
             if (waveNumber == EconomyConstants.numberOfWavesWithIncome + 1)
             {

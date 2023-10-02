@@ -39,13 +39,13 @@ public class WaveConstants : MonoBehaviour
         // Boss
         new EnemyWaveStats
         {
-            startAtWave = 10,
+            startAtWave = 15,
             intialCount = 1,
             additionalPerWave = 1
         }
     };
 
-    public static int enemyTypeCount = 3;
+    public static int enemyTypeCount = WaveConstants.enemyWaveStats.Length;
     public static GameObject[] enemyPrefabs;
 
     void Start()
