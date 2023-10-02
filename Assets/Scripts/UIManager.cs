@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour
     {
         canvas.transform.Find("Health").gameObject.SetActive(true);
         canvas.transform.Find("Health").Find("HealthText").GetComponent<UnityEngine.UI.Text>().text = health.ToString();
-        canvas.transform.Find("Health").Find("MaxHealthText").GetComponent<UnityEngine.UI.Text>().text = "/ " + maxHealth.ToString();
+        canvas.transform.Find("Health").Find("MaxHealthText").GetComponent<UnityEngine.UI.Text>().text = "/" + maxHealth.ToString();
     }
 
     public void DisplayShop(bool display)
@@ -113,6 +113,10 @@ public class UIManager : MonoBehaviour
             {
                 GameObject.Destroy(canvas.transform.Find("NoMoreIncomeHelper").gameObject);
             }
+            if (waveNumber == WaveConstants.waveNumberIncrease + 1)
+            {
+                GameObject.Destroy(canvas.transform.Find("DoubleSpawnHelper").gameObject);
+            }
             canvas.transform.Find("ShopButton 1").gameObject.GetComponent<HandleShop>().setClosed();
             DisplayShop(false);
         }
@@ -150,6 +154,10 @@ public class UIManager : MonoBehaviour
             if (waveNumber == EconomyConstants.numberOfWavesWithIncome + 1)
             {
                 canvas.transform.Find("NoMoreIncomeHelper").gameObject.SetActive(true);
+            }
+            if (waveNumber == WaveConstants.waveNumberIncrease)
+            {
+                canvas.transform.Find("DoubleSpawnHelper").gameObject.SetActive(true);
             }
             shopButton.gameObject.GetComponent<HandleShop>().setOpen();
         }

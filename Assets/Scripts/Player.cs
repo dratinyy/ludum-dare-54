@@ -17,8 +17,8 @@ public class Player : MonoBehaviour
   }
   public float damageMultiplier = 1f;
   public float movespeedMultiplier = 1f;
-  public float attackSpeedMultiplier = 1f;
-  public float attackRangeMultiplier = 1f;
+  public float attackSpeedMultiplier = 100f;
+  public float attackRangeMultiplier = 10f;
   private int weaponType = 0;
 
   private float health;
@@ -229,7 +229,7 @@ public class Player : MonoBehaviour
 
   public void Dies()
   {
-        canShoot = false;
+    canShoot = false;
     canMove = false;
     isDead = true;
     GetComponent<Rigidbody2D>().velocity = Vector2.zero;

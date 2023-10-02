@@ -6,6 +6,9 @@ using UnityEngine;
 public class WaveConstants : MonoBehaviour
 {
 
+    // Waves increase at night 21
+    public static int waveNumberIncrease = 20;
+
     public static bool modeChenille = false;
     public static bool modeNecro = false;
 
