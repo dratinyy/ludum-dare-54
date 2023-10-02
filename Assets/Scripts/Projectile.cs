@@ -8,6 +8,8 @@ public class Projectile : MonoBehaviour
   private Vector2 direction;
   private Vector3 startPosition;
 
+  private static GameObject explosionPrefab;
+
   private float damageMultiplier = 1f;
   private float rangeMultiplier = 1f;
 
@@ -54,16 +56,22 @@ public class Projectile : MonoBehaviour
     // Collide with enemy hitbox
     if (other.gameObject.tag == "EnemyHitbox" && !hitTargets.Contains(other.gameObject))
     {
+      print("hit");
       hitTargets.Add(other.gameObject);
       targetCount++;
 
       // Deal damage to primary target
       float damageWithMulitplier = WeaponConstants.weaponStats[type].damage * damageMultiplier;
-      other.gameObject.GetComponentInParent<Enemy>().TakeDamage(damageWithMulitplier);
+      other.gameObject.GetComponentInParent<Enemy>().TakeDamage(damageWithMulitplier, transform.rotation);
 
       // Deal damage to secondary targets
       if (WeaponConstants.weaponStats[type].explosive)
       {
+        if (explosionPrefab == null)
+          explosionPrefab = Resources.Load<GameObject>("Prefabs/Particles/Explosion");
+        GameObject particle = GameObject.Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        GameObject.Destroy(particle, 1.5f);
+
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, WeaponConstants.weaponStats[type].explosiveRange);
         foreach (Collider2D collider in colliders)
         {
@@ -71,7 +79,7 @@ public class Projectile : MonoBehaviour
           {
             hitTargets.Add(collider.gameObject);
             targetCount++;
-            collider.gameObject.GetComponentInParent<Enemy>().TakeDamage(damageWithMulitplier);
+            collider.gameObject.GetComponentInParent<Enemy>().TakeDamage(damageWithMulitplier, transform.rotation);
           }
         }
       }

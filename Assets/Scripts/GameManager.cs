@@ -88,6 +88,7 @@ public class GameManager : MonoBehaviour
         waveNumber++;
         Debug.Log("Starting night " + waveNumber);
         UIManager.Instance.SetNightDisplay(waveNumber + 1);
+        AudioManager.Instance.PlayRandomMusicNight();
 
         if (waveNumber > 0)
         {
@@ -111,10 +112,11 @@ public class GameManager : MonoBehaviour
         isDay = true;
         Debug.Log("Starting day " + waveNumber);
         UIManager.Instance.SetDayDisplay(waveNumber + 1);
+        AudioManager.Instance.PlayRandomMusicDay();
 
         if (waveNumber < EconomyConstants.numberOfWavesWithIncome)
         {
-            Player.GetComponent<Player>().UpdateMoney(100);
+            Player.GetComponent<Player>().UpdateMoney(EconomyConstants.dailyIncome);
         }
 
         // Set player child NightMask object to inactive
@@ -126,6 +128,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        AudioManager.Instance.PlayRandomMusicEnding();
         UIManager.Instance.GameOverRoutine();
     }
 

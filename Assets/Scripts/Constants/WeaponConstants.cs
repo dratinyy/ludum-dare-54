@@ -26,7 +26,7 @@ public class WeaponConstants : MonoBehaviour
         new WeaponStats
         {
             projectileSpeed = 8f,
-            projectileCount = 1f,
+            projectileCount = 1,
             damage = 9f,
             attackSpeed = 3.5f,
             range = 6f,
@@ -40,24 +40,24 @@ public class WeaponConstants : MonoBehaviour
         new WeaponStats
         {
             projectileSpeed = 10f,
-            projectileCount = 10f,
+            projectileCount = 9,
             damage = 14f,
             attackSpeed = 1.3f,
             range = 3f,
-            accuracy = 0f, // Dispersion maximale
+            accuracy = 80f,
 
-            piercing = 2,
+            piercing = 1,
             explosive = false,
-            explosiveRange = 0f
+            explosiveRange = 100f
         },
         // Weapon 2 uzi
         new WeaponStats
         {
-            projectileSpeed = 24f,
-            projectileCount = 1f,
+            projectileSpeed = 25f,
+            projectileCount = 1,
             damage = 6f,
             attackSpeed = 24f,
-            range = 6f,
+            range = 5f,
             accuracy = 0f,
 
             piercing = 1,
@@ -67,11 +67,11 @@ public class WeaponConstants : MonoBehaviour
         // Weapon 3 auto rifle
         new WeaponStats
         {
-            projectileSpeed = 18f,
-            projectileCount = 1f,
+            projectileSpeed = 15f,
+            projectileCount = 1,
             damage = 16f,
-            attackSpeed = 18f,
-            range = 15f,
+            attackSpeed = 20f,
+            range = 10f,
             accuracy = 70f,
 
             piercing = 1,
@@ -82,8 +82,8 @@ public class WeaponConstants : MonoBehaviour
         new WeaponStats
         {
             projectileSpeed = 4f,
-            projectileCount = 3f,
-            damage = 30f,
+            projectileCount = 1,
+            damage = 40f,
             attackSpeed = 1.5f,
             range = 8f,
             accuracy = 0f,
@@ -106,7 +106,7 @@ public class WeaponConstants : MonoBehaviour
     {
         public GameObject projectilePrefab;
         public float projectileSpeed;
-        public float projectileCount;
+        public int projectileCount;
         public float damage;
         public float attackSpeed;
         public float range;
