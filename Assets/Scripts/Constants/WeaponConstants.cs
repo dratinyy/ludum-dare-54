@@ -69,9 +69,9 @@ public class WeaponConstants : MonoBehaviour
         {
             projectileSpeed = 20f,
             projectileCount = 1,
-            damage = 12f,
-            attackSpeed = 20f,
-            range = 6f,
+            damage = 11f,
+            attackSpeed = 19f,
+            range = 5f,
             accuracy = 50f,
 
             piercing = 2,
@@ -84,8 +84,8 @@ public class WeaponConstants : MonoBehaviour
             projectileSpeed = 8f,
             projectileCount = 1,
             damage = 40f,
-            attackSpeed = 5f,
-            range = 7f,
+            attackSpeed = 4.5f,
+            range = 6.5f,
             accuracy = 0f,
 
             piercing = 1,

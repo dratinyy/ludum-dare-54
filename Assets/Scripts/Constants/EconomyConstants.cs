@@ -34,7 +34,7 @@ public class EconomyConstants : MonoBehaviour
         1000,
 
         // Weapon 4 Rocket Launcher
-        3000
+        3500
     };
 
     public readonly static BonusStats[] bonusStats = new BonusStats[]
@@ -68,7 +68,7 @@ public class EconomyConstants : MonoBehaviour
         {
             price = 60,
             increase = 10f, // in percent
-            maxQuantity = 25f
+            maxQuantity = 30f
         },
 
         // Attack Speed
@@ -76,7 +76,7 @@ public class EconomyConstants : MonoBehaviour
         {
             price = 70,
             increase = 10f, // in percent
-            maxQuantity = 25f
+            maxQuantity = 30f
         }
     };
 
