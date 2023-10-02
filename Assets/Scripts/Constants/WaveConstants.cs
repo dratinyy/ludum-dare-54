@@ -39,7 +39,7 @@ public class WaveConstants : MonoBehaviour
         // Boss
         new EnemyWaveStats
         {
-            startAtWave = 10,
+            startAtWave = 15,
             intialCount = 1,
             additionalPerWave = 1
         }

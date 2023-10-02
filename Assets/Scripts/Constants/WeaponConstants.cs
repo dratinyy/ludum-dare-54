@@ -39,11 +39,11 @@ public class WeaponConstants : MonoBehaviour
         // Weapon 1 Shotgun
         new WeaponStats
         {
-            projectileSpeed = 8f,
+            projectileSpeed = 10f,
             projectileCount = 10f,
             damage = 14f,
             attackSpeed = 1.3f,
-            range = 3.2f,
+            range = 3f,
             accuracy = 0f, // Dispersion maximale
 
             piercing = 2,
@@ -53,10 +53,10 @@ public class WeaponConstants : MonoBehaviour
         // Weapon 2 uzi
         new WeaponStats
         {
-            projectileSpeed = 16f,
+            projectileSpeed = 24f,
             projectileCount = 1f,
             damage = 6f,
-            attackSpeed = 21f,
+            attackSpeed = 24f,
             range = 6f,
             accuracy = 0f,
 
@@ -67,16 +67,16 @@ public class WeaponConstants : MonoBehaviour
         // Weapon 3 auto rifle
         new WeaponStats
         {
-            projectileSpeed = 12f,
+            projectileSpeed = 18f,
             projectileCount = 1f,
             damage = 16f,
-            attackSpeed = 15f,
+            attackSpeed = 18f,
             range = 15f,
             accuracy = 70f,
 
-            piercing = 6,
-            explosive = false,
-            explosiveRange = 0f
+            piercing = 1,
+            explosive = true,
+            explosiveRange = 0.2f
         },
         // Weapon 4 Rocket Launcher
         new WeaponStats

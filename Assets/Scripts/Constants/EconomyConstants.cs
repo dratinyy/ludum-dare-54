@@ -9,9 +9,9 @@ public class EconomyConstants : MonoBehaviour
     public readonly static int tileRentBenefit = 27;
     public readonly static int tileSellPrice = 80;
 
-    public readonly static int burgerPrice = 10;
-    public readonly static int burgerHealth = 20;
-    public readonly static int healpackPrice = 50;
+    public readonly static int burgerPrice = 5;
+    public readonly static int burgerHealth = 10;
+    public readonly static int healpackPrice = 35;
     public readonly static int healpackHealth = 250;
     
     public readonly static int spaceshipPrice = 10000;
@@ -27,11 +27,11 @@ public class EconomyConstants : MonoBehaviour
         // Weapon 1 Shotgun
         150,
 
-        // Weapon 2 Auto Rifle
+        // Weapon 2 uzi
         300,
 
-        // Weapon 3 Sniper
-        500,
+        // Weapon 3 auto rifle
+        800,
 
         // Weapon 4 Rocket Launcher
         1000
@@ -44,7 +44,7 @@ public class EconomyConstants : MonoBehaviour
         {
             price = 30,
             increase = 20f, // not in percent
-            maxQuantity = 10f
+            maxQuantity = 20f
         },
 
         // Movespeed
@@ -60,7 +60,7 @@ public class EconomyConstants : MonoBehaviour
         {
             price = 70,
             increase = 10f, // in percent
-            maxQuantity = 10f
+            maxQuantity = 15f
         },
 
         // Range
@@ -68,7 +68,7 @@ public class EconomyConstants : MonoBehaviour
         {
             price = 70,
             increase = 10f, // in percent
-            maxQuantity = 10f
+            maxQuantity = 20f
         },
 
         // Attack Speed
