@@ -68,7 +68,7 @@ public class EconomyConstants : MonoBehaviour
         {
             price = 60,
             increase = 10f, // in percent
-            maxQuantity = 20f
+            maxQuantity = 25f
         },
 
         // Attack Speed
@@ -76,7 +76,7 @@ public class EconomyConstants : MonoBehaviour
         {
             price = 70,
             increase = 10f, // in percent
-            maxQuantity = 20f
+            maxQuantity = 25f
         }
     };
 
