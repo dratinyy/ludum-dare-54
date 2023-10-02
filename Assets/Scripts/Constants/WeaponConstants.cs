@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponConstants : MonoBehaviour
 {
 
-    public static readonly float maxDispersionDegrees = 30f;
+    public static readonly float maxDispersionDegrees = 40f;
 
     /**
     * Weapon Stats
@@ -29,8 +29,8 @@ public class WeaponConstants : MonoBehaviour
             projectileCount = 1f,
             damage = 8f,
             attackSpeed = 3f,
-            range = 7f,
-            accuracy = 50f,
+            range = 8f,
+            accuracy = 60f,
 
             piercing = 1,
             explosive = false,
@@ -41,10 +41,10 @@ public class WeaponConstants : MonoBehaviour
         {
             projectileSpeed = 8f,
             projectileCount = 8f,
-            damage = 12f,
+            damage = 13f,
             attackSpeed = 1.2f,
             range = 3f,
-            accuracy = 0f, // Dispersion maximale
+            accuracy = 40f, // Dispersion maximale
 
             piercing = 2,
             explosive = false,
@@ -58,7 +58,7 @@ public class WeaponConstants : MonoBehaviour
             damage = 4f,
             attackSpeed = 8f,
             range = 4f,
-            accuracy = 80f,
+            accuracy = 0f,
 
             piercing = 1,
             explosive = false,
@@ -72,7 +72,7 @@ public class WeaponConstants : MonoBehaviour
             damage = 8f,
             attackSpeed = 7.5f,
             range = 15f,
-            accuracy = 0f,
+            accuracy = 50f,
 
             piercing = 6,
             explosive = false,
@@ -86,7 +86,7 @@ public class WeaponConstants : MonoBehaviour
             damage = 30f,
             attackSpeed = 1.5f,
             range = 8f,
-            accuracy = 0f,
+            accuracy = 60f,
 
             piercing = 1,
             explosive = true,

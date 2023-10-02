@@ -25,7 +25,7 @@ public class WaveConstants : MonoBehaviour
         // Golem
         new EnemyWaveStats
         {
-            startAtWave = 4,
+            startAtWave = 5,
             intialCount = 1,
             additionalPerWave = 1
         },
