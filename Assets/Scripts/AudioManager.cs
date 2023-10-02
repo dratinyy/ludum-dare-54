@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     public List<AudioClip> musicClipsNight;
     public List<AudioClip> musicClipsDay;
     public List<AudioClip> musicClipsEnding;
+    public List<AudioClip> musicClipsGoodending;
     public AudioSource musicSource;
     
 
@@ -91,7 +92,22 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Aucune musique dans la liste.");
         }
     }
-
+    public void PlayRandomMusicGoodEnding(float volume = 1.0f)
+    {
+        if (musicClipsGoodending.Count > 0)
+        {
+            int randomIndex = Random.Range(0, musicClipsGoodending.Count);
+            AudioClip randomClip = musicClipsGoodending[randomIndex];
+            musicSource.volume = volume;
+            musicSource.clip = randomClip;
+            musicSource.loop = true;
+            musicSource.Play();
+        }
+        else
+        {
+            Debug.LogWarning("Aucune musique dans la liste.");
+        }
+    }
     // Fonction pour jouer de la musique
     public void PlayMusic(AudioClip musicClip, float volume = 1.0f)
     {
