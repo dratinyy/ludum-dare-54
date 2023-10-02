@@ -10,7 +10,7 @@ public class EnemyConstants : MonoBehaviour
         // Zombie
         new EnemyStats
         {
-            speed = 0.7f,
+            speed = 0.6f,
             health = 31f,
             damage = 8f,
             attackSpeed = 1f,
@@ -19,10 +19,10 @@ public class EnemyConstants : MonoBehaviour
         // Worm
         new EnemyStats
         {
-            speed = 3f,
+            speed = 2.8f,
             health = 17f,
             damage = 3f,
-            attackSpeed = 3f,
+            attackSpeed = 2.8f,
             attackRange = 0.6f
         },
         // Golem
@@ -37,8 +37,8 @@ public class EnemyConstants : MonoBehaviour
         // Necromancer
         new EnemyStats
         {
-            speed = 1f,
-            health = 67f,
+            speed = 0.8f,
+            health = 72f,
             damage = 2f,
             attackSpeed = 2f,
             attackRange = 2.5f
